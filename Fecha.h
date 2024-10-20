@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <iomanip>
 
 class Fecha{
 private:

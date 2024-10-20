@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1729448821 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\fecha.cpp
+1729450108 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\fecha.cpp
 	"Fecha.h"
 
-1729449209 c:\users\tomas\onedrive\desktop\tp_prog2_cine\fecha.h
+1729450416 c:\users\tomas\onedrive\desktop\tp_prog2_cine\fecha.h
 	<string>
+	<iomanip>
 
-1729449031 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\main.cpp
+1729450201 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\main.cpp
 	<iostream>
 	<locale.h>
-	<string>
 	"Fecha.h"
 

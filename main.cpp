@@ -1,6 +1,5 @@
 #include <iostream>
 #include <locale.h>
-#include <string>
 
 #include "Fecha.h"
 
@@ -11,7 +10,8 @@ int main(){
     int opcion;
 
     Fecha fecha1;
-    cout << fecha1.getDia();
+    cout << fecha1.toStringFecha() << endl;
+    cout << fecha1.toStringHora() << endl;
 
     while(false){
         system("cls");
