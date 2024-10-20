@@ -1,5 +1,8 @@
 #include <iostream>
 #include <locale.h>
+#include <string>
+
+#include "Fecha.h"
 
 using namespace std;
 
@@ -7,7 +10,10 @@ int main(){
     setlocale(LC_CTYPE, "spanish");
     int opcion;
 
-    while(true){
+    Fecha fecha1;
+    cout << fecha1.getDia();
+
+    while(false){
         system("cls");
         cout << "1." << endl;
         cout << "0. Salir" << endl << endl;
