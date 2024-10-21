@@ -11,3 +11,23 @@
 	<locale.h>
 	"Fecha.h"
 
+1729467530 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\fecha.cpp
+	"Fecha.h"
+
+1729467530 c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\fecha.h
+	<string>
+	<iomanip>
+
+1729549634 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\main.cpp
+	<iostream>
+	<locale.h>
+	<string>
+	"Fecha.h"
+	"Tiempo.h"
+
+1729550099 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\tiempo.cpp
+	"Tiempo.h"
+
+1729549624 c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\tiempo.h
+	<string>
+
