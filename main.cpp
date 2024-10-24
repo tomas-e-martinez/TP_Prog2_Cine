@@ -15,6 +15,9 @@ int main(){
 
     Pelicula pelicula1;
     //pelicula1.Cargar();
+    Fecha fecha1(32, 13, 2015, 24, 60);
+    cout << fecha1.toStringFecha() << endl;
+    cout << fecha1.toStringHora() << endl;
 
     while(false){
         system("cls");

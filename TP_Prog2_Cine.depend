@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1729802209 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\fecha.cpp
+1729810192 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\fecha.cpp
 	"Fecha.h"
 
-1729802281 c:\users\tomas\onedrive\desktop\tp_prog2_cine\fecha.h
+1729809160 c:\users\tomas\onedrive\desktop\tp_prog2_cine\fecha.h
 	<iostream>
 	<string>
 	<iomanip>
 
-1729802522 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\main.cpp
+1729810201 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\main.cpp
 	<iostream>
 	<locale.h>
 	<string>
@@ -39,7 +39,7 @@
 	<iostream>
 	<string>
 
-1729802237 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\tiempo.cpp
+1729809284 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\tiempo.cpp
 	"Tiempo.h"
 
 1729802074 c:\users\tomas\onedrive\desktop\tp_prog2_cine\pelicula.h
@@ -48,6 +48,6 @@
 	"Fecha.h"
 	"Tiempo.h"
 
-1729806433 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\pelicula.cpp
+1729809173 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\pelicula.cpp
 	"Pelicula.h"
 

@@ -19,3 +19,11 @@ void Tiempo::Cargar(){
     cout << "MINUTOS: ";
     cin >> _minutos;
 }
+
+int Tiempo::getMinutos(){
+    return _minutos;
+}
+
+void Tiempo::setMinutos(int minutos){
+    _minutos = minutos;
+}
