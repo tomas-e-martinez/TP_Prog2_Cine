@@ -22,3 +22,12 @@ std::string Fecha::toStringHora(){
         << std::setw(2) << std::setfill('0') << _minutos;
     return oss.str();
 }
+
+void Fecha::Cargar(){
+    cout << "DÍA: ";
+    cin >> _dia;
+    cout << "MES: ";
+    cin >> _mes;
+    cout << "AÑO: ";
+    cin >> _anio;
+}

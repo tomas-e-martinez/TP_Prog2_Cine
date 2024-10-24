@@ -14,3 +14,8 @@ std::string Tiempo::toString(){
 
     return std::to_string(horas) + "h " + std::to_string(minutos) + "m";
 }
+
+void Tiempo::Cargar(){
+    cout << "MINUTOS: ";
+    cin >> _minutos;
+}

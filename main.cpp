@@ -4,6 +4,7 @@
 
 #include "Fecha.h"
 #include "Tiempo.h"
+#include "Pelicula.h"
 
 using namespace std;
 
@@ -11,14 +12,10 @@ int main(){
     setlocale(LC_CTYPE, "spanish");
     int opcion;
 
-    Fecha fecha1;
-    cout << fecha1.toStringFecha() << endl;
-    cout << fecha1.toStringHora() << endl;
 
-    Tiempo tiempo1;
-    Tiempo tiempo2(98);
-    cout << tiempo1.toString() << endl;
-    cout << tiempo2.toString();
+    Pelicula pelicula1;
+    //pelicula1.Cargar();
+    pelicula1.Mostrar();
 
     while(false){
         system("cls");
