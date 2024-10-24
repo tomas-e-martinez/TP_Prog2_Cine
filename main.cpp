@@ -15,7 +15,6 @@ int main(){
 
     Pelicula pelicula1;
     //pelicula1.Cargar();
-    pelicula1.Mostrar();
 
     while(false){
         system("cls");

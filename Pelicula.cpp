@@ -52,3 +52,67 @@ void Pelicula::Mostrar(){
     cout << _fechaEstreno.toStringFecha() << endl;
     cout << _duracion.toString() << endl;
 }
+
+int Pelicula::getId(){
+    return _id;
+}
+
+const char* Pelicula::getTitulo(){
+    return _titulo;
+}
+
+const char* Pelicula::getSinopsis(){
+    return _sinopsis;
+}
+
+const char* Pelicula::getGenero(){
+    return _genero;
+}
+
+int Pelicula::getClasificacionedad(){
+    return _clasificacionEdad;
+}
+
+float Pelicula::getCalificacion(){
+    return _calificacion;
+}
+
+Fecha Pelicula::getFechaEstreno(){
+    return _fechaEstreno;
+}
+
+Tiempo Pelicula::getDuracion(){
+    return _duracion;
+}
+
+void Pelicula::setId(int id){
+    _id = id;
+}
+
+void Pelicula::setTitulo(const char* titulo){
+    strcpy(_titulo, titulo);
+}
+
+void Pelicula::setSinopsis(const char* sinopsis){
+    strcpy(_sinopsis, sinopsis);
+}
+
+void Pelicula::setGenero(const char* genero){
+    strcpy(_genero, genero);
+}
+
+void Pelicula::setClasificacionEdad(int clasificacionEdad){
+    _clasificacionEdad = clasificacionEdad;
+}
+
+void Pelicula::setCalificacion(float calificacion){
+    _calificacion = calificacion;
+}
+
+void Pelicula::setFechaEstreno(Fecha fechaEstreno){
+    _fechaEstreno = fechaEstreno;
+}
+
+void Pelicula::setDuracion(Tiempo duracion){
+    _duracion = duracion;
+}
