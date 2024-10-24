@@ -3,9 +3,9 @@
 Pelicula::Pelicula(){
     _id = 0;
     _clasificacionEdad = 0;
-    strcpy(_titulo, "Sin titulo");
+    strcpy(_titulo, "Sin título");
     strcpy(_sinopsis, "Sin sinopsis");
-    strcpy(_genero, "Sin genero");
+    strcpy(_genero, "Sin género");
     _calificacion = 0.0f;
 }
 
@@ -48,7 +48,7 @@ void Pelicula::Mostrar(){
     cout << _sinopsis << endl;
     cout << _genero << endl;
     cout << _clasificacionEdad << "+" << endl;
-    cout << _calificacion << endl;
+    cout << _calificacion << "*" << endl;
     cout << _fechaEstreno.toStringFecha() << endl;
     cout << _duracion.toString() << endl;
 }

@@ -20,12 +20,16 @@ Fecha::Fecha(int dia, int mes, int anio, int hora, int minutos){
 }
 
 void Fecha::Cargar(){
+    int dia, mes, anio;
     cout << "DÍA: ";
-    cin >> _dia;
+    cin >> dia;
     cout << "MES: ";
-    cin >> _mes;
+    cin >> mes;
     cout << "AÑO: ";
-    cin >> _anio;
+    cin >> anio;
+    setDia(dia);
+    setMes(mes);
+    setAnio(anio);
 }
 
 std::string Fecha::toStringFecha(){
