@@ -60,3 +60,12 @@
 	"Fecha.h"
 	"Tiempo.h"
 
+1729888498 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\sala.cpp
+	"Sala.h"
+
+1729888500 c:\users\tomas\onedrive\desktop\tp_prog2_cine\sala.h
+	<iostream>
+	<cstring>
+	"Fecha.h"
+	"Tiempo.h"
+

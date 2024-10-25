@@ -6,6 +6,7 @@
 #include "Tiempo.h"
 #include "Pelicula.h"
 #include "Cliente.h"
+#include "Sala.h"
 
 using namespace std;
 
@@ -13,9 +14,9 @@ int main(){
     setlocale(LC_CTYPE, "Spanish");
     int opcion;
 
-    //Prueba cliente
-    Cliente cliente1;
-    cliente1.Mostrar();
+    //Prueba sala
+    Sala sala1;
+    sala1.Mostrar();
     system("pause");
 
     /*prueba caracteres especiales
