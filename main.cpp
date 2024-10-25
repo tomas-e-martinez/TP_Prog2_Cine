@@ -5,19 +5,33 @@
 #include "Fecha.h"
 #include "Tiempo.h"
 #include "Pelicula.h"
+#include "Cliente.h"
 
 using namespace std;
 
 int main(){
-    setlocale(LC_CTYPE, "spanish");
+    setlocale(LC_CTYPE, "Spanish");
     int opcion;
 
+    //Prueba cliente
+    Cliente cliente1;
+    cliente1.Mostrar();
+    system("pause");
+
+    /*prueba caracteres especiales
+    char palabra[10] = {"aραρι"};
+    cout << palabra << endl;
+    cin >> palabra;
+    cout << palabra << endl;
+    system("pause");*/
 
     Pelicula pelicula1;
+    pelicula1.Cargar();
     pelicula1.Mostrar();
-    Fecha fecha1(32, 13, 2015, 24, 60);
-    cout << fecha1.toStringFecha() << endl;
-    cout << fecha1.toStringHora() << endl;
+
+    //Fecha fecha1(32, 13, 2015, 24, 60);
+    //cout << fecha1.toStringFecha() << endl;
+    //cout << fecha1.toStringHora() << endl;
 
     while(false){
         system("cls");

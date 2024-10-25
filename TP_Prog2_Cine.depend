@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1729810192 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\fecha.cpp
+1729810959 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\fecha.cpp
 	"Fecha.h"
 
 1729809160 c:\users\tomas\onedrive\desktop\tp_prog2_cine\fecha.h
@@ -7,7 +7,7 @@
 	<string>
 	<iomanip>
 
-1729810588 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\main.cpp
+1729823101 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\main.cpp
 	<iostream>
 	<locale.h>
 	<string>
@@ -42,12 +42,21 @@
 1729809284 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\tiempo.cpp
 	"Tiempo.h"
 
-1729802074 c:\users\tomas\onedrive\desktop\tp_prog2_cine\pelicula.h
+1729812958 c:\users\tomas\onedrive\desktop\tp_prog2_cine\pelicula.h
 	<iostream>
 	<cstring>
 	"Fecha.h"
 	"Tiempo.h"
 
-1729810679 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\pelicula.cpp
+1729812514 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\pelicula.cpp
 	"Pelicula.h"
+
+1729888154 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\cliente.cpp
+	"Cliente.h"
+
+1729888108 c:\users\tomas\onedrive\desktop\tp_prog2_cine\cliente.h
+	<iostream>
+	<cstring>
+	"Fecha.h"
+	"Tiempo.h"
 
