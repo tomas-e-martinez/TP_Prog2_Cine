@@ -8,15 +8,35 @@
 #include "Cliente.h"
 #include "Sala.h"
 
+#include "ArchivoPeliculas.h"
+
 using namespace std;
+
+void listarPeliculas(const char* nombreArchivo = "peliculas.dat"){
+    ArchivoPeliculas archivo(nombreArchivo);
+    Pelicula registro;
+
+    int cantidadRegistros = archivo.ContarRegistros();
+    cout << cantidadRegistros << endl;
+    system("pause");
+    cout << "TÍTULO\t\t\tGÉNERO\t\tDURACIÓN\t\tEDAD" << endl;
+    for(int i = 0; i < cantidadRegistros; i++){
+        registro = archivo.LeerRegistro(i);
+        cout
+        << registro.getTitulo() << "\t\t\t"
+        << registro.getGenero() << "\t\t"
+        << registro.getDuracion().toString() << "\t\t"
+        << registro.getClasificacionedad() << "+" << endl;
+    }
+}
 
 int main(){
     setlocale(LC_CTYPE, "Spanish");
     int opcion;
 
-    //Prueba sala
-    Sala sala1;
-    sala1.Mostrar();
+    ArchivoPeliculas archivo;
+    Pelicula pelicula1 = archivo.LeerRegistro(2);
+    cout << pelicula1.getGenero() << endl;
     system("pause");
 
     /*prueba caracteres especiales
@@ -26,9 +46,16 @@ int main(){
     cout << palabra << endl;
     system("pause");*/
 
-    Pelicula pelicula1;
+    //Pelicula pelicula1;
     pelicula1.Cargar();
-    pelicula1.Mostrar();
+    //pelicula1.Mostrar();
+    //system("pause");
+    //ArchivoPeliculas archivo;
+    archivo.Guardar(pelicula1);
+    //system("pause");
+    system("cls");
+    listarPeliculas();
+    system("pause");
 
     //Fecha fecha1(32, 13, 2015, 24, 60);
     //cout << fecha1.toStringFecha() << endl;

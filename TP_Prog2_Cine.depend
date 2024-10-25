@@ -7,13 +7,16 @@
 	<string>
 	<iomanip>
 
-1729823101 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\main.cpp
+1729895168 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\main.cpp
 	<iostream>
 	<locale.h>
 	<string>
 	"Fecha.h"
 	"Tiempo.h"
 	"Pelicula.h"
+	"Cliente.h"
+	"Sala.h"
+	"ArchivoPeliculas.h"
 
 1729467530 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\fecha.cpp
 	"Fecha.h"
@@ -68,4 +71,10 @@
 	<cstring>
 	"Fecha.h"
 	"Tiempo.h"
+
+1729894598 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\archivopeliculas.cpp
+	"ArchivoPeliculas.h"
+
+1729894588 c:\users\tomas\onedrive\desktop\tp_prog2_cine\archivopeliculas.h
+	"Pelicula.h"
 
