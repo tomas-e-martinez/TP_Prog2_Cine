@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include <locale.h>
 #include <string>
 
@@ -19,15 +20,32 @@ void listarPeliculas(const char* nombreArchivo = "peliculas.dat"){
     int cantidadRegistros = archivo.ContarRegistros();
     cout << cantidadRegistros << endl;
     system("pause");
-    cout << "TÍTULO\t\t\tGÉNERO\t\tDURACIÓN\t\tEDAD" << endl;
+    system("cls");
+
+    //ENCABEZADO
+    cout << left
+         << setw(5)  << "ID"
+         << setw(30) << "TÍTULO"
+         << setw(20) << "GÉNERO"
+         << setw(20) << "FECHA DE ESTRENO"
+         << setw(10) << "DURACIÓN"
+         << setw(5)  << "EDAD" << endl;
+
+
+    cout << "------------------------------------------------------------------------------------------" << endl;
     for(int i = 0; i < cantidadRegistros; i++){
         registro = archivo.LeerRegistro(i);
-        cout
-        << registro.getTitulo() << "\t\t\t"
-        << registro.getGenero() << "\t\t"
-        << registro.getDuracion().toString() << "\t\t"
-        << registro.getClasificacionedad() << "+" << endl;
+        cout << left
+             << setw(5)  << registro.getId()
+             << setw(30) << registro.getTitulo()
+             << setw(20) << registro.getGenero()
+             << setw(20) << registro.getFechaEstreno().toStringFecha()
+             << setw(10) << registro.getDuracion().toString()
+             << setw(5)  << (to_string(registro.getClasificacionedad()) + "+") << endl;
     }
+
+    cout << endl;
+    system("pause");
 }
 
 int main(){
@@ -45,11 +63,11 @@ int main(){
     system("pause");*/
     listarPeliculas();
     ArchivoPeliculas archivo;
-    system("pause");
     while(true){
         Pelicula pelicula1;
         pelicula1.Cargar();
         archivo.Guardar(pelicula1);
+        listarPeliculas();
     }
     //pelicula1.Mostrar();
     //system("pause");

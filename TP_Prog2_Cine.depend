@@ -7,8 +7,9 @@
 	<string>
 	<iomanip>
 
-1729964228 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\main.cpp
+1729965858 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\main.cpp
 	<iostream>
+	<iomanip>
 	<locale.h>
 	<string>
 	"Fecha.h"
@@ -51,7 +52,7 @@
 	"Fecha.h"
 	"Tiempo.h"
 
-1729812514 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\pelicula.cpp
+1729966172 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\pelicula.cpp
 	"Pelicula.h"
 
 1729888154 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\cliente.cpp
@@ -72,7 +73,7 @@
 	"Fecha.h"
 	"Tiempo.h"
 
-1729964169 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\archivopeliculas.cpp
+1729965503 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\archivopeliculas.cpp
 	"ArchivoPeliculas.h"
 
 1729894588 c:\users\tomas\onedrive\desktop\tp_prog2_cine\archivopeliculas.h

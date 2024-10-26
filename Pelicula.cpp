@@ -22,12 +22,6 @@ Pelicula::Pelicula(int id, int clasificacionEdad, const char* titulo, const char
 
 void Pelicula::Cargar(){
     system("cls");
-    cout << "CARGAR NUEVA PELÍCULA" << endl;
-    cout << "ID: ";
-    cin >> _id;
-    cout << "CLASIFICACIÓN DE EDAD: ";
-    cin >> _clasificacionEdad;
-    cin.ignore();
     cout << "TÍTULO: ";
     cin.getline(_titulo, sizeof(_titulo));
     cout << "SINOPSIS: ";
@@ -36,10 +30,14 @@ void Pelicula::Cargar(){
     cin.getline(_genero, sizeof(_genero));
     cout << "CALIFICACIÓN: ";
     cin >> _calificacion;
+    cin.ignore();
     cout << "FECHA DE ESTRENO" << endl;
     _fechaEstreno.Cargar();
     cout << "DURACIÓN" << endl;
     _duracion.Cargar();
+    cout << "CLASIFICACIÓN DE EDAD: ";
+    cin >> _clasificacionEdad;
+    cin.ignore();
 }
 
 void Pelicula::Mostrar(){
