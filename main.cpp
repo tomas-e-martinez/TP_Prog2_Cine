@@ -34,10 +34,8 @@ int main(){
     setlocale(LC_CTYPE, "Spanish");
     int opcion;
 
-    ArchivoPeliculas archivo;
-    Pelicula pelicula1 = archivo.LeerRegistro(2);
-    cout << pelicula1.getGenero() << endl;
-    system("pause");
+
+
 
     /*prueba caracteres especiales
     char palabra[10] = {"aραρι"};
@@ -45,13 +43,17 @@ int main(){
     cin >> palabra;
     cout << palabra << endl;
     system("pause");*/
-
-    //Pelicula pelicula1;
-    pelicula1.Cargar();
+    listarPeliculas();
+    ArchivoPeliculas archivo;
+    system("pause");
+    while(true){
+        Pelicula pelicula1;
+        pelicula1.Cargar();
+        archivo.Guardar(pelicula1);
+    }
     //pelicula1.Mostrar();
     //system("pause");
     //ArchivoPeliculas archivo;
-    archivo.Guardar(pelicula1);
     //system("pause");
     system("cls");
     listarPeliculas();

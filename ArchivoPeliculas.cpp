@@ -46,10 +46,17 @@ Pelicula ArchivoPeliculas::LeerRegistro(int pos){
 }
 
 bool ArchivoPeliculas::Guardar(Pelicula pelicula){
+    if(BuscarID(pelicula.getId()) != -1){
+        cout << "ERROR: YA EXISTE UNA PELICULA CON ID " << pelicula.getId() << endl;
+        system("pause");
+        return false;
+    }
+
     FILE* p = fopen(_nombre, "ab");
     if(p == NULL){
         return false;
     }
+
     bool escribio = fwrite(&pelicula, sizeof(Pelicula), 1, p);
     fclose(p);
     return escribio;

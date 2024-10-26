@@ -32,10 +32,16 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="ArchivoPeliculas.cpp" />
+		<Unit filename="ArchivoPeliculas.h" />
+		<Unit filename="Cliente.cpp" />
+		<Unit filename="Cliente.h" />
 		<Unit filename="Fecha.cpp" />
 		<Unit filename="Fecha.h" />
 		<Unit filename="Pelicula.cpp" />
 		<Unit filename="Pelicula.h" />
+		<Unit filename="Sala.cpp" />
+		<Unit filename="Sala.h" />
 		<Unit filename="Tiempo.cpp" />
 		<Unit filename="Tiempo.h" />
 		<Unit filename="main.cpp" />
