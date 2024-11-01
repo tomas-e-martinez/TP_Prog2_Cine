@@ -27,7 +27,7 @@
 	<string>
 	<iomanip>
 
-1730493294 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\main.cpp
+1730495298 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\main.cpp
 	<iostream>
 	<iomanip>
 	<locale.h>
@@ -38,6 +38,7 @@
 	"Cliente.h"
 	"Sala.h"
 	"ArchivoPeliculas.h"
+	"ArchivoClientes.h"
 
 1729887099 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\tiempo.cpp
 	"Tiempo.h"
@@ -116,9 +117,12 @@
 1730493294 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\sala.cpp
 	"Sala.h"
 
-1730493764 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\archivoclientes.cpp
+1730494785 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\archivoclientes.cpp
 	"ArchivoClientes.h"
 
-1730493974 c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\archivoclientes.h
+1730494509 c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\archivoclientes.h
+	"Cliente.h"
+
+1730495408 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\cliente.cpp
 	"Cliente.h"
 

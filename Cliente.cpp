@@ -22,6 +22,7 @@ void Cliente::Cargar(){
     cout << "CARGAR NUEVO CLIENTE" << endl;
     cout << "DNI: ";
     cin >> _dni;
+    cin.ignore();
     cout << "NOMBRE: ";
     cin.getline(_nombre, sizeof(_nombre));
     cout << "APELLIDO: ";

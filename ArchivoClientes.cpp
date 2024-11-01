@@ -15,7 +15,7 @@ int ArchivoClientes::ContarRegistros(){
     return cantidad;
 }
 
-int ArchivoClientes::BuscarDni(int id){
+int ArchivoClientes::BuscarID(int id){
     FILE* p = fopen(_nombre, "rb");
     if(p == NULL){
         return -1;
@@ -23,7 +23,25 @@ int ArchivoClientes::BuscarDni(int id){
     Cliente cliente;
     int i = 0;
     while(fread(&cliente, sizeof(Cliente), 1, p)){
-        if(cliente.getDni() == id){
+        if(cliente.getId() == id){
+            fclose(p);
+            return i;
+        }
+        i++;
+    }
+    fclose(p);
+    return -1;
+}
+
+int ArchivoClientes::BuscarDni(int dni){
+    FILE* p = fopen(_nombre, "rb");
+    if(p == NULL){
+        return -1;
+    }
+    Cliente cliente;
+    int i = 0;
+    while(fread(&cliente, sizeof(Cliente), 1, p)){
+        if(cliente.getDni() == dni){
             fclose(p);
             return i;
         }
@@ -46,12 +64,18 @@ Cliente ArchivoClientes::LeerRegistro(int pos){
 }
 
 bool ArchivoClientes::Guardar(Cliente cliente){
-    int DniActual = 0;
+    if(BuscarDni(cliente.getDni()) != -1){
+        cout << "ERROR: YA EXISTE UN CLIENTE CON ESE DNI." << endl;
+        system("pause");
+        return false;
+    }
 
-    while(BuscarDni(DniActual) != -1)
-        DniActual++;
+    int idActual = 0;
 
-    cliente.setDni(DniActual);
+    while(BuscarID(idActual) != -1)
+        idActual++;
+
+    cliente.setId(idActual);
 
     FILE* p = fopen(_nombre, "ab");
     if(p == NULL){
