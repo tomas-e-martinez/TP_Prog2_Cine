@@ -13,6 +13,7 @@
 
 #include "ArchivoPeliculas.h"
 #include "ArchivoClientes.h"
+#include "ArchivoFunciones.h"
 
 using namespace std;
 
@@ -28,10 +29,10 @@ void listarPeliculas(const char* nombreArchivo = "peliculas.dat"){
     //ENCABEZADO
     cout << left
          << setw(5)  << "ID"
-         << setw(30) << "Tâ•TULO"
-         << setw(20) << "Gâ•”NERO"
+         << setw(30) << "TÍTULO"
+         << setw(20) << "GÉNERO"
          << setw(20) << "FECHA DE ESTRENO"
-         << setw(10) << "DURACIâ•™N"
+         << setw(10) << "DURACIÓN"
          << setw(5)  << "EDAD" << endl;
 
 
@@ -85,34 +86,66 @@ void listarClientes(const char* nombreArchivo = "clientes.dat") {
     system("pause");
 }
 
+void listarFunciones(const char* nombreArchivo = "funciones.dat") {
+    ArchivoFunciones archivo(nombreArchivo);
+    Funcion registro;
+
+    int cantidadRegistros = archivo.ContarRegistros();
+    cout << "Cantidad de funciones: " << cantidadRegistros << endl;
+    system("pause");
+    system("cls");
+
+    // ENCABEZADO
+    cout << left
+         << setw(5)  << "ID"
+         << setw(15) << "ID PELÍCULA"
+         << setw(10) << "ID SALA"
+         << setw(20) << "FECHA"
+         << setw(10) << "HORA" << endl;
+
+    cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
+    for (int i = 0; i < cantidadRegistros; i++) {
+        registro = archivo.LeerRegistro(i);
+        cout << left
+             << setw(5)  << registro.getIdFuncion()
+             << setw(15) << registro.getIdPelicula()
+             << setw(10) << registro.getIdSala()
+             << setw(20) << registro.getFecha().toStringFecha()
+             << setw(10) << registro.getFecha().toStringHora() << endl;
+    }
+
+    cout << endl;
+    system("pause");
+}
+
 int main(){
     setlocale(LC_CTYPE, "Spanish");
     int opcion;
 
 
     /* PRUEBA DE CARACTERES ESPECIALES
-    char palabra[10] = {"aÂ±ÃŸÂ±Î˜"};
+    char palabra[10] = {"añáñé"};
     cout << palabra << endl;
     cin >> palabra;
     cout << palabra << endl;
     system("pause");*/
 
 
-    /* PRUEBA DE ARCHIVOS
-    listarClientes();
-    ArchivoClientes archivo;
+    /// PRUEBA DE ARCHIVOS
+    listarFunciones();
+    ArchivoFunciones archivo;
     while(true){
-        Cliente cliente1;
-        cliente1.Cargar();
-        archivo.Guardar(cliente1);
-        listarClientes();
-    }*/
+        Funcion funcion1;
+        funcion1.Cargar();
+        archivo.Guardar(funcion1);
+        listarFunciones();
+    }
 
-    ///PRUEBA DE CLASE
+    /*PRUEBA DE CLASE
     Funcion funcion1;
     funcion1.Cargar();
     funcion1.Mostrar();
-    system("pause");
+    system("pause");*/
 
     //pelicula1.Mostrar();
     //system("pause");
@@ -139,7 +172,7 @@ int main(){
         case 0:
             return 0;
         default:
-            cout << "Opciâ‰¤n invÃŸlida. Intente de nuevo." << endl;
+            cout << "Opción inválida. Intente de nuevo." << endl;
             system("pause");
             break;
         }

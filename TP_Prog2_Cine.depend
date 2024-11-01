@@ -137,7 +137,7 @@
 1730497382 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\venta.cpp
 	"Venta.h"
 
-1730498139 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\funcion.cpp
+1730498218 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\funcion.cpp
 	"Funcion.h"
 
 1730497511 c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\funcion.h
@@ -145,4 +145,10 @@
 	<cstring>
 	"Fecha.h"
 	"Tiempo.h"
+
+1730498659 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\archivofunciones.cpp
+	"ArchivoFunciones.h"
+
+1730498525 c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\archivofunciones.h
+	"Funcion.h"
 
