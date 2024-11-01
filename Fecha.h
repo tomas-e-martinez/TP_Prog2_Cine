@@ -15,6 +15,7 @@ public:
     Fecha(int dia, int mes, int anio, int hora, int minutos);
 
     void Cargar();
+    void CargarHora();
     std::string toStringFecha();
     std::string toStringHora();
 

@@ -19,15 +19,15 @@
 	"Sala.h"
 	"ArchivoPeliculas.h"
 
-1729887099 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\fecha.cpp
+1730497149 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\fecha.cpp
 	"Fecha.h"
 
-1729887099 c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\fecha.h
+1730497161 c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\fecha.h
 	<iostream>
 	<string>
 	<iomanip>
 
-1730495298 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\main.cpp
+1730497218 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\main.cpp
 	<iostream>
 	<iomanip>
 	<locale.h>
@@ -37,6 +37,7 @@
 	"Pelicula.h"
 	"Cliente.h"
 	"Sala.h"
+	"Venta.h"
 	"ArchivoPeliculas.h"
 	"ArchivoClientes.h"
 
@@ -125,4 +126,13 @@
 
 1730495408 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\cliente.cpp
 	"Cliente.h"
+
+1730496613 c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\venta.h
+	<iostream>
+	<cstring>
+	"Fecha.h"
+	"Tiempo.h"
+
+1730497200 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\venta.cpp
+	"Venta.h"
 

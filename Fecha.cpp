@@ -32,6 +32,25 @@ void Fecha::Cargar(){
     setAnio(anio);
 }
 
+void Fecha::CargarHora(){
+    int dia, mes, anio, hora, minutos;
+    cout << "DÍA: ";
+    cin >> dia;
+    cout << "MES: ";
+    cin >> mes;
+    cout << "AÑO: ";
+    cin >> anio;
+    cout << "HORA: ";
+    cin >> hora;
+    cout << "MINUTOS: ";
+    cin >> minutos;
+    setDia(dia);
+    setMes(mes);
+    setAnio(anio);
+    setHora(hora);
+    setMinutos(minutos);
+}
+
 std::string Fecha::toStringFecha(){
     std::ostringstream oss;
     oss << std::setw(2) << std::setfill('0') << _dia << "/"

@@ -8,6 +8,7 @@
 #include "Pelicula.h"
 #include "Cliente.h"
 #include "Sala.h"
+#include "Venta.h"
 
 #include "ArchivoPeliculas.h"
 #include "ArchivoClientes.h"
@@ -88,14 +89,15 @@ int main(){
     int opcion;
 
 
-
-
-    /*prueba caracteres especiales
+    /* PRUEBA DE CARACTERES ESPECIALES
     char palabra[10] = {"aραρι"};
     cout << palabra << endl;
     cin >> palabra;
     cout << palabra << endl;
     system("pause");*/
+
+
+    /* PRUEBA DE ARCHIVOS
     listarClientes();
     ArchivoClientes archivo;
     while(true){
@@ -103,14 +105,21 @@ int main(){
         cliente1.Cargar();
         archivo.Guardar(cliente1);
         listarClientes();
-    }
+    }*/
+
+    ///PRUEBA DE CLASE
+    Venta venta1;
+    venta1.Cargar();
+    venta1.Mostrar();
+    system("pause");
+
     //pelicula1.Mostrar();
     //system("pause");
     //ArchivoPeliculas archivo;
     //system("pause");
-    system("cls");
-    listarPeliculas();
-    system("pause");
+    //system("cls");
+    //listarPeliculas();
+    //system("pause");
 
     //Fecha fecha1(32, 13, 2015, 24, 60);
     //cout << fecha1.toStringFecha() << endl;
