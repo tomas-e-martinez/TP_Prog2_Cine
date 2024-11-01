@@ -8,6 +8,7 @@
 #include "Pelicula.h"
 #include "Cliente.h"
 #include "Sala.h"
+#include "Funcion.h"
 #include "Venta.h"
 
 #include "ArchivoPeliculas.h"
@@ -27,10 +28,10 @@ void listarPeliculas(const char* nombreArchivo = "peliculas.dat"){
     //ENCABEZADO
     cout << left
          << setw(5)  << "ID"
-         << setw(30) << "TÍTULO"
-         << setw(20) << "GÉNERO"
+         << setw(30) << "Tâ•TULO"
+         << setw(20) << "Gâ•”NERO"
          << setw(20) << "FECHA DE ESTRENO"
-         << setw(10) << "DURACIÓN"
+         << setw(10) << "DURACIâ•™N"
          << setw(5)  << "EDAD" << endl;
 
 
@@ -90,7 +91,7 @@ int main(){
 
 
     /* PRUEBA DE CARACTERES ESPECIALES
-    char palabra[10] = {"añáñé"};
+    char palabra[10] = {"aÂ±ÃŸÂ±Î˜"};
     cout << palabra << endl;
     cin >> palabra;
     cout << palabra << endl;
@@ -108,9 +109,9 @@ int main(){
     }*/
 
     ///PRUEBA DE CLASE
-    Venta venta1;
-    venta1.Cargar();
-    venta1.Mostrar();
+    Funcion funcion1;
+    funcion1.Cargar();
+    funcion1.Mostrar();
     system("pause");
 
     //pelicula1.Mostrar();
@@ -138,7 +139,7 @@ int main(){
         case 0:
             return 0;
         default:
-            cout << "Opción inválida. Intente de nuevo." << endl;
+            cout << "Opciâ‰¤n invÃŸlida. Intente de nuevo." << endl;
             system("pause");
             break;
         }
