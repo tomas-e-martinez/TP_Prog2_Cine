@@ -1,13 +1,15 @@
 #include "Cliente.h"
 
 Cliente::Cliente(){
+    _id = 0;
     _dni = 0;
     strcpy(_nombre, "Sin nombre");
     strcpy(_apellido, "Sin apellido");
     strcpy(_telefono, "Sin telefono");
 }
 
-Cliente::Cliente(int dni, const char* nombre, const char* apellido, const char* telefono, Fecha fechaNacimiento){
+Cliente::Cliente(int id, int dni, const char* nombre, const char* apellido, const char* telefono, Fecha fechaNacimiento){
+    _id = id;
     _dni = dni;
     strcpy(_nombre,nombre);
     strcpy(_apellido,apellido);
@@ -39,6 +41,10 @@ void Cliente::Mostrar(){
     cout << _fechaNacimiento.toStringFecha() << endl;
 }
 
+int Cliente::getId(){
+    return _id;
+}
+
 int Cliente::getDni(){
     return _dni;
 }
@@ -59,6 +65,10 @@ Fecha Cliente::getFechaNacimiento(){
     return _fechaNacimiento;
 }
 
+
+void Cliente::setId(int id){
+    _id = id;
+}
 
 void Cliente::setDni(int dni){
     _dni = dni;

@@ -19,24 +19,31 @@
 	"Sala.h"
 	"ArchivoPeliculas.h"
 
-1729467530 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\fecha.cpp
+1729887099 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\fecha.cpp
 	"Fecha.h"
 
-1729467530 c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\fecha.h
+1729887099 c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\fecha.h
+	<iostream>
 	<string>
 	<iomanip>
 
-1729549634 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\main.cpp
+1730493294 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\main.cpp
 	<iostream>
+	<iomanip>
 	<locale.h>
 	<string>
 	"Fecha.h"
 	"Tiempo.h"
+	"Pelicula.h"
+	"Cliente.h"
+	"Sala.h"
+	"ArchivoPeliculas.h"
 
-1729550099 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\tiempo.cpp
+1729887099 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\tiempo.cpp
 	"Tiempo.h"
 
-1729549624 c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\tiempo.h
+1729887099 c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\tiempo.h
+	<iostream>
 	<string>
 
 1729802265 c:\users\tomas\onedrive\desktop\tp_prog2_cine\tiempo.h
@@ -78,4 +85,40 @@
 
 1729894588 c:\users\tomas\onedrive\desktop\tp_prog2_cine\archivopeliculas.h
 	"Pelicula.h"
+
+1730493294 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\archivopeliculas.cpp
+	"ArchivoPeliculas.h"
+
+1730493294 c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\archivopeliculas.h
+	"Pelicula.h"
+
+1729887099 c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\pelicula.h
+	<iostream>
+	<cstring>
+	"Fecha.h"
+	"Tiempo.h"
+
+1730494282 c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\cliente.h
+	<iostream>
+	<cstring>
+	"Fecha.h"
+	"Tiempo.h"
+
+1730493294 c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\sala.h
+	<iostream>
+	<cstring>
+	"Fecha.h"
+	"Tiempo.h"
+
+1730493294 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\pelicula.cpp
+	"Pelicula.h"
+
+1730493294 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\sala.cpp
+	"Sala.h"
+
+1730493764 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\archivoclientes.cpp
+	"ArchivoClientes.h"
+
+1730493974 c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\archivoclientes.h
+	"Cliente.h"
 
