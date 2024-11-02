@@ -103,3 +103,38 @@ void Reporte::ListarFunciones(const char* nombreArchivo){
     cout << endl;
     system("pause");
 }
+
+void Reporte::ListarVentas(const char* nombreArchivo){
+    ArchivoVentas archivo(nombreArchivo);
+    Venta registro;
+
+    int cantidadRegistros = archivo.ContarRegistros();
+    system("cls");
+    cout << "Cantidad de ventas: " << cantidadRegistros << endl;
+    system("pause");
+    system("cls");
+
+    // ENCABEZADO
+    cout << left
+         << setw(5)  << "ID"
+         << setw(15) << "ID FUNCIÓN"
+         << setw(15) << "DNI CLIENTE"
+         << setw(20) << "CANT. ENTRADAS"
+         << setw(20) << "FECHA"
+         << setw(10) << "HORA" << endl;
+
+    cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
+    for (int i = 0; i < cantidadRegistros; i++) {
+        registro = archivo.LeerRegistro(i);
+        cout << left
+             << setw(5)  << registro.getIdVenta()
+             << setw(15) << registro.getIdFuncion()
+             << setw(15) << registro.getDniCliente()
+             << setw(20) << registro.getCantidadEntradas()
+             << setw(20) << registro.getFecha().toStringFecha()
+             << setw(10) << registro.getFecha().toStringHora() << endl;
+    }
+
+    cout << endl;
+    system("pause");
+}

@@ -7,7 +7,7 @@
 	<string>
 	<iomanip>
 
-1730570224 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\main.cpp
+1730571523 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\main.cpp
 	<iostream>
 	<iomanip>
 	<locale.h>
@@ -23,6 +23,7 @@
 	"ArchivoPeliculas.h"
 	"ArchivoClientes.h"
 	"ArchivoFunciones.h"
+	"ArchivoVentas.h"
 
 1730497149 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\fecha.cpp
 	"Fecha.h"
@@ -175,7 +176,7 @@
 1730569326 c:\users\tomas\onedrive\desktop\tp_prog2_cine\archivofunciones.h
 	"Funcion.h"
 
-1730569326 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\archivoclientes.cpp
+1730570740 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\archivoclientes.cpp
 	"ArchivoClientes.h"
 
 1730569326 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\archivofunciones.cpp
@@ -187,11 +188,18 @@
 1730569326 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\venta.cpp
 	"Venta.h"
 
-1730570149 c:\users\tomas\onedrive\desktop\tp_prog2_cine\reporte.h
+1730571265 c:\users\tomas\onedrive\desktop\tp_prog2_cine\reporte.h
 	"ArchivoFunciones.h"
 	"ArchivoClientes.h"
 	"ArchivoPeliculas.h"
+	"ArchivoVentas.h"
 
-1730570186 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\reporte.cpp
+1730571537 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\reporte.cpp
 	"Reporte.h"
+
+1730570979 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\archivoventas.cpp
+	"ArchivoVentas.h"
+
+1730570699 c:\users\tomas\onedrive\desktop\tp_prog2_cine\archivoventas.h
+	"Venta.h"
 

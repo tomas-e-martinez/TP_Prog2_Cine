@@ -97,8 +97,3 @@ bool ArchivoClientes::Guardar(Cliente cliente, int pos){
     fclose(p);
     return escribio;
 }
-
-
-
-
-

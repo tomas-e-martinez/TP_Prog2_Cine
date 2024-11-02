@@ -15,6 +15,7 @@
 #include "ArchivoPeliculas.h"
 #include "ArchivoClientes.h"
 #include "ArchivoFunciones.h"
+#include "ArchivoVentas.h"
 
 using namespace std;
 
@@ -33,6 +34,7 @@ int main(){
 
     /// PRUEBA DE ARCHIVOS
     Reporte reporte1;
+    reporte1.ListarVentas();
     reporte1.ListarFunciones();
     reporte1.ListarClientes();
     reporte1.ListarPeliculas();
