@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1729810959 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\fecha.cpp
+1730569326 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\fecha.cpp
 	"Fecha.h"
 
-1729809160 c:\users\tomas\onedrive\desktop\tp_prog2_cine\fecha.h
+1730569326 c:\users\tomas\onedrive\desktop\tp_prog2_cine\fecha.h
 	<iostream>
 	<string>
 	<iomanip>
 
-1729965858 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\main.cpp
+1730570224 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\main.cpp
 	<iostream>
 	<iomanip>
 	<locale.h>
@@ -17,7 +17,12 @@
 	"Pelicula.h"
 	"Cliente.h"
 	"Sala.h"
+	"Funcion.h"
+	"Venta.h"
+	"Reporte.h"
 	"ArchivoPeliculas.h"
+	"ArchivoClientes.h"
+	"ArchivoFunciones.h"
 
 1730497149 source:c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\fecha.cpp
 	"Fecha.h"
@@ -62,13 +67,13 @@
 	"Fecha.h"
 	"Tiempo.h"
 
-1729966172 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\pelicula.cpp
+1729966286 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\pelicula.cpp
 	"Pelicula.h"
 
-1729888154 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\cliente.cpp
+1730569326 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\cliente.cpp
 	"Cliente.h"
 
-1729888108 c:\users\tomas\onedrive\desktop\tp_prog2_cine\cliente.h
+1730569326 c:\users\tomas\onedrive\desktop\tp_prog2_cine\cliente.h
 	<iostream>
 	<cstring>
 	"Fecha.h"
@@ -151,4 +156,42 @@
 
 1730498525 c:\users\tomás\documents\tup\2c programación ii\tp_prog2_cine\archivofunciones.h
 	"Funcion.h"
+
+1730569326 c:\users\tomas\onedrive\desktop\tp_prog2_cine\funcion.h
+	<iostream>
+	<cstring>
+	"Fecha.h"
+	"Tiempo.h"
+
+1730569326 c:\users\tomas\onedrive\desktop\tp_prog2_cine\venta.h
+	<iostream>
+	<cstring>
+	"Fecha.h"
+	"Tiempo.h"
+
+1730569326 c:\users\tomas\onedrive\desktop\tp_prog2_cine\archivoclientes.h
+	"Cliente.h"
+
+1730569326 c:\users\tomas\onedrive\desktop\tp_prog2_cine\archivofunciones.h
+	"Funcion.h"
+
+1730569326 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\archivoclientes.cpp
+	"ArchivoClientes.h"
+
+1730569326 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\archivofunciones.cpp
+	"ArchivoFunciones.h"
+
+1730569326 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\funcion.cpp
+	"Funcion.h"
+
+1730569326 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\venta.cpp
+	"Venta.h"
+
+1730570149 c:\users\tomas\onedrive\desktop\tp_prog2_cine\reporte.h
+	"ArchivoFunciones.h"
+	"ArchivoClientes.h"
+	"ArchivoPeliculas.h"
+
+1730570186 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\reporte.cpp
+	"Reporte.h"
 
