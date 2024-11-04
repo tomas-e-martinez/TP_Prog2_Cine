@@ -138,3 +138,32 @@ void Reporte::ListarVentas(const char* nombreArchivo){
     cout << endl;
     system("pause");
 }
+
+void Reporte::ListarSalas(const char* nombreArchivo){
+    ArchivoSalas archivo(nombreArchivo);
+    Sala registro;
+
+    int cantidadRegistros = archivo.ContarRegistros();
+    system("cls");
+    cout << "Cantidad de salas: " << cantidadRegistros << endl;
+    system("pause");
+    system("cls");
+
+    // ENCABEZADO
+    cout << left
+         << setw(5)  << "ID"
+         << setw(15) << "CAPACIDAD"
+         << setw(10) << "TIPO" << endl;
+
+    cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
+    for (int i = 0; i < cantidadRegistros; i++) {
+        registro = archivo.LeerRegistro(i);
+        cout << left
+             << setw(5)  << registro.getIdSala()
+             << setw(15) << registro.getCapacidad()
+             << setw(10) << registro.getTipo() << endl;
+    }
+
+    cout << endl;
+    system("pause");
+}

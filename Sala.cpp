@@ -3,7 +3,7 @@
 Sala::Sala(){
     _idSala = 0;
     _capacidad = 0;
-    strcpy(_tipo, "Sin tipo");
+    strcpy(_tipo, "NULO");
 }
 
 Sala::Sala(int idSala, int capacidad, const char* tipo){
@@ -15,14 +15,28 @@ Sala::Sala(int idSala, int capacidad, const char* tipo){
 
 void Sala::Cargar(){
     system("cls");
+    int opcion;
     cout << "CARGAR SALA" << endl;
-    cout << "ID DE LA SALA: ";
-    cin >> _idSala;
-    cout << "TIPO: ";
-    cin.getline(_tipo, sizeof(_tipo));
+    cout << "TIPO\n 1.2D\n 2.3D\n 3.IMAX" << endl;
+    cout << "OPCIÓN: ";
+    cin >> opcion;
+    switch(opcion){
+    case 1:
+        strcpy(_tipo, "2D");
+        break;
+    case 2:
+        strcpy(_tipo, "3D");
+        break;
+    case 3:
+        strcpy(_tipo, "IMAX");
+        break;
+    default:
+        strcpy(_tipo, "NULO");
+        break;
+    }
     cout << "CAPACIDAD: ";
     cin >> _capacidad;
-
+    cin.ignore();
 }
 
 void Sala::Mostrar(){

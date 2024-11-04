@@ -14,6 +14,7 @@
 
 #include "ArchivoPeliculas.h"
 #include "ArchivoClientes.h"
+#include "ArchivoSalas.h";
 #include "ArchivoFunciones.h"
 #include "ArchivoVentas.h"
 
@@ -32,8 +33,21 @@ int main(){
     system("pause");*/
 
 
+    Sala sala1;
+    sala1.Cargar();
+    sala1.Mostrar();
+    ArchivoSalas archiSala;
+    if(archiSala.Guardar(sala1))
+        cout << "REGISTRO GUARDADO CORRECTAMENTE." << endl;
+    else
+        cout << "ERROR AL GUARDAR." << endl;
+    system("pause");
+
+
+
     /// PRUEBA DE ARCHIVOS
     Reporte reporte1;
+    reporte1.ListarSalas();
     reporte1.ListarVentas();
     reporte1.ListarFunciones();
     reporte1.ListarClientes();
