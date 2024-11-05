@@ -63,11 +63,25 @@ void Menu::Clientes(){
 
         switch(_opcion){
         case 1:
+            {
+                Cliente cliente;
+                ArchivoClientes archivo;
+                cliente.Cargar();
+                if(archivo.Guardar(cliente))
+                    cout << "CLIENTE AGREGADO CON ÉXITO." << endl;
+                else
+                    cout << "ERROR AL AGREGAR CLIENTE." << endl;
+                system("pause");
             break;
+            }
         case 2:
             break;
         case 3:
-            break;
+            {
+                Reporte reporte;
+                reporte.ListarClientes();
+                break;
+            }
         case 4:
             break;
         case 5:

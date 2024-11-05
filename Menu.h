@@ -2,6 +2,11 @@
 
 #include <iostream>
 
+#include "Cliente.h"
+#include "ArchivoClientes.h"
+
+#include "Reporte.h"
+
 using namespace std;
 
 class Menu{

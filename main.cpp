@@ -25,6 +25,7 @@ int main(){
     setlocale(LC_CTYPE, "Spanish");
 
 
+
     /* PRUEBA DE CARACTERES ESPECIALES
     char palabra[10] = {"aραρι"};
     cout << palabra << endl;

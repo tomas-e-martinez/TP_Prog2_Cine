@@ -7,7 +7,7 @@
 	<string>
 	<iomanip>
 
-1730764092 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\main.cpp
+1730767191 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\main.cpp
 	<iostream>
 	<iomanip>
 	<locale.h>
@@ -212,9 +212,12 @@
 1730762051 c:\users\tomas\onedrive\desktop\tp_prog2_cine\archivosalas.h
 	"Sala.h"
 
-1730764731 c:\users\tomas\onedrive\desktop\tp_prog2_cine\menu.h
+1730766921 c:\users\tomas\onedrive\desktop\tp_prog2_cine\menu.h
 	<iostream>
+	"Cliente.h"
+	"ArchivoClientes.h"
+	"Reporte.h"
 
-1730764553 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\menu.cpp
+1730766960 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\menu.cpp
 	"Menu.h"
 
