@@ -3,6 +3,7 @@
 #include <locale.h>
 #include <string>
 
+#include "Menu.h"
 #include "Fecha.h"
 #include "Tiempo.h"
 #include "Pelicula.h"
@@ -14,7 +15,7 @@
 
 #include "ArchivoPeliculas.h"
 #include "ArchivoClientes.h"
-#include "ArchivoSalas.h";
+#include "ArchivoSalas.h"
 #include "ArchivoFunciones.h"
 #include "ArchivoVentas.h"
 
@@ -22,7 +23,6 @@ using namespace std;
 
 int main(){
     setlocale(LC_CTYPE, "Spanish");
-    int opcion;
 
 
     /* PRUEBA DE CARACTERES ESPECIALES
@@ -33,20 +33,9 @@ int main(){
     system("pause");*/
 
 
-    Sala sala1;
-    sala1.Cargar();
-    sala1.Mostrar();
-    ArchivoSalas archiSala;
-    if(archiSala.Guardar(sala1))
-        cout << "REGISTRO GUARDADO CORRECTAMENTE." << endl;
-    else
-        cout << "ERROR AL GUARDAR." << endl;
-    system("pause");
-
-
 
     /// PRUEBA DE ARCHIVOS
-    Reporte reporte1;
+    /*Reporte reporte1;
     reporte1.ListarSalas();
     reporte1.ListarVentas();
     reporte1.ListarFunciones();
@@ -58,7 +47,7 @@ int main(){
         funcion1.Cargar();
         archivo.Guardar(funcion1);
         reporte1.ListarFunciones();
-    }
+    }*/
 
     /*PRUEBA DE CLASE
     Funcion funcion1;
@@ -78,24 +67,8 @@ int main(){
     //cout << fecha1.toStringFecha() << endl;
     //cout << fecha1.toStringHora() << endl;
 
-    while(false){
-        system("cls");
-        cout << "1." << endl;
-        cout << "0. Salir" << endl << endl;
-
-        cin >> opcion;
-
-        switch(opcion){
-        case 1:
-            break;
-        case 0:
-            return 0;
-        default:
-            cout << "Opción inválida. Intente de nuevo." << endl;
-            system("pause");
-            break;
-        }
-    }
+    Menu menu;
+    menu.Principal();
 
     return 0;
 }

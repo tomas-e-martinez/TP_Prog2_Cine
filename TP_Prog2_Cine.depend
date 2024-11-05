@@ -7,11 +7,12 @@
 	<string>
 	<iomanip>
 
-1730762692 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\main.cpp
+1730764092 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\main.cpp
 	<iostream>
 	<iomanip>
 	<locale.h>
 	<string>
+	"Menu.h"
 	"Fecha.h"
 	"Tiempo.h"
 	"Pelicula.h"
@@ -205,9 +206,15 @@
 1730570699 c:\users\tomas\onedrive\desktop\tp_prog2_cine\archivoventas.h
 	"Venta.h"
 
-1730762903 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\archivosalas.cpp
+1730763037 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\archivosalas.cpp
 	"ArchivoSalas.h"
 
 1730762051 c:\users\tomas\onedrive\desktop\tp_prog2_cine\archivosalas.h
 	"Sala.h"
+
+1730764731 c:\users\tomas\onedrive\desktop\tp_prog2_cine\menu.h
+	<iostream>
+
+1730764553 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\menu.cpp
+	"Menu.h"
 
