@@ -11,7 +11,7 @@ void Menu::Principal(){
         cout << "4. Salas" << endl;
         cout << "5. Ventas" << endl;
         cout << "6. Reportes" << endl;
-        cout << "0. Salir" << endl << endl;
+        cout << endl << "0. Salir" << endl << endl;
 
         cout << "Ingresar opción: ";
         cin >> _opcion;
@@ -50,13 +50,13 @@ void Menu::Clientes(){
         system("cls");
         cout << "SISTEMA DE GESTIÓN DE CINE" << endl;
         cout << "SUBMENÚ CLIENTES" << endl << endl;
-        cout << "1. " << endl;
-        cout << "2. " << endl;
-        cout << "3. " << endl;
-        cout << "4. " << endl;
-        cout << "5. " << endl;
-        cout << "6. " << endl;
-        cout << "0. Salir" << endl << endl;
+        cout << "1. Agregar Cliente" << endl;
+        cout << "2. Modificar Cliente" << endl;
+        cout << "3. Listado ordenado por ID" << endl;
+        cout << "4. Listado ordenado por apellido" << endl;
+        cout << "5. Buscar por DNI" << endl;
+        cout << "6. Buscar por rango de edad" << endl;
+        cout << endl << "0. Volver al menú principal" << endl << endl;
 
         cout << "Ingresar opción: ";
         cin >> _opcion;
@@ -89,13 +89,12 @@ void Menu::Funciones(){
         system("cls");
         cout << "SISTEMA DE GESTIÓN DE CINE" << endl;
         cout << "SUBMENÚ FUNCIONES" << endl << endl;
-        cout << "1. " << endl;
-        cout << "2. " << endl;
-        cout << "3. " << endl;
-        cout << "4. " << endl;
-        cout << "5. " << endl;
-        cout << "6. " << endl;
-        cout << "0. Salir" << endl << endl;
+        cout << "1. Agregar Función" << endl;
+        cout << "2. Modificar Función" << endl;
+        cout << "3. Listado ordenado por ID" << endl;
+        cout << "4. Buscar por fecha" << endl;
+        cout << "5. Buscar por tipo de sala" << endl;
+        cout << endl << "0. Volver al menú principal" << endl << endl;
 
         cout << "Ingresar opción: ";
         cin >> _opcion;
@@ -110,8 +109,6 @@ void Menu::Funciones(){
         case 4:
             break;
         case 5:
-            break;
-        case 6:
             break;
         case 0:
             return;
@@ -128,13 +125,16 @@ void Menu::Peliculas(){
         system("cls");
         cout << "SISTEMA DE GESTIÓN DE CINE" << endl;
         cout << "SUBMENÚ PELÍCULAS" << endl << endl;
-        cout << "1. " << endl;
-        cout << "2. " << endl;
-        cout << "3. " << endl;
-        cout << "4. " << endl;
-        cout << "5. " << endl;
-        cout << "6. " << endl;
-        cout << "0. Salir" << endl << endl;
+        cout << "1. Agregar Película" << endl;
+        cout << "2. Modificar Película" << endl;
+        cout << "3. Listado ordenado por título" << endl;
+        cout << "4. Listado ordenado por género" << endl;
+        cout << "5. Listado ordenado por puntuación" << endl;
+        cout << "6. Buscar por género" << endl;
+        cout << "7. Buscar por puntuación" << endl;
+        cout << "8. Buscar por título" << endl;
+        cout << "9. Buscar por clasificación de edad" << endl;
+        cout << endl << "0. Volver al menú principal" << endl << endl;
 
         cout << "Ingresar opción: ";
         cin >> _opcion;
@@ -151,6 +151,12 @@ void Menu::Peliculas(){
         case 5:
             break;
         case 6:
+            break;
+        case 7:
+            break;
+        case 8:
+            break;
+        case 9:
             break;
         case 0:
             return;
@@ -167,13 +173,11 @@ void Menu::Salas(){
         system("cls");
         cout << "SISTEMA DE GESTIÓN DE CINE" << endl;
         cout << "SUBMENÚ SALAS" << endl << endl;
-        cout << "1. " << endl;
-        cout << "2. " << endl;
-        cout << "3. " << endl;
-        cout << "4. " << endl;
-        cout << "5. " << endl;
-        cout << "6. " << endl;
-        cout << "0. Salir" << endl << endl;
+        cout << "1. Agregar Sala" << endl;
+        cout << "2. Modificar Sala" << endl;
+        cout << "3. Listado ordenado por ID" << endl;
+        cout << "4. Listado ordenado por tipo de sala" << endl;
+        cout << endl << "0. Volver al menú principal" << endl << endl;
 
         cout << "Ingresar opción: ";
         cin >> _opcion;
@@ -186,10 +190,6 @@ void Menu::Salas(){
         case 3:
             break;
         case 4:
-            break;
-        case 5:
-            break;
-        case 6:
             break;
         case 0:
             return;
@@ -206,13 +206,10 @@ void Menu::Ventas(){
         system("cls");
         cout << "SISTEMA DE GESTIÓN DE CINE" << endl;
         cout << "SUBMENÚ VENTAS" << endl << endl;
-        cout << "1. " << endl;
-        cout << "2. " << endl;
-        cout << "3. " << endl;
-        cout << "4. " << endl;
-        cout << "5. " << endl;
-        cout << "6. " << endl;
-        cout << "0. Salir" << endl << endl;
+        cout << "1. Agregar Venta" << endl;
+        cout << "2. Modificar Venta" << endl;
+        cout << "3. Listado ordenado por ID" << endl;
+        cout << endl << "0. Volver al menú principal" << endl << endl;
 
         cout << "Ingresar opción: ";
         cin >> _opcion;
@@ -223,12 +220,6 @@ void Menu::Ventas(){
         case 2:
             break;
         case 3:
-            break;
-        case 4:
-            break;
-        case 5:
-            break;
-        case 6:
             break;
         case 0:
             return;
@@ -245,13 +236,13 @@ void Menu::Reportes(){
         system("cls");
         cout << "SISTEMA DE GESTIÓN DE CINE" << endl;
         cout << "SUBMENÚ REPORTES" << endl << endl;
-        cout << "1. " << endl;
-        cout << "2. " << endl;
-        cout << "3. " << endl;
-        cout << "4. " << endl;
-        cout << "5. " << endl;
-        cout << "6. " << endl;
-        cout << "0. Salir" << endl << endl;
+        cout << "1. Recaudación anual" << endl;
+        cout << "2. Recaudación por tipo de sala" << endl;
+        cout << "3. Recaudación por título" << endl;
+        cout << "4. Recaudación por género" << endl;
+        cout << "5. Cantidad de entradas vendidas por película" << endl;
+        cout << "6. Cantidad de entradas vendidas por género" << endl;
+        cout << endl << "0. Volver al menú principal" << endl << endl;
 
         cout << "Ingresar opción: ";
         cin >> _opcion;
