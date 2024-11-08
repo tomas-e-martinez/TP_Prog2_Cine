@@ -2,14 +2,14 @@
 
 Venta::Venta(){
     _idVenta = 0;
-    _dniCliente = 0;
+    _idCliente = 0;
    _idFuncion = 0;
    _cantidadEntradas = 0;
 }
 
-Venta::Venta(int idVenta, int dniCliente, int idFuncion, int cantidadEntradas, Fecha fecha){
+Venta::Venta(int idVenta, int idCliente, int idFuncion, int cantidadEntradas, Fecha fecha){
     _idVenta = idVenta;
-    _dniCliente = dniCliente;
+    _idCliente = idCliente;
     _idFuncion = idFuncion;
     _cantidadEntradas = cantidadEntradas;
     _fecha = fecha;
@@ -18,10 +18,11 @@ Venta::Venta(int idVenta, int dniCliente, int idFuncion, int cantidadEntradas, F
 
 void Venta::Cargar(){
     system("cls");
+    cout << "CARGAR NUEVA VENTA" << endl;
     cout << "ID FUNCIÓN: ";
     cin >> _idFuncion;
-    cout << "DNI CLIENTE: ";
-    cin >> _dniCliente;
+    cout << "ID CLIENTE: ";
+    cin >> _idCliente;
     cout << "CANTIDAD DE ENTRADAS: ";
     cin >> _cantidadEntradas;
     cout << "FECHA: " << endl;
@@ -30,7 +31,7 @@ void Venta::Cargar(){
 
 void Venta::Mostrar() {
         cout << "ID VENTA: " << _idVenta << endl;
-        cout << "DNI CLIENTE: " << _dniCliente << endl;
+        cout << "ID CLIENTE: " << _idCliente << endl;
         cout << "ID FUNCION: " << _idFuncion << endl;
         cout << "CANTIDAD DE ENTRADAS: " << _cantidadEntradas << endl;
         cout << "FECHA DE LA VENTA: " << _fecha.toStringFecha() << endl;
@@ -42,8 +43,8 @@ int Venta::getIdVenta(){
     return _idVenta;
 }
 
-int Venta::getDniCliente(){
-    return _dniCliente;
+int Venta::getIdCliente(){
+    return _idCliente;
 }
 
 int Venta::getIdFuncion(){
@@ -63,8 +64,8 @@ void Venta::setIdVenta(int idVenta){
     _idVenta = idVenta;
 }
 
-void Venta::setDniCliente(int dniCliente){
-    _dniCliente = dniCliente;
+void Venta::setIdCliente(int idCliente){
+    _idCliente = idCliente;
 }
 
 void Venta::setIdFuncion(int idFuncion){

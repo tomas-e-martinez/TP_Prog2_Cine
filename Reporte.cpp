@@ -118,7 +118,7 @@ void Reporte::ListarVentas(const char* nombreArchivo){
     cout << left
          << setw(5)  << "ID"
          << setw(15) << "ID FUNCIÓN"
-         << setw(15) << "DNI CLIENTE"
+         << setw(15) << "ID CLIENTE"
          << setw(20) << "CANT. ENTRADAS"
          << setw(20) << "FECHA"
          << setw(10) << "HORA" << endl;
@@ -129,7 +129,7 @@ void Reporte::ListarVentas(const char* nombreArchivo){
         cout << left
              << setw(5)  << registro.getIdVenta()
              << setw(15) << registro.getIdFuncion()
-             << setw(15) << registro.getDniCliente()
+             << setw(15) << registro.getIdCliente()
              << setw(20) << registro.getCantidadEntradas()
              << setw(20) << registro.getFecha().toStringFecha()
              << setw(10) << registro.getFecha().toStringHora() << endl;

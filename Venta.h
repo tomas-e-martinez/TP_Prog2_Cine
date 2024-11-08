@@ -8,7 +8,7 @@
 
 class Venta {
 private:
-    int _idVenta, _dniCliente, _idFuncion, _cantidadEntradas;
+    int _idVenta, _idCliente, _idFuncion, _cantidadEntradas;
     Fecha _fecha;
 
 public:
@@ -19,13 +19,13 @@ public:
     void Mostrar();
 
     int getIdVenta();
-    int getDniCliente();
+    int getIdCliente();
     int getIdFuncion();
     Fecha getFecha();
     int getCantidadEntradas();
 
     void setIdVenta(int idVenta);
-    void setDniCliente(int dniCliente);
+    void setIdCliente(int idCliente);
     void setIdFuncion(int idFuncion);
     void setFecha(Fecha fecha);
     void setCantidadEntradas(int cantidadEntradas);

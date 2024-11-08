@@ -115,11 +115,25 @@ void Menu::Funciones(){
 
         switch(_opcion){
         case 1:
+                        {
+                Funcion funcion;
+                ArchivoFunciones archivo;
+                funcion.Cargar();
+                if(archivo.Guardar(funcion))
+                    cout << "FUNCIÓN AGREGADA CON ÉXITO." << endl;
+                else
+                    cout << "ERROR AL AGREGAR LA FUNCIÓN." << endl;
+                system("pause");
             break;
+            }
         case 2:
             break;
         case 3:
-            break;
+                        {
+                Reporte reporte;
+                reporte.ListarFunciones();
+                break;
+            }
         case 4:
             break;
         case 5:
@@ -155,11 +169,25 @@ void Menu::Peliculas(){
 
         switch(_opcion){
         case 1:
+                        {
+                Pelicula pelicula;
+                ArchivoPeliculas archivo;
+                pelicula.Cargar();
+                if(archivo.Guardar(pelicula))
+                    cout << "PELÍCULA AGREGADA CON ÉXITO." << endl;
+                else
+                    cout << "ERROR AL AGREGAR LA PELÍCULA." << endl;
+                system("pause");
             break;
+            }
         case 2:
             break;
         case 3:
-            break;
+                       {
+                Reporte reporte;
+                reporte.ListarPeliculas();
+                break;
+            }
         case 4:
             break;
         case 5:
@@ -198,11 +226,25 @@ void Menu::Salas(){
 
         switch(_opcion){
         case 1:
+                       {
+                Sala sala;
+                ArchivoSalas archivo;
+                sala.Cargar();
+                if(archivo.Guardar(sala))
+                    cout << "SALA AGREGADA CON ÉXITO." << endl;
+                else
+                    cout << "ERROR AL AGREGAR LA SALA." << endl;
+                system("pause");
             break;
+            }
         case 2:
             break;
         case 3:
-            break;
+                        {
+                Reporte reporte;
+                reporte.ListarSalas();
+                break;
+            }
         case 4:
             break;
         case 0:
@@ -230,11 +272,25 @@ void Menu::Ventas(){
 
         switch(_opcion){
         case 1:
+                       {
+                Venta venta;
+                ArchivoVentas archivo;
+                venta.Cargar();
+                if(archivo.Guardar(venta))
+                    cout << "VENTA AGREGADA CON ÉXITO." << endl;
+                else
+                    cout << "ERROR AL AGREGAR LA VENTA." << endl;
+                system("pause");
             break;
+            }
         case 2:
             break;
         case 3:
-            break;
+                        {
+                Reporte reporte;
+                reporte.ListarVentas();
+                break;
+            }
         case 0:
             return;
         default:

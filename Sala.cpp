@@ -16,7 +16,7 @@ Sala::Sala(int idSala, int capacidad, const char* tipo){
 void Sala::Cargar(){
     system("cls");
     int opcion;
-    cout << "CARGAR SALA" << endl;
+    cout << "CARGAR NUEVA SALA" << endl;
     cout << "TIPO\n 1.2D\n 2.3D\n 3.IMAX" << endl;
     cout << "OPCIÓN: ";
     cin >> opcion;

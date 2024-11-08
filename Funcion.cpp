@@ -15,6 +15,7 @@ Funcion::Funcion(int idFuncion, int idPelicula, int idSala, Fecha fecha){
 
 void Funcion::Cargar(){
     system("cls");
+    cout << "CARGAR NUEVA FUNCIÓN" << endl;
     cout << "ID DE LA PELÍCULA: ";
     cin >> _idPelicula;
     cout << "ID DE LA SALA: ";

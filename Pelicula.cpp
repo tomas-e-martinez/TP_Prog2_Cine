@@ -22,6 +22,7 @@ Pelicula::Pelicula(int id, int clasificacionEdad, const char* titulo, const char
 
 void Pelicula::Cargar(){
     system("cls");
+    cout << "CARGAR NUEVA PELÍCULA" << endl;
     cout << "TÍTULO: ";
     cin.getline(_titulo, sizeof(_titulo));
     cout << "SINOPSIS: ";
