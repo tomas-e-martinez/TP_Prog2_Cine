@@ -6,8 +6,8 @@ Funcion::Funcion(){
     _idSala = 0;
 }
 
-Funcion::Funcion(int idFuncion, int idPelicula, int idSala, Fecha fecha){
-    _idFuncion = idFuncion;
+Funcion::Funcion(int idPelicula, int idSala, Fecha fecha){
+    _idFuncion = 0;
     _idPelicula = idPelicula;
     _idSala = idSala;
     _fecha = fecha;
@@ -25,10 +25,11 @@ void Funcion::Cargar(){
 }
 
 void Funcion::Mostrar(){
-    cout << _idFuncion << endl;
-    cout << _idPelicula << endl;
-    cout << _idSala << endl;
-    cout << _fecha.toStringHora() << endl;
+    cout << "ID: " << _idFuncion << endl;
+    cout << "ID PELÍCULA: " << _idPelicula << endl;
+    cout << "ID SALA: " << _idSala << endl;
+    cout << "FECHA: " << _fecha.toStringFecha() << endl;
+    cout << "HORA: " << _fecha.toStringHora() << endl;
 }
 
 int Funcion::getIdFuncion(){

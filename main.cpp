@@ -28,16 +28,26 @@ using namespace std;
 int main(){
     setlocale(LC_CTYPE, "Spanish");
 
+    ///CARGAR PELICULAS
+    /*while(true){
+        Pelicula pelicula;
+        ArchivoPeliculas archivo;
+        pelicula.Cargar();
+        if(archivo.Guardar(pelicula))
+            cout << "PELICULA CARGADA CORRECTAMENTE." << endl;
+        cout << "CANT. PELICULAS: " << archivo.ContarRegistros() << endl;
+        system("pause");
+    }*/
+
     srand(time(0));
     CargarAleatorio cargar;
-    cargar.CargarClientes(100);
-
+    cargar.CargarFunciones(100);
     Reporte reporte;
-    reporte.ListarClientes();
+    reporte.ListarFunciones();
+
     return 1;
 
 
-    GestorCine gestor;
 
 
 
@@ -84,6 +94,8 @@ int main(){
     //cout << fecha1.toStringHora() << endl;
 
     Menu menu;
+    GestorCine gestor;
+
     menu.Principal(gestor, reporte);
 
     return 0;

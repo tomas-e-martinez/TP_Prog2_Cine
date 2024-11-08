@@ -15,7 +15,7 @@ private:
 
 public:
     Funcion();
-    Funcion(int idFuncion, int idPelicula, int idSala, Fecha fecha);
+    Funcion(int idPelicula, int idSala, Fecha fecha);
 
     void Cargar();
     void Mostrar();

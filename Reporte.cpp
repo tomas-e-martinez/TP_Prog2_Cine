@@ -13,22 +13,24 @@ void Reporte::ListarPeliculas(const char* nombreArchivo){
     //ENCABEZADO
     cout << left
          << setw(5)  << "ID"
-         << setw(30) << "TÍTULO"
+         << setw(40) << "TÍTULO"
          << setw(20) << "GÉNERO"
          << setw(20) << "FECHA DE ESTRENO"
          << setw(10) << "DURACIÓN"
+         << setw(15) << "CALIFICACIÓN"
          << setw(5)  << "EDAD" << endl;
 
 
-    cout << "------------------------------------------------------------------------------------------" << endl;
+    cout << "---------------------------------------------------------------------------------------------------------------------" << endl;
     for(int i = 0; i < cantidadRegistros; i++){
         registro = archivo.LeerRegistro(i);
         cout << left
              << setw(5)  << registro.getId()
-             << setw(30) << registro.getTitulo()
+             << setw(40) << registro.getTitulo()
              << setw(20) << registro.getGenero()
              << setw(20) << registro.getFechaEstreno().toStringFecha()
              << setw(10) << registro.getDuracion().toString()
+             << setw(15) << registro.getCalificacion()
              << setw(5)  << (to_string(registro.getClasificacionedad()) + "+") << endl;
     }
 
