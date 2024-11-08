@@ -20,13 +20,24 @@
 #include "ArchivoFunciones.h"
 #include "ArchivoVentas.h"
 
+#include <ctime> ///GENERAR REGISTROS PROVISORIOS
+#include "CargarAleatorio.h"
+
 using namespace std;
 
 int main(){
     setlocale(LC_CTYPE, "Spanish");
 
-    GestorCine gestor;
+    srand(time(0));
+    CargarAleatorio cargar;
+    cargar.CargarClientes(100);
+
     Reporte reporte;
+    reporte.ListarClientes();
+    return 1;
+
+
+    GestorCine gestor;
 
 
 

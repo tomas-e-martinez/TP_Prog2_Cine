@@ -227,7 +227,7 @@
 1731039613 c:\users\tomas\documents\programación 2\tp_prog2_cine\archivoclientes.h
 	"Cliente.h"
 
-1731039613 c:\users\tomas\documents\programación 2\tp_prog2_cine\cliente.h
+1731100138 c:\users\tomas\documents\programación 2\tp_prog2_cine\cliente.h
 	<iostream>
 	<cstring>
 	"Fecha.h"
@@ -278,7 +278,7 @@
 	"Fecha.h"
 	"Tiempo.h"
 
-1731039613 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\cliente.cpp
+1731100242 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\cliente.cpp
 	"Cliente.h"
 
 1731039613 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\fecha.cpp
@@ -287,7 +287,7 @@
 1731089116 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\funcion.cpp
 	"Funcion.h"
 
-1731091695 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\main.cpp
+1731101090 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\main.cpp
 	<iostream>
 	<iomanip>
 	<locale.h>
@@ -307,6 +307,8 @@
 	"ArchivoSalas.h"
 	"ArchivoFunciones.h"
 	"ArchivoVentas.h"
+	<ctime>
+	"CargarAleatorio.h"
 
 1731091731 c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.h
 	<iostream>
@@ -348,10 +350,10 @@
 1731039613 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\archivosalas.cpp
 	"ArchivoSalas.h"
 
-1731090715 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.cpp
+1731092100 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.cpp
 	"Menu.h"
 
-1731091592 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\gestorcine.cpp
+1731092088 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\gestorcine.cpp
 	"GestorCine.h"
 
 1731091600 c:\users\tomas\documents\programación 2\tp_prog2_cine\gestorcine.h
@@ -365,4 +367,12 @@
 	"ArchivoSalas.h"
 	"ArchivoFunciones.h"
 	"ArchivoVentas.h"
+
+1731100975 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\cargaraleatorio.cpp
+	"CargarAleatorio.h"
+
+1731100548 c:\users\tomas\documents\programación 2\tp_prog2_cine\cargaraleatorio.h
+	"Cliente.h"
+	"ArchivoClientes.h"
+	<cstdlib>
 

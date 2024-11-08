@@ -16,7 +16,7 @@ private:
 
 public:
     Cliente();
-    Cliente(int id, int dni, const char* nombre, const char* apellido, const char* telefono, Fecha fechaNacimiento);
+    Cliente(int dni, const char* nombre, const char* apellido, const char* telefono, Fecha fechaNacimiento);
 
     void Cargar();
     void Mostrar();

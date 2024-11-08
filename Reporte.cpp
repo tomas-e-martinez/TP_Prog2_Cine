@@ -52,7 +52,7 @@ void Reporte::ListarClientes(const char* nombreArchivo){
          << setw(10) << "DNI"
          << setw(30) << "NOMBRE"
          << setw(30) << "APELLIDO"
-         << setw(20) << "TELEFONO"
+         << setw(20) << "TELÉFONO"
          << setw(20) << "FECHA DE NACIMIENTO" << endl;
 
     cout << "-------------------------------------------------------------------------------------------------------------------" << endl;

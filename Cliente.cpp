@@ -8,8 +8,8 @@ Cliente::Cliente(){
     strcpy(_telefono, "Sin telefono");
 }
 
-Cliente::Cliente(int id, int dni, const char* nombre, const char* apellido, const char* telefono, Fecha fechaNacimiento){
-    _id = id;
+Cliente::Cliente(int dni, const char* nombre, const char* apellido, const char* telefono, Fecha fechaNacimiento){
+    _id = 0;
     _dni = dni;
     strcpy(_nombre,nombre);
     strcpy(_apellido,apellido);
@@ -35,11 +35,11 @@ void Cliente::Cargar(){
 }
 
 void Cliente::Mostrar(){
-    cout << _dni << endl;
-    cout << _nombre << endl;
-    cout << _apellido << endl;
-    cout << _telefono << endl;
-    cout << _fechaNacimiento.toStringFecha() << endl;
+    cout << "DNI: " << _dni << endl;
+    cout << "NOMBRE: " << _nombre << endl;
+    cout << "APELLIDO: " << _apellido << endl;
+    cout << "TELÉFONO: " << _telefono << endl;
+    cout << "FECHA DE NACIMIENTO: " << _fechaNacimiento.toStringFecha() << endl;
 }
 
 int Cliente::getId(){
