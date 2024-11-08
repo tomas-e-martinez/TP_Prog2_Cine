@@ -287,7 +287,7 @@
 1731089116 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\funcion.cpp
 	"Funcion.h"
 
-1731039613 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\main.cpp
+1731091695 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\main.cpp
 	<iostream>
 	<iomanip>
 	<locale.h>
@@ -301,15 +301,18 @@
 	"Funcion.h"
 	"Venta.h"
 	"Reporte.h"
+	"GestorCine.h"
 	"ArchivoPeliculas.h"
 	"ArchivoClientes.h"
 	"ArchivoSalas.h"
 	"ArchivoFunciones.h"
 	"ArchivoVentas.h"
 
-1731089071 c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.h
+1731091731 c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.h
 	<iostream>
 	"Reporte.h"
+	"GestorCine.h"
+	"ArchivoClientes.h"
 
 1731039613 c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.h
 	"ArchivoClientes.h"
@@ -345,6 +348,21 @@
 1731039613 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\archivosalas.cpp
 	"ArchivoSalas.h"
 
-1731089015 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.cpp
+1731090715 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.cpp
 	"Menu.h"
+
+1731091592 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\gestorcine.cpp
+	"GestorCine.h"
+
+1731091600 c:\users\tomas\documents\programación 2\tp_prog2_cine\gestorcine.h
+	"Pelicula.h"
+	"Cliente.h"
+	"Sala.h"
+	"Funcion.h"
+	"Venta.h"
+	"ArchivoPeliculas.h"
+	"ArchivoClientes.h"
+	"ArchivoSalas.h"
+	"ArchivoFunciones.h"
+	"ArchivoVentas.h"
 

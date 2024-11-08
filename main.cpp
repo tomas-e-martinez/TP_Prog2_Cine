@@ -12,6 +12,7 @@
 #include "Funcion.h"
 #include "Venta.h"
 #include "Reporte.h"
+#include "GestorCine.h"
 
 #include "ArchivoPeliculas.h"
 #include "ArchivoClientes.h"
@@ -23,6 +24,9 @@ using namespace std;
 
 int main(){
     setlocale(LC_CTYPE, "Spanish");
+
+    GestorCine gestor;
+    Reporte reporte;
 
 
 
@@ -69,7 +73,7 @@ int main(){
     //cout << fecha1.toStringHora() << endl;
 
     Menu menu;
-    menu.Principal();
+    menu.Principal(gestor, reporte);
 
     return 0;
 }

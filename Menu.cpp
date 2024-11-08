@@ -1,6 +1,6 @@
 #include "Menu.h"
 
-void Menu::Principal(){
+void Menu::Principal(GestorCine& gestor, Reporte& reporte){
     while(true){
         system("cls");
         cout << "SISTEMA DE GESTIÓN DE CINE" << endl;
@@ -18,22 +18,22 @@ void Menu::Principal(){
 
         switch(_opcion){
         case 1:
-            Clientes();
+            Clientes(gestor, reporte);
             break;
         case 2:
-            Funciones();
+            Funciones(gestor, reporte);
             break;
         case 3:
-            Peliculas();
+            Peliculas(gestor, reporte);
             break;
         case 4:
-            Salas();
+            Salas(gestor, reporte);
             break;
         case 5:
-            Ventas();
+            Ventas(gestor, reporte);
             break;
         case 6:
-            Reportes();
+            Reportes(reporte);
             break;
         case 0:
             return;
@@ -45,7 +45,7 @@ void Menu::Principal(){
     }
 }
 
-void Menu::Clientes(){
+void Menu::Clientes(GestorCine& gestor, Reporte& reporte){
     while(true){
         system("cls");
         cout << "SISTEMA DE GESTIÓN DE CINE" << endl;
@@ -63,25 +63,13 @@ void Menu::Clientes(){
 
         switch(_opcion){
         case 1:
-            {
-                Cliente cliente;
-                ArchivoClientes archivo;
-                cliente.Cargar();
-                if(archivo.Guardar(cliente))
-                    cout << "CLIENTE AGREGADO CON ÉXITO." << endl;
-                else
-                    cout << "ERROR AL AGREGAR CLIENTE." << endl;
-                system("pause");
+            gestor.AgregarCliente();
             break;
-            }
         case 2:
             break;
         case 3:
-            {
-                Reporte reporte;
-                reporte.ListarClientes();
-                break;
-            }
+            reporte.ListarClientes();
+            break;
         case 4:
             break;
         case 5:
@@ -98,7 +86,7 @@ void Menu::Clientes(){
     }
 }
 
-void Menu::Funciones(){
+void Menu::Funciones(GestorCine& gestor, Reporte& reporte){
     while(true){
         system("cls");
         cout << "SISTEMA DE GESTIÓN DE CINE" << endl;
@@ -115,25 +103,13 @@ void Menu::Funciones(){
 
         switch(_opcion){
         case 1:
-                        {
-                Funcion funcion;
-                ArchivoFunciones archivo;
-                funcion.Cargar();
-                if(archivo.Guardar(funcion))
-                    cout << "FUNCIÓN AGREGADA CON ÉXITO." << endl;
-                else
-                    cout << "ERROR AL AGREGAR LA FUNCIÓN." << endl;
-                system("pause");
+            gestor.AgregarFuncion();
             break;
-            }
         case 2:
             break;
         case 3:
-                        {
-                Reporte reporte;
-                reporte.ListarFunciones();
-                break;
-            }
+            reporte.ListarFunciones();
+            break;
         case 4:
             break;
         case 5:
@@ -148,7 +124,7 @@ void Menu::Funciones(){
     }
 }
 
-void Menu::Peliculas(){
+void Menu::Peliculas(GestorCine& gestor, Reporte& reporte){
     while(true){
         system("cls");
         cout << "SISTEMA DE GESTIÓN DE CINE" << endl;
@@ -169,25 +145,12 @@ void Menu::Peliculas(){
 
         switch(_opcion){
         case 1:
-                        {
-                Pelicula pelicula;
-                ArchivoPeliculas archivo;
-                pelicula.Cargar();
-                if(archivo.Guardar(pelicula))
-                    cout << "PELÍCULA AGREGADA CON ÉXITO." << endl;
-                else
-                    cout << "ERROR AL AGREGAR LA PELÍCULA." << endl;
-                system("pause");
-            break;
-            }
+            gestor.AgregarPelicula();
         case 2:
             break;
         case 3:
-                       {
-                Reporte reporte;
-                reporte.ListarPeliculas();
-                break;
-            }
+            reporte.ListarPeliculas();
+            break;
         case 4:
             break;
         case 5:
@@ -210,7 +173,7 @@ void Menu::Peliculas(){
     }
 }
 
-void Menu::Salas(){
+void Menu::Salas(GestorCine& gestor, Reporte& reporte){
     while(true){
         system("cls");
         cout << "SISTEMA DE GESTIÓN DE CINE" << endl;
@@ -226,25 +189,13 @@ void Menu::Salas(){
 
         switch(_opcion){
         case 1:
-                       {
-                Sala sala;
-                ArchivoSalas archivo;
-                sala.Cargar();
-                if(archivo.Guardar(sala))
-                    cout << "SALA AGREGADA CON ÉXITO." << endl;
-                else
-                    cout << "ERROR AL AGREGAR LA SALA." << endl;
-                system("pause");
+            gestor.AgregarSala();
             break;
-            }
         case 2:
             break;
         case 3:
-                        {
-                Reporte reporte;
-                reporte.ListarSalas();
-                break;
-            }
+            reporte.ListarSalas();
+            break;
         case 4:
             break;
         case 0:
@@ -257,7 +208,7 @@ void Menu::Salas(){
     }
 }
 
-void Menu::Ventas(){
+void Menu::Ventas(GestorCine& gestor, Reporte& reporte){
     while(true){
         system("cls");
         cout << "SISTEMA DE GESTIÓN DE CINE" << endl;
@@ -272,25 +223,13 @@ void Menu::Ventas(){
 
         switch(_opcion){
         case 1:
-                       {
-                Venta venta;
-                ArchivoVentas archivo;
-                venta.Cargar();
-                if(archivo.Guardar(venta))
-                    cout << "VENTA AGREGADA CON ÉXITO." << endl;
-                else
-                    cout << "ERROR AL AGREGAR LA VENTA." << endl;
-                system("pause");
+            gestor.AgregarVenta();
             break;
-            }
         case 2:
             break;
         case 3:
-                        {
-                Reporte reporte;
-                reporte.ListarVentas();
-                break;
-            }
+            reporte.ListarVentas();
+            break;
         case 0:
             return;
         default:
@@ -301,7 +240,7 @@ void Menu::Ventas(){
     }
 }
 
-void Menu::Reportes(){
+void Menu::Reportes(Reporte& reporte){
     while(true){
         system("cls");
         cout << "SISTEMA DE GESTIÓN DE CINE" << endl;
