@@ -74,6 +74,8 @@ void Reporte::ListarClientes(const char* nombreArchivo){
 }
 
 void Reporte::ListarFunciones(const char* nombreArchivo){
+    ArchivoPeliculas archivoPeliculas;
+    ArchivoSalas archivoSalas;
     ArchivoFunciones archivo(nombreArchivo);
     Funcion registro;
 
@@ -86,18 +88,24 @@ void Reporte::ListarFunciones(const char* nombreArchivo){
     // ENCABEZADO
     cout << left
          << setw(5)  << "ID"
-         << setw(15) << "ID PELÍCULA"
-         << setw(10) << "ID SALA"
+         << setw(40) << "PELÍCULA"
+         << setw(15) << "DURACIÓN"
+         << setw(10)  << "EDAD"
+         << setw(10) << "SALA"
          << setw(20) << "FECHA"
          << setw(10) << "HORA" << endl;
 
     cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
     for (int i = 0; i < cantidadRegistros; i++) {
         registro = archivo.LeerRegistro(i);
+        Pelicula pelicula = archivoPeliculas.LeerRegistro(registro.getIdPelicula());
+        Sala sala = archivoSalas.LeerRegistro(registro.getIdSala());
         cout << left
              << setw(5)  << registro.getIdFuncion()
-             << setw(15) << registro.getIdPelicula()
-             << setw(10) << registro.getIdSala()
+             << setw(40) << pelicula.getTitulo()
+             << setw(15) << pelicula.getDuracion().toString()
+             << setw(10)  << (to_string(pelicula.getClasificacionedad()) + "+")
+             << setw(10) << sala.getTipo()
              << setw(20) << registro.getFecha().toStringFecha()
              << setw(10) << registro.getFecha().toStringHora() << endl;
     }

@@ -40,10 +40,10 @@ int main(){
     }*/
 
     srand(time(0));
-    CargarAleatorio cargar;
-    cargar.CargarFunciones(100);
     Reporte reporte;
     reporte.ListarFunciones();
+    CargarAleatorio cargar;
+    //cargar.CargarFunciones(500);
 
     return 1;
 
