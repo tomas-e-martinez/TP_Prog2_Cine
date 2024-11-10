@@ -55,7 +55,7 @@ void Reporte::ListarClientes(const char* nombreArchivo){
          << setw(30) << "NOMBRE"
          << setw(30) << "APELLIDO"
          << setw(20) << "TELÉFONO"
-         << setw(20) << "FECHA DE NACIMIENTO" << endl;
+         << setw(15) << "FECHA DE NACIMIENTO" << endl;
 
     cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
     for (int i = 0; i < cantidadRegistros; i++) {
@@ -66,8 +66,74 @@ void Reporte::ListarClientes(const char* nombreArchivo){
              << setw(30) << registro.getNombre()
              << setw(30) << registro.getApellido()
              << setw(20) << registro.getTelefono()
-             << setw(20) << registro.getFechaNacimiento().toStringFecha() << endl;
+             << setw(15) << registro.getFechaNacimiento().toStringFecha() << endl;
     }
+
+    cout << endl;
+    system("pause");
+}
+
+void Reporte::ListarClientesEdad(int minimo, int maximo, const char* nombreArchivo){
+    ArchivoClientes archivo(nombreArchivo);
+    Cliente registro;
+    int edad;
+
+    int cantidadRegistros = archivo.ContarRegistros();
+    system("cls");
+    cout << "Cantidad de clientes: " << cantidadRegistros << endl;
+    system("pause");
+    system("cls");
+
+    Cliente* clientes = new Cliente[cantidadRegistros];
+    int indice = 0;
+
+    //ALMACENAR REGISTROS EN RANGO DE EDAD
+    for(int i = 0; i < cantidadRegistros; i++){
+        registro = archivo.LeerRegistro(i);
+        edad = 2024 - registro.getFechaNacimiento().getAnio();
+        if(edad >= minimo && edad <= maximo)
+            clientes[indice++] = registro;
+    }
+
+    //ORDENAR REGISTROS
+    for(int i = 0; i < indice - 1; i++){
+        for(int j = 0; j < indice - 1; j++){
+            int edadA = 2024 - clientes[j].getFechaNacimiento().getAnio();
+            int edadB = 2024 - clientes[j+1].getFechaNacimiento().getAnio();
+            if(edadA > edadB){
+                Cliente aux = clientes[j];
+                clientes[j] = clientes[j+1];
+                clientes[j+1] = aux;
+            }
+        }
+    }
+
+    // ENCABEZADO
+    cout << left
+         << setw(5)  << "ID"
+         << setw(10) << "DNI"
+         << setw(30) << "NOMBRE"
+         << setw(30) << "APELLIDO"
+         << setw(20) << "TELÉFONO"
+         << setw(15) << "FECHA DE NAC."
+         << setw(10) << "EDAD" << endl;
+
+    cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
+    for (int i = 0; i < indice; i++) {
+        edad = 2024 - clientes[i].getFechaNacimiento().getAnio();
+        if(edad >= minimo && edad <= maximo){
+        cout << left
+             << setw(5)  << clientes[i].getId()
+             << setw(10) << clientes[i].getDni()
+             << setw(30) << clientes[i].getNombre()
+             << setw(30) << clientes[i].getApellido()
+             << setw(20) << clientes[i].getTelefono()
+             << setw(15) << clientes[i].getFechaNacimiento().toStringFecha()
+             << setw(10) << edad << endl;
+        }
+    }
+
+    delete[] clientes;
 
     cout << endl;
     system("pause");

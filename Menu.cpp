@@ -76,6 +76,13 @@ void Menu::Clientes(GestorCine& gestor, Reporte& reporte){
         case 5:
             break;
         case 6:
+            system("cls");
+            int minimo, maximo;
+            cout << "BUSCAR CLIENTES POR RANGO DE EDAD\n\nIngrese edad mínima: ";
+            cin >> minimo;
+            cout << "Ingrese edad máxima: ";
+            cin >> maximo;
+            reporte.ListarClientesEdad(minimo, maximo);
             break;
         case 0:
             return;

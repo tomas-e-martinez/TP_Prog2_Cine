@@ -287,7 +287,7 @@
 1731266476 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\funcion.cpp
 	"Funcion.h"
 
-1731264454 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\main.cpp
+1731268122 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\main.cpp
 	<iostream>
 	<iomanip>
 	<locale.h>
@@ -316,7 +316,7 @@
 	"GestorCine.h"
 	"ArchivoClientes.h"
 
-1731119453 c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.h
+1731268063 c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.h
 	"ArchivoClientes.h"
 	"ArchivoPeliculas.h"
 	"ArchivoSalas.h"
@@ -335,7 +335,7 @@
 1731266467 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\pelicula.cpp
 	"Pelicula.h"
 
-1731119453 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.cpp
+1731268412 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.cpp
 	"Reporte.h"
 
 1731266757 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\sala.cpp
@@ -344,13 +344,13 @@
 1731119453 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\tiempo.cpp
 	"Tiempo.h"
 
-1731259669 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\venta.cpp
+1731267007 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\venta.cpp
 	"Venta.h"
 
 1731119453 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\archivosalas.cpp
 	"ArchivoSalas.h"
 
-1731258497 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.cpp
+1731268067 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.cpp
 	"Menu.h"
 
 1731266998 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\gestorcine.cpp
