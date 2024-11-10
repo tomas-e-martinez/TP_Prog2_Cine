@@ -66,6 +66,7 @@ void Menu::Clientes(GestorCine& gestor, Reporte& reporte){
             gestor.AgregarCliente();
             break;
         case 2:
+            gestor.ModificarCliente();
             break;
         case 3:
             reporte.ListarClientes();

@@ -19,4 +19,5 @@ public:
     void AgregarPelicula();
     void AgregarSala();
     void AgregarVenta();
+    void ModificarCliente();
 };

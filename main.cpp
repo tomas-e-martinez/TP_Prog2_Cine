@@ -39,13 +39,11 @@ int main(){
         system("pause");
     }*/
 
-    srand(time(0));
+    /*srand(time(0));
     Reporte reporte;
     reporte.ListarFunciones();
-    CargarAleatorio cargar;
+    CargarAleatorio cargar;*/
     //cargar.CargarFunciones(500);
-
-    return 1;
 
 
 
@@ -95,6 +93,7 @@ int main(){
 
     Menu menu;
     GestorCine gestor;
+    Reporte reporte;
 
     menu.Principal(gestor, reporte);
 
