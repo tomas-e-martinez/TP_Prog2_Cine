@@ -118,7 +118,35 @@ void Fecha::setMinutos(int minutos){
         _minutos = -1;
 }
 
+bool Fecha::operator==(const Fecha& otra) const {
+    return _dia == otra._dia && _mes == otra._mes && _anio == otra._anio &&
+           _hora == otra._hora && _minutos == otra._minutos;
+}
 
+bool Fecha::operator!=(const Fecha& otra) const {
+    return !(*this == otra);
+}
 
+bool Fecha::operator<(const Fecha& otra) const {
+    if (_anio < otra._anio) return true;
+    if (_anio > otra._anio) return false;
+    if (_mes < otra._mes) return true;
+    if (_mes > otra._mes) return false;
+    if (_dia < otra._dia) return true;
+    if (_dia > otra._dia) return false;
+    if (_hora < otra._hora) return true;
+    if (_hora > otra._hora) return false;
+    return _minutos < otra._minutos;
+}
 
+bool Fecha::operator<=(const Fecha& otra) const {
+    return *this < otra || *this == otra;
+}
 
+bool Fecha::operator>(const Fecha& otra) const {
+    return !(*this <= otra);
+}
+
+bool Fecha::operator>=(const Fecha& otra) const {
+    return !(*this < otra);
+}

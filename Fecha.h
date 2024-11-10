@@ -30,4 +30,11 @@ public:
     void setAnio(int anio);
     void setHora(int hora);
     void setMinutos(int minutos);
+
+    bool operator==(const Fecha& otra) const;
+    bool operator!=(const Fecha& otra) const;
+    bool operator<(const Fecha& otra) const;
+    bool operator<=(const Fecha& otra) const;
+    bool operator>(const Fecha& otra) const;
+    bool operator>=(const Fecha& otra) const;
 };

@@ -233,7 +233,7 @@
 	"Fecha.h"
 	"Tiempo.h"
 
-1731119453 c:\users\tomas\documents\programación 2\tp_prog2_cine\fecha.h
+1731260647 c:\users\tomas\documents\programación 2\tp_prog2_cine\fecha.h
 	<iostream>
 	<string>
 	<iomanip>
@@ -281,7 +281,7 @@
 1731257289 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\cliente.cpp
 	"Cliente.h"
 
-1731119453 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\fecha.cpp
+1731260628 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\fecha.cpp
 	"Fecha.h"
 
 1731257364 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\funcion.cpp
@@ -353,7 +353,7 @@
 1731258497 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.cpp
 	"Menu.h"
 
-1731259223 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\gestorcine.cpp
+1731259674 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\gestorcine.cpp
 	"GestorCine.h"
 
 1731257577 c:\users\tomas\documents\programación 2\tp_prog2_cine\gestorcine.h
