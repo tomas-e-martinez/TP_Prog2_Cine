@@ -75,6 +75,11 @@ void Menu::Clientes(GestorCine& gestor, Reporte& reporte){
             reporte.ListarClientesApellido();
             break;
         case 5:
+            system("cls");
+            int dni;
+            cout << "BUSCAR CLIENTE POR DNI\n\nIngrese el N° de DNI: ";
+            cin >> dni;
+            reporte.ListarClientesDNI(dni);
             break;
         case 6:
             system("cls");

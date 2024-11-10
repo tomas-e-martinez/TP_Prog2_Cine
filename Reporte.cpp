@@ -192,7 +192,41 @@ void Reporte::ListarClientesApellido(const char* nombreArchivo){
 
     cout << endl;
     system("pause");
+}
 
+void Reporte::ListarClientesDNI(int dni, const char* nombreArchivo){
+    ArchivoClientes archivo(nombreArchivo);
+    int posicion = archivo.BuscarDni(dni);
+
+    if(posicion == -1){
+        cout << "No se encontró ningún cliente con el DNI ingresado. " << endl;
+        system("pause");
+        return;
+    }
+
+    Cliente registro = archivo.LeerRegistro(posicion);
+
+    system("cls");
+    // ENCABEZADO
+    cout << left
+         << setw(5)  << "ID"
+         << setw(10) << "DNI"
+         << setw(30) << "NOMBRE"
+         << setw(30) << "APELLIDO"
+         << setw(20) << "TELÉFONO"
+         << setw(15) << "FECHA DE NACIMIENTO" << endl;
+
+    cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
+    cout << left
+         << setw(5)  << registro.getId()
+         << setw(10) << registro.getDni()
+         << setw(30) << registro.getNombre()
+         << setw(30) << registro.getApellido()
+         << setw(20) << registro.getTelefono()
+         << setw(15) << registro.getFechaNacimiento().toStringFecha() << endl;
+
+    cout << endl;
+    system("pause");
 }
 
 void Reporte::ListarFunciones(const char* nombreArchivo){
