@@ -20,6 +20,7 @@ public:
 
     void Cargar();
     void Mostrar();
+    bool Modificar();
 
     int getId();
     int getDni();

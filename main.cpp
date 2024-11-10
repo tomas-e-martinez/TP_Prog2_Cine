@@ -28,11 +28,6 @@ using namespace std;
 int main(){
     setlocale(LC_CTYPE, "Spanish");
 
-    Fecha fecha1(1, 3, 3, 1, 5);
-    Fecha fecha2(1, 3, 3, 1, 5);
-    cout << (fecha1>=fecha2) << endl;
-    return 1;
-
     ///CARGAR PELICULAS
     /*while(true){
         Pelicula pelicula;

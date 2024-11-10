@@ -42,6 +42,56 @@ void Cliente::Mostrar(){
     cout << "FECHA DE NACIMIENTO: " << _fechaNacimiento.toStringFecha() << endl;
 }
 
+bool Cliente::Modificar(){
+    int opcion;
+    while(true){
+        system("cls");
+        Mostrar();
+        cout << endl << "1. DNI\n2. Nombre\n3. Apellido\n4. Teléfono\n5. Fecha de nacimiento\n\n0. Guardar y salir\n-1. Cancelar modificación" << endl << endl;
+        cout << "ADVERTENCIA: INGRESAR UN VALOR DEL MISMO TIPO\nINGRESAR OPCIÓN A MODIFICAR: ";
+        cin >> opcion;
+        cin.ignore();
+        switch(opcion){
+        case 1:
+            int dni;
+            cout << endl << "NUEVO DNI: ";
+            cin >> dni;
+            setDni(dni);
+            break;
+        case 2:
+            char nombre[30];
+            cout << endl << "NUEVO NOMBRE: ";
+            cin.getline(nombre, sizeof(nombre));
+            setNombre(nombre);
+            break;
+        case 3:
+            char apellido[30];
+            cout << endl << "NUEVO APELLIDO: ";
+            cin.getline(apellido, sizeof(apellido));
+            setApellido(apellido);
+            break;
+        case 4:
+            char telefono[20];
+            cout << endl << "NUEVO TELÉFONO: ";
+            cin.getline(telefono, sizeof(telefono));
+            setTelefono(telefono);
+            break;
+        case 5:
+            cout << "NUEVA FECHA DE NACIMIENTO \n";
+            _fechaNacimiento.Cargar();
+            break;
+        case 0:
+            return true;
+        case -1:
+            return false;
+        default:
+            cout << "ERROR: INGRESE UNA OPCIÓN VÁLIDA." << endl;
+            system("pause");
+            continue;
+        }
+    }
+}
+
 int Cliente::getId(){
     return _id;
 }
