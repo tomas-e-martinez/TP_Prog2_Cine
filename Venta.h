@@ -21,7 +21,7 @@ public:
     int getIdVenta();
     int getIdCliente();
     int getIdFuncion();
-    Fecha getFecha();
+    Fecha& getFecha();
     int getCantidadEntradas();
 
     void setIdVenta(int idVenta);

@@ -357,5 +357,69 @@ void GestorCine::ModificarSala(){
 }
 
 void GestorCine::ModificarVenta(){
-    return;
+    ArchivoVentas archivo;
+    Venta venta;
+    int posicion;
+    while(true){
+        system("cls");
+        int opcionModificar;
+        int id;
+        cout << "MODIFICAR VENTA" << endl << endl;
+        cout << "INGRESAR ID: ";
+        cin >> id;
+        posicion = archivo.BuscarID(id);
+        if(posicion == -1){
+            cout << "ERROR: NO SE ENCONTRÓ UNA VENTA CON EL ID INGRESADO." << endl;
+            system("pause");
+            continue;
+        }
+        while(true){
+            system("cls");
+            venta = archivo.LeerRegistro(posicion);
+            venta.Mostrar();
+            cout << endl << "1. ID Cliente\n2. ID Función\n3. Cantidad de entradas\n4. Fecha\n\n0. Cancelar" << endl << endl;
+            cout << "ADVERTENCIA: INGRESAR UN VALOR DEL MISMO TIPO\nINGRESAR OPCIÓN A MODIFICAR: ";
+            cin >> opcionModificar;
+            cin.ignore();
+            switch(opcionModificar){
+            case 1:
+                int idCliente;
+                cout << endl << "NUEVO ID CLIENTE: ";
+                cin >> idCliente;
+                venta.setIdCliente(idCliente);
+                break;
+            case 2:
+                int idFuncion;
+                cout << endl << "NUEVO ID FUNCIÓN: ";
+                cin >> idFuncion;
+                venta.setIdFuncion(idFuncion);
+                break;
+            case 3:
+                int cantidadEntradas;
+                cout << endl << "NUEVA CANTIDAD DE ENTRADAS:";
+                cin >> cantidadEntradas;
+                venta.setCantidadEntradas(cantidadEntradas);
+                break;
+            case 4:
+                cout << endl << "NUEVA FECHA \n";
+                venta.getFecha().CargarHora();
+                break;
+            case 0:
+                return;
+            default:
+                cout << "ERROR: INGRESE UNA OPCIÓN VÁLIDA." << endl;
+                system("pause");
+                continue;
+            }
+
+            if(archivo.Guardar(venta, posicion))
+                cout << endl << "VENTA MODIFICADA CON ÉXITO." << endl;
+            else
+                cout << endl << "ERROR: NO SE PUEDO MODIFICAR LA VENTA." << endl;
+
+            system("pause");
+            break;
+        }
+        return;
+    }
 }

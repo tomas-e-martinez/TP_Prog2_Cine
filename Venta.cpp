@@ -36,7 +36,7 @@ void Venta::Mostrar() {
         cout << "CANTIDAD DE ENTRADAS: " << _cantidadEntradas << endl;
         cout << "FECHA DE LA VENTA: " << _fecha.toStringFecha() << endl;
         cout << "HORA: " << _fecha.toStringHora() << endl;
-    }
+}
 
 
 int Venta::getIdVenta(){
@@ -51,7 +51,7 @@ int Venta::getIdFuncion(){
     return _idFuncion;
 }
 
-Fecha Venta::getFecha(){
+Fecha& Venta::getFecha(){
     return _fecha;
 }
 
