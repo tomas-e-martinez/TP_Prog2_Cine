@@ -72,6 +72,7 @@ void Menu::Clientes(GestorCine& gestor, Reporte& reporte){
             reporte.ListarClientes();
             break;
         case 4:
+            reporte.ListarClientesApellido();
             break;
         case 5:
             break;

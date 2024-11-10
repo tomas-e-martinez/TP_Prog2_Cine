@@ -12,6 +12,7 @@ public:
 
     void ListarClientes(const char* nombreArchivo = "clientes.dat");
     void ListarClientesEdad(int minimo, int maximo, const char* nombreArchivo = "clientes.dat");
+    void ListarClientesApellido(const char* nombreArchivo = "clientes.dat");
 
     void ListarFunciones(const char* nombreArchivo = "funciones.dat");
     void ListarVentas(const char* nombreArchivo = "ventas.dat");

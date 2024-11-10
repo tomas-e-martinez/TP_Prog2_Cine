@@ -121,7 +121,6 @@ void Reporte::ListarClientesEdad(int minimo, int maximo, const char* nombreArchi
     cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
     for (int i = 0; i < indice; i++) {
         edad = 2024 - clientes[i].getFechaNacimiento().getAnio();
-        if(edad >= minimo && edad <= maximo){
         cout << left
              << setw(5)  << clientes[i].getId()
              << setw(10) << clientes[i].getDni()
@@ -130,13 +129,70 @@ void Reporte::ListarClientesEdad(int minimo, int maximo, const char* nombreArchi
              << setw(20) << clientes[i].getTelefono()
              << setw(15) << clientes[i].getFechaNacimiento().toStringFecha()
              << setw(10) << edad << endl;
-        }
     }
 
     delete[] clientes;
 
     cout << endl;
     system("pause");
+}
+
+void Reporte::ListarClientesApellido(const char* nombreArchivo){
+    ArchivoClientes archivo(nombreArchivo);
+    Cliente registro;
+    int edad;
+
+    int cantidadRegistros = archivo.ContarRegistros();
+    system("cls");
+    cout << "Cantidad de clientes: " << cantidadRegistros << endl;
+    system("pause");
+    system("cls");
+
+    Cliente* clientes = new Cliente[cantidadRegistros];
+    int indice = 0;
+
+    //ALMACENAR REGISTROS PARA ORDENAR DESPUÉS
+    for(int i = 0; i < cantidadRegistros; i++){
+        registro = archivo.LeerRegistro(i);
+        clientes[i] = registro;
+    }
+
+    //ORDENAR REGISTROS
+    for(int i = 0; i < cantidadRegistros - 1; i++){
+        for(int j = 0; j < cantidadRegistros - 1; j++){
+            if(strcmp(clientes[j].getApellido(), clientes[j+1].getApellido()) > 0){
+                Cliente aux = clientes[j];
+                clientes[j] = clientes[j+1];
+                clientes[j+1] = aux;
+            }
+        }
+    }
+
+    // ENCABEZADO
+    cout << left
+         << setw(5)  << "ID"
+         << setw(10) << "DNI"
+         << setw(30) << "NOMBRE"
+         << setw(30) << "APELLIDO"
+         << setw(20) << "TELÉFONO"
+         << setw(15) << "FECHA DE NACIMIENTO" << endl;
+
+    cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
+    for (int i = 0; i < cantidadRegistros; i++) {
+        cout << left
+             << setw(5)  << clientes[i].getId()
+             << setw(10) << clientes[i].getDni()
+             << setw(30) << clientes[i].getNombre()
+             << setw(30) << clientes[i].getApellido()
+             << setw(20) << clientes[i].getTelefono()
+             << setw(15) << clientes[i].getFechaNacimiento().toStringFecha() << endl;
+    }
+
+    delete[] clientes;
+
+    cout << endl;
+    system("pause");
+
 }
 
 void Reporte::ListarFunciones(const char* nombreArchivo){
