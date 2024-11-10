@@ -42,14 +42,14 @@ void Pelicula::Cargar(){
 }
 
 void Pelicula::Mostrar(){
-    cout << _id << endl;
-    cout << _titulo << endl;
-    cout << _sinopsis << endl;
-    cout << _genero << endl;
-    cout << _clasificacionEdad << "+" << endl;
-    cout << _calificacion << "*" << endl;
-    cout << _fechaEstreno.toStringFecha() << endl;
-    cout << _duracion.toString() << endl;
+    cout << "ID: " << _id << endl;
+    cout << "TÍTULO: " << _titulo << endl;
+    cout << "SINOPSIS: " << _sinopsis << endl;
+    cout << "GÉNERO: " << _genero << endl;
+    cout << "CLASIFICACIÓN DE EDAD: " << _clasificacionEdad << endl;
+    cout << "CALIFICACIÓN (0-10): " << _calificacion << endl;
+    cout << "FECHA DE ESTRENO: " << _fechaEstreno.toStringFecha() << endl;
+    cout << "DURACIÓN: " << _duracion.toString() << endl;
 }
 
 int Pelicula::getId(){
@@ -76,11 +76,11 @@ float Pelicula::getCalificacion(){
     return _calificacion;
 }
 
-Fecha Pelicula::getFechaEstreno(){
+Fecha& Pelicula::getFechaEstreno(){
     return _fechaEstreno;
 }
 
-Tiempo Pelicula::getDuracion(){
+Tiempo& Pelicula::getDuracion(){
     return _duracion;
 }
 

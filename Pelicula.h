@@ -28,8 +28,8 @@ public:
     const char* getGenero();
     int getClasificacionedad();
     float getCalificacion();
-    Fecha getFechaEstreno();
-    Tiempo getDuracion();
+    Fecha& getFechaEstreno();
+    Tiempo& getDuracion();
 
     void setId(int id);
     void setTitulo(const char* titulo);

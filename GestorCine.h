@@ -22,4 +22,7 @@ public:
 
     void ModificarCliente();
     void ModificarFuncion();
+    void ModificarPelicula();
+    void ModificarSala();
+    void ModificarVenta();
 };

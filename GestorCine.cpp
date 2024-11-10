@@ -213,3 +213,95 @@ void GestorCine::ModificarFuncion(){
         return;
     }
 }
+
+void GestorCine::ModificarPelicula(){
+    ArchivoPeliculas archivo;
+    Pelicula pelicula;
+    int posicion;
+    while(true){
+        system("cls");
+        int opcionModificar;
+        int id;
+        cout << "MODIFICAR PELÍCULA" << endl << endl;
+        cout << "INGRESAR ID: ";
+        cin >> id;
+        posicion = archivo.BuscarID(id);
+        if(posicion == -1){
+            cout << "ERROR: NO SE ENCONTRÓ UNA PELÍCULA CON EL ID INGRESADO." << endl;
+            system("pause");
+            continue;
+        }
+        while(true){
+            system("cls");
+            pelicula = archivo.LeerRegistro(posicion);
+            pelicula.Mostrar();
+            cout << endl << "1. Título\n2. Sinopsis\n3. Género\n4. Clasificación de edad\n5. Calificación\n6. Fecha de estreno\n7. Duración\n\n0. Cancelar" << endl << endl;
+            cout << "ADVERTENCIA: INGRESAR UN VALOR DEL MISMO TIPO\nINGRESAR OPCIÓN A MODIFICAR: ";
+            cin >> opcionModificar;
+            cin.ignore();
+            switch(opcionModificar){
+            case 1:
+                char titulo[100];
+                cout << endl << "NUEVO TÍTULO: ";
+                cin.getline(titulo, sizeof(titulo));
+                pelicula.setTitulo(titulo);
+                break;
+            case 2:
+                char sinopsis[500];
+                cout << endl << "NUEVA SINOPSIS: ";
+                cin.getline(sinopsis, sizeof(sinopsis));
+                pelicula.setSinopsis(sinopsis);
+                break;
+            case 3:
+                char genero[20];
+                cout << endl << "NUEVO GÉNERO: ";
+                cin.getline(genero, sizeof(genero));
+                pelicula.setGenero(genero);
+                break;
+            case 4:
+                int clasificacionEdad;
+                cout << endl << "NUEVA CLASIFICACIÓN DE EDAD: ";
+                cin >> clasificacionEdad;
+                pelicula.setClasificacionEdad(clasificacionEdad);
+                break;
+            case 5:
+                float calificacion;
+                cout << endl << "NUEVA CALIFICACIÓN (1-10): ";
+                cin >> calificacion;
+                pelicula.setCalificacion(calificacion);
+                break;
+            case 6:
+                cout << "NUEVA FECHA DE ESTRENO \n";
+                pelicula.getFechaEstreno().Cargar();
+                break;
+            case 7:
+                cout << "NUEVA DURACIÓN \n";
+                pelicula.getDuracion().Cargar();
+                break;
+            case 0:
+                return;
+            default:
+                cout << "ERROR: INGRESE UNA OPCIÓN VÁLIDA." << endl;
+                system("pause");
+                continue;
+            }
+
+            if(archivo.Guardar(pelicula, posicion))
+                cout << endl << "PELÍCULA MODIFICADA CON ÉXITO." << endl;
+            else
+                cout << endl << "ERROR: NO SE PUEDO MODIFICAR LA PELÍCULA." << endl;
+
+            system("pause");
+            break;
+        }
+        return;
+    }
+}
+
+void GestorCine::ModificarSala(){
+    return;
+}
+
+void GestorCine::ModificarVenta(){
+    return;
+}

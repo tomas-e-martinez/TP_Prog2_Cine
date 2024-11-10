@@ -133,7 +133,7 @@ void Menu::Peliculas(GestorCine& gestor, Reporte& reporte){
         cout << "SUBMENÚ PELÍCULAS" << endl << endl;
         cout << "1. Agregar Película" << endl;
         cout << "2. Modificar Película" << endl;
-        cout << "3. Listado ordenado por título" << endl;
+        cout << "3. Listado ordenado por ID" << endl;
         cout << "4. Listado ordenado por género" << endl;
         cout << "5. Listado ordenado por puntuación" << endl;
         cout << "6. Buscar por género" << endl;
@@ -149,6 +149,7 @@ void Menu::Peliculas(GestorCine& gestor, Reporte& reporte){
         case 1:
             gestor.AgregarPelicula();
         case 2:
+            gestor.ModificarPelicula();
             break;
         case 3:
             reporte.ListarPeliculas();
@@ -194,6 +195,7 @@ void Menu::Salas(GestorCine& gestor, Reporte& reporte){
             gestor.AgregarSala();
             break;
         case 2:
+            gestor.ModificarSala();
             break;
         case 3:
             reporte.ListarSalas();
@@ -228,6 +230,7 @@ void Menu::Ventas(GestorCine& gestor, Reporte& reporte){
             gestor.AgregarVenta();
             break;
         case 2:
+            gestor.ModificarVenta();
             break;
         case 3:
             reporte.ListarVentas();
