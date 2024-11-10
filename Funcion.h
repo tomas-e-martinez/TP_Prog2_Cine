@@ -23,7 +23,7 @@ public:
     int getIdFuncion();
     int getIdPelicula();
     int getIdSala();
-    Fecha getFecha();
+    Fecha& getFecha();
 
     void setIdFuncion(int idFuncion);
     void setIdPelicula(int idPelicula);

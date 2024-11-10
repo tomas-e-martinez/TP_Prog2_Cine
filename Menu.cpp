@@ -107,6 +107,7 @@ void Menu::Funciones(GestorCine& gestor, Reporte& reporte){
             gestor.AgregarFuncion();
             break;
         case 2:
+            gestor.ModificarFuncion();
             break;
         case 3:
             reporte.ListarFunciones();

@@ -26,7 +26,7 @@ public:
     const char* getNombre();
     const char* getApellido();
     const char* getTelefono();
-    Fecha getFechaNacimiento();
+    Fecha& getFechaNacimiento();
 
     void setId(int id);
     void setDni(int dni);

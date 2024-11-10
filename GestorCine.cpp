@@ -129,13 +129,9 @@ void GestorCine::ModificarCliente(){
                 cliente.setTelefono(telefono);
                 break;
             case 5:
-            {
-                Fecha fechaNacimiento;
                 cout << "NUEVA FECHA DE NACIMIENTO \n";
-                fechaNacimiento.Cargar();
-                cliente.setFechaNacimiento(fechaNacimiento);
+                cliente.getFechaNacimiento().Cargar();
                 break;
-            }
             case 0:
                 return;
             default:
@@ -148,6 +144,68 @@ void GestorCine::ModificarCliente(){
                 cout << endl << "CLIENTE MODIFICADO CON ÉXITO." << endl;
             else
                 cout << endl << "ERROR: NO SE PUEDO MODIFICAR EL CLIENTE." << endl;
+
+            system("pause");
+            break;
+        }
+        return;
+    }
+}
+
+void GestorCine::ModificarFuncion(){
+    ArchivoFunciones archivo;
+    Funcion funcion;
+    int posicion;
+    while(true){
+        system("cls");
+        int opcionModificar;
+        int id;
+        cout << "MODIFICAR FUNCIÓN" << endl << endl;
+        cout << "INGRESAR ID: ";
+        cin >> id;
+        posicion = archivo.BuscarID(id);
+        if(posicion == -1){
+            cout << "ERROR: NO SE ENCONTRÓ UNA FUNCIÓN CON EL ID INGRESADO." << endl;
+            system("pause");
+            continue;
+        }
+        while(true){
+            system("cls");
+            funcion = archivo.LeerRegistro(posicion);
+            funcion.Mostrar();
+            cout << endl << "1. ID Película\n2. ID Sala\n3. Fecha\n\n0. Cancelar" << endl << endl;
+            cout << "ADVERTENCIA: INGRESAR UN VALOR DEL MISMO TIPO\nINGRESAR OPCIÓN A MODIFICAR: ";
+            cin >> opcionModificar;
+            cin.ignore();
+            switch(opcionModificar){
+            case 1:
+                int idPelicula;
+                cout << endl << "NUEVO ID PELÍCULA: ";
+                cin >> idPelicula;
+                funcion.setIdPelicula(idPelicula);
+                break;
+            case 2:
+                int idSala;
+                cout << endl << "NUEVO ID SALA: ";
+                cin >> idSala;
+                funcion.setIdSala(idSala);
+                break;
+            case 3:
+                cout << endl << "NUEVA FECHA \n";
+                funcion.getFecha().CargarHora();
+                break;
+            case 0:
+                return;
+            default:
+                cout << "ERROR: INGRESE UNA OPCIÓN VÁLIDA." << endl;
+                system("pause");
+                continue;
+            }
+
+            if(archivo.Guardar(funcion, posicion))
+                cout << endl << "FUNCIÓN MODIFICADA CON ÉXITO." << endl;
+            else
+                cout << endl << "ERROR: NO SE PUEDO MODIFICAR LA FUNCIÓN." << endl;
 
             system("pause");
             break;

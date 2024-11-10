@@ -62,7 +62,7 @@ const char* Cliente::getTelefono(){
     return _telefono;
 }
 
-Fecha Cliente::getFechaNacimiento(){
+Fecha& Cliente::getFechaNacimiento(){
     return _fechaNacimiento;
 }
 

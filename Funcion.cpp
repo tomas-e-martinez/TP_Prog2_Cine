@@ -45,7 +45,7 @@ int Funcion::getIdSala(){
 }
 
 
-Fecha Funcion::getFecha(){
+Fecha& Funcion::getFecha(){
     return _fecha;
 }
 
