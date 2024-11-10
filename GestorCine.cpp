@@ -130,47 +130,20 @@ void GestorCine::ModificarFuncion(){
             system("pause");
             continue;
         }
-        while(true){
-            system("cls");
-            funcion = archivo.LeerRegistro(posicion);
-            funcion.Mostrar();
-            cout << endl << "1. ID Película\n2. ID Sala\n3. Fecha\n\n0. Cancelar" << endl << endl;
-            cout << "ADVERTENCIA: INGRESAR UN VALOR DEL MISMO TIPO\nINGRESAR OPCIÓN A MODIFICAR: ";
-            cin >> opcionModificar;
-            cin.ignore();
-            switch(opcionModificar){
-            case 1:
-                int idPelicula;
-                cout << endl << "NUEVO ID PELÍCULA: ";
-                cin >> idPelicula;
-                funcion.setIdPelicula(idPelicula);
-                break;
-            case 2:
-                int idSala;
-                cout << endl << "NUEVO ID SALA: ";
-                cin >> idSala;
-                funcion.setIdSala(idSala);
-                break;
-            case 3:
-                cout << endl << "NUEVA FECHA \n";
-                funcion.getFecha().CargarHora();
-                break;
-            case 0:
-                return;
-            default:
-                cout << "ERROR: INGRESE UNA OPCIÓN VÁLIDA." << endl;
-                system("pause");
-                continue;
-            }
 
-            if(archivo.Guardar(funcion, posicion))
-                cout << endl << "FUNCIÓN MODIFICADA CON ÉXITO." << endl;
-            else
-                cout << endl << "ERROR: NO SE PUEDO MODIFICAR LA FUNCIÓN." << endl;
-
+        funcion = archivo.LeerRegistro(posicion);
+        if(!funcion.Modificar()){
+            cout << endl << "MODIFICACIÓN CANCELADA." << endl;
             system("pause");
-            break;
+            return;
         }
+
+        if(archivo.Guardar(funcion, posicion))
+            cout << endl << "FUNCIÓN MODIFICADA CON ÉXITO." << endl;
+        else
+            cout << endl << "ERROR: NO SE PUEDO MODIFICAR LA FUNCIÓN." << endl;
+
+        system("pause");
         return;
     }
 }
@@ -192,69 +165,20 @@ void GestorCine::ModificarPelicula(){
             system("pause");
             continue;
         }
-        while(true){
-            system("cls");
-            pelicula = archivo.LeerRegistro(posicion);
-            pelicula.Mostrar();
-            cout << endl << "1. Título\n2. Sinopsis\n3. Género\n4. Clasificación de edad\n5. Calificación\n6. Fecha de estreno\n7. Duración\n\n0. Cancelar" << endl << endl;
-            cout << "ADVERTENCIA: INGRESAR UN VALOR DEL MISMO TIPO\nINGRESAR OPCIÓN A MODIFICAR: ";
-            cin >> opcionModificar;
-            cin.ignore();
-            switch(opcionModificar){
-            case 1:
-                char titulo[100];
-                cout << endl << "NUEVO TÍTULO: ";
-                cin.getline(titulo, sizeof(titulo));
-                pelicula.setTitulo(titulo);
-                break;
-            case 2:
-                char sinopsis[500];
-                cout << endl << "NUEVA SINOPSIS: ";
-                cin.getline(sinopsis, sizeof(sinopsis));
-                pelicula.setSinopsis(sinopsis);
-                break;
-            case 3:
-                char genero[20];
-                cout << endl << "NUEVO GÉNERO: ";
-                cin.getline(genero, sizeof(genero));
-                pelicula.setGenero(genero);
-                break;
-            case 4:
-                int clasificacionEdad;
-                cout << endl << "NUEVA CLASIFICACIÓN DE EDAD: ";
-                cin >> clasificacionEdad;
-                pelicula.setClasificacionEdad(clasificacionEdad);
-                break;
-            case 5:
-                float calificacion;
-                cout << endl << "NUEVA CALIFICACIÓN (1-10): ";
-                cin >> calificacion;
-                pelicula.setCalificacion(calificacion);
-                break;
-            case 6:
-                cout << "NUEVA FECHA DE ESTRENO \n";
-                pelicula.getFechaEstreno().Cargar();
-                break;
-            case 7:
-                cout << "NUEVA DURACIÓN \n";
-                pelicula.getDuracion().Cargar();
-                break;
-            case 0:
-                return;
-            default:
-                cout << "ERROR: INGRESE UNA OPCIÓN VÁLIDA." << endl;
-                system("pause");
-                continue;
-            }
 
-            if(archivo.Guardar(pelicula, posicion))
-                cout << endl << "PELÍCULA MODIFICADA CON ÉXITO." << endl;
-            else
-                cout << endl << "ERROR: NO SE PUEDO MODIFICAR LA PELÍCULA." << endl;
-
+        pelicula = archivo.LeerRegistro(posicion);
+        if(!pelicula.Modificar()){
+            cout << endl << "MODIFICACIÓN CANCELADA." << endl;
             system("pause");
-            break;
+            return;
         }
+
+        if(archivo.Guardar(pelicula, posicion))
+            cout << endl << "PELÍCULA MODIFICADA CON ÉXITO." << endl;
+        else
+            cout << endl << "ERROR: NO SE PUEDO MODIFICAR LA PELÍCULA." << endl;
+
+        system("pause");
         return;
     }
 }
@@ -276,43 +200,19 @@ void GestorCine::ModificarSala(){
             system("pause");
             continue;
         }
-        while(true){
-            system("cls");
-            sala = archivo.LeerRegistro(posicion);
-            sala.Mostrar();
-            cout << endl << "1. Capacidad\n2. Tipo\n\n0. Cancelar" << endl << endl;
-            cout << "ADVERTENCIA: INGRESAR UN VALOR DEL MISMO TIPO\nINGRESAR OPCIÓN A MODIFICAR: ";
-            cin >> opcionModificar;
-            cin.ignore();
-            switch(opcionModificar){
-            case 1:
-                int capacidad;
-                cout << endl << "NUEVA CAPACIDAD: ";
-                cin >> capacidad;
-                sala.setCapacidad(capacidad);
-                break;
-            case 2:
-                char tipo[5];
-                cout << endl << "NUEVO TIPO: ";
-                cin.getline(tipo, sizeof(tipo));
-                sala.setTipo(tipo);
-                break;
-            case 0:
-                return;
-            default:
-                cout << "ERROR: INGRESE UNA OPCIÓN VÁLIDA." << endl;
-                system("pause");
-                continue;
-            }
-
-            if(archivo.Guardar(sala, posicion))
-                cout << endl << "SALA MODIFICADA CON ÉXITO." << endl;
-            else
-                cout << endl << "ERROR: NO SE PUEDO MODIFICAR LA SALA." << endl;
-
+        sala = archivo.LeerRegistro(posicion);
+        if(!sala.Modificar()){
+            cout << endl << "MODIFICACIÓN CANCELADA." << endl;
             system("pause");
-            break;
+            return;
         }
+
+        if(archivo.Guardar(sala, posicion))
+            cout << endl << "SALA MODIFICADA CON ÉXITO." << endl;
+        else
+            cout << endl << "ERROR: NO SE PUEDO MODIFICAR LA SALA." << endl;
+
+        system("pause");
         return;
     }
 }
@@ -334,53 +234,20 @@ void GestorCine::ModificarVenta(){
             system("pause");
             continue;
         }
-        while(true){
-            system("cls");
-            venta = archivo.LeerRegistro(posicion);
-            venta.Mostrar();
-            cout << endl << "1. ID Cliente\n2. ID Función\n3. Cantidad de entradas\n4. Fecha\n\n0. Cancelar" << endl << endl;
-            cout << "ADVERTENCIA: INGRESAR UN VALOR DEL MISMO TIPO\nINGRESAR OPCIÓN A MODIFICAR: ";
-            cin >> opcionModificar;
-            cin.ignore();
-            switch(opcionModificar){
-            case 1:
-                int idCliente;
-                cout << endl << "NUEVO ID CLIENTE: ";
-                cin >> idCliente;
-                venta.setIdCliente(idCliente);
-                break;
-            case 2:
-                int idFuncion;
-                cout << endl << "NUEVO ID FUNCIÓN: ";
-                cin >> idFuncion;
-                venta.setIdFuncion(idFuncion);
-                break;
-            case 3:
-                int cantidadEntradas;
-                cout << endl << "NUEVA CANTIDAD DE ENTRADAS:";
-                cin >> cantidadEntradas;
-                venta.setCantidadEntradas(cantidadEntradas);
-                break;
-            case 4:
-                cout << endl << "NUEVA FECHA \n";
-                venta.getFecha().CargarHora();
-                break;
-            case 0:
-                return;
-            default:
-                cout << "ERROR: INGRESE UNA OPCIÓN VÁLIDA." << endl;
-                system("pause");
-                continue;
-            }
 
-            if(archivo.Guardar(venta, posicion))
-                cout << endl << "VENTA MODIFICADA CON ÉXITO." << endl;
-            else
-                cout << endl << "ERROR: NO SE PUEDO MODIFICAR LA VENTA." << endl;
-
+        venta = archivo.LeerRegistro(posicion);
+        if(!venta.Modificar()){
+            cout << endl << "MODIFICACIÓN CANCELADA." << endl;
             system("pause");
-            break;
+            return;
         }
+
+        if(archivo.Guardar(venta, posicion))
+            cout << endl << "VENTA MODIFICADA CON ÉXITO." << endl;
+        else
+            cout << endl << "ERROR: NO SE PUEDO MODIFICAR LA VENTA." << endl;
+
+        system("pause");
         return;
     }
 }

@@ -45,6 +45,40 @@ void Sala::Mostrar(){
     cout << "CAPACIDAD: " << _capacidad<< endl;
 }
 
+bool Sala::Modificar(){
+    int opcion;
+    while(true){
+        system("cls");
+        Mostrar();
+        cout << endl << "1. Capacidad\n2. Tipo\n\n0. Guardar y salir\n-1. Cancelar modificación" << endl << endl;
+        cout << "ADVERTENCIA: INGRESAR UN VALOR DEL MISMO TIPO\nINGRESAR OPCIÓN A MODIFICAR: ";
+        cin >> opcion;
+        cin.ignore();
+        switch(opcion){
+        case 1:
+            int capacidad;
+            cout << endl << "NUEVA CAPACIDAD: ";
+            cin >> capacidad;
+            setCapacidad(capacidad);
+            break;
+        case 2:
+            char tipo[5];
+            cout << endl << "NUEVO TIPO: ";
+            cin.getline(tipo, sizeof(tipo));
+            setTipo(tipo);
+            break;
+        case 0:
+            return true;
+        case -1:
+            return false;
+        default:
+            cout << "ERROR: INGRESE UNA OPCIÓN VÁLIDA." << endl;
+            system("pause");
+            continue;
+        }
+    }
+}
+
 int Sala::getIdSala(){
     return _idSala;
 }

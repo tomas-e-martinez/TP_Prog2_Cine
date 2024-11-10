@@ -17,6 +17,7 @@ public:
 
     void Cargar();
     void Mostrar();
+    bool Modificar();
 
     int getIdVenta();
     int getIdCliente();

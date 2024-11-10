@@ -19,6 +19,7 @@ public:
 
     void Cargar();
     void Mostrar();
+    bool Modificar();
 
     int getIdSala();
     int getCapacidad();

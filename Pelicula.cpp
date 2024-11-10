@@ -52,6 +52,67 @@ void Pelicula::Mostrar(){
     cout << "DURACIÓN: " << _duracion.toString() << endl;
 }
 
+bool Pelicula::Modificar(){
+    int opcion;
+    while(true){
+        system("cls");
+        Mostrar();
+        cout << endl << "1. Título\n2. Sinopsis\n3. Género\n4. Clasificación de edad\n5. Calificación\n6. Fecha de estreno\n7. Duración\n\n0. Guardar y salir\n-1 Cancelar modificación" << endl << endl;
+        cout << "ADVERTENCIA: INGRESAR UN VALOR DEL MISMO TIPO\nINGRESAR OPCIÓN A MODIFICAR: ";
+        cin >> opcion;
+        cin.ignore();
+        switch(opcion){
+        case 1:
+            char titulo[100];
+            cout << endl << "NUEVO TÍTULO: ";
+            cin.getline(titulo, sizeof(titulo));
+            setTitulo(titulo);
+            break;
+        case 2:
+            char sinopsis[500];
+            cout << endl << "NUEVA SINOPSIS: ";
+            cin.getline(sinopsis, sizeof(sinopsis));
+            setSinopsis(sinopsis);
+            break;
+        case 3:
+            char genero[20];
+            cout << endl << "NUEVO GÉNERO: ";
+            cin.getline(genero, sizeof(genero));
+            setGenero(genero);
+            break;
+        case 4:
+            int clasificacionEdad;
+            cout << endl << "NUEVA CLASIFICACIÓN DE EDAD: ";
+            cin >> clasificacionEdad;
+            setClasificacionEdad(clasificacionEdad);
+            break;
+        case 5:
+            float calificacion;
+            cout << endl << "NUEVA CALIFICACIÓN (1-10): ";
+            cin >> calificacion;
+            setCalificacion(calificacion);
+            break;
+        case 6:
+            cout << "NUEVA FECHA DE ESTRENO \n";
+            _fechaEstreno.Cargar();
+            break;
+        case 7:
+            cout << "NUEVA DURACIÓN \n";
+            _duracion.Cargar();
+            break;
+        case 0:
+            return true;
+        case -1:
+            return false;
+        default:
+            cout << "ERROR: INGRESE UNA OPCIÓN VÁLIDA." << endl;
+            system("pause");
+            continue;
+        }
+
+    }
+}
+
 int Pelicula::getId(){
     return _id;
 }

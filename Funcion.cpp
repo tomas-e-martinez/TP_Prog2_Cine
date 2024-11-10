@@ -32,6 +32,44 @@ void Funcion::Mostrar(){
     cout << "HORA: " << _fecha.toStringHora() << endl;
 }
 
+bool Funcion::Modificar(){
+    int opcion;
+    while(true){
+        system("cls");
+        Mostrar();
+        cout << endl << "1. ID Película\n2. ID Sala\n3. Fecha\n\n0. Guardar y salir\n-1. Cancelar modificación" << endl << endl;
+        cout << "ADVERTENCIA: INGRESAR UN VALOR DEL MISMO TIPO\nINGRESAR OPCIÓN A MODIFICAR: ";
+        cin >> opcion;
+        cin.ignore();
+        switch(opcion){
+        case 1:
+            int idPelicula;
+            cout << endl << "NUEVO ID PELÍCULA: ";
+            cin >> idPelicula;
+            setIdPelicula(idPelicula);
+            break;
+        case 2:
+            int idSala;
+            cout << endl << "NUEVO ID SALA: ";
+            cin >> idSala;
+            setIdSala(idSala);
+            break;
+        case 3:
+            cout << endl << "NUEVA FECHA \n";
+            _fecha.CargarHora();
+            break;
+        case 0:
+            return true;
+        case -1:
+            return false;
+        default:
+            cout << "ERROR: INGRESE UNA OPCIÓN VÁLIDA." << endl;
+            system("pause");
+            continue;
+        }
+    }
+}
+
 int Funcion::getIdFuncion(){
     return _idFuncion;
 }

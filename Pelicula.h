@@ -21,6 +21,7 @@ public:
 
     void Cargar();
     void Mostrar();
+    bool Modificar();
 
     int getId();
     const char* getTitulo();
