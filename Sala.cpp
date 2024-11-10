@@ -40,9 +40,9 @@ void Sala::Cargar(){
 }
 
 void Sala::Mostrar(){
-    cout << _idSala << endl;
-    cout << _tipo << endl;
-    cout << _capacidad<< endl;
+    cout << "ID: " << _idSala << endl;
+    cout << "TIPO: " << _tipo << endl;
+    cout << "CAPACIDAD: " << _capacidad<< endl;
 }
 
 int Sala::getIdSala(){

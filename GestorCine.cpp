@@ -299,7 +299,61 @@ void GestorCine::ModificarPelicula(){
 }
 
 void GestorCine::ModificarSala(){
-    return;
+    ArchivoSalas archivo;
+    Sala sala;
+    int posicion;
+    while(true){
+        system("cls");
+        int opcionModificar;
+        int id;
+        cout << "MODIFICAR SALA" << endl << endl;
+        cout << "INGRESAR ID: ";
+        cin >> id;
+        posicion = archivo.BuscarID(id);
+        if(posicion == -1){
+            cout << "ERROR: NO SE ENCONTRÓ UNA SALA CON EL ID INGRESADO." << endl;
+            system("pause");
+            continue;
+        }
+        while(true){
+            system("cls");
+            sala = archivo.LeerRegistro(posicion);
+            sala.Mostrar();
+            cout << endl << "1. Capacidad\n2. Tipo\n\n0. Cancelar" << endl << endl;
+            cout << "ADVERTENCIA: INGRESAR UN VALOR DEL MISMO TIPO\nINGRESAR OPCIÓN A MODIFICAR: ";
+            cin >> opcionModificar;
+            cin.ignore();
+            switch(opcionModificar){
+            case 1:
+                int capacidad;
+                cout << endl << "NUEVA CAPACIDAD: ";
+                cin >> capacidad;
+                sala.setCapacidad(capacidad);
+                break;
+            case 2:
+                char tipo[5];
+                cout << endl << "NUEVO TIPO: ";
+                cin.getline(tipo, sizeof(tipo));
+                sala.setTipo(tipo);
+                break;
+            case 0:
+                return;
+            default:
+                cout << "ERROR: INGRESE UNA OPCIÓN VÁLIDA." << endl;
+                system("pause");
+                continue;
+            }
+
+            if(archivo.Guardar(sala, posicion))
+                cout << endl << "SALA MODIFICADA CON ÉXITO." << endl;
+            else
+                cout << endl << "ERROR: NO SE PUEDO MODIFICAR LA SALA." << endl;
+
+            system("pause");
+            break;
+        }
+        return;
+    }
 }
 
 void GestorCine::ModificarVenta(){

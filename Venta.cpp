@@ -30,7 +30,7 @@ void Venta::Cargar(){
 }
 
 void Venta::Mostrar() {
-        cout << "ID VENTA: " << _idVenta << endl;
+        cout << "ID: " << _idVenta << endl;
         cout << "ID CLIENTE: " << _idCliente << endl;
         cout << "ID FUNCION: " << _idFuncion << endl;
         cout << "CANTIDAD DE ENTRADAS: " << _cantidadEntradas << endl;
