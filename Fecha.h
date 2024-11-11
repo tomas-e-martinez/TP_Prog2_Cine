@@ -16,8 +16,10 @@ public:
 
     void Cargar();
     void CargarHora();
-    std::string toStringFecha();
-    std::string toStringHora();
+    std::string toStringFecha() const;
+    std::string toStringHora() const;
+    void AjustarFecha();
+    bool EsBisiesto(int anio) const;
 
     int getDia();
     int getMes();
@@ -37,4 +39,6 @@ public:
     bool operator<=(const Fecha& otra) const;
     bool operator>(const Fecha& otra) const;
     bool operator>=(const Fecha& otra) const;
+    Fecha operator+(int dias) const;
+    Fecha operator-(int dias) const;
 };

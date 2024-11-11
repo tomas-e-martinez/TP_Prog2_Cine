@@ -5,6 +5,7 @@
 #include "Sala.h"
 #include "Funcion.h"
 #include "Venta.h"
+#include "Reporte.h"
 
 #include "ArchivoPeliculas.h"
 #include "ArchivoClientes.h"
@@ -18,7 +19,8 @@ public:
     void AgregarFuncion();
     void AgregarPelicula();
     void AgregarSala();
-    void AgregarVenta();
+    void AgregarVenta(); ///DE PRUEBA
+    void ProcesarVenta();
 
     void ModificarCliente();
     void ModificarFuncion();
@@ -27,4 +29,5 @@ public:
     void ModificarVenta();
 
     float CalcularPrecioEntrada(Funcion funcion);
+    int AsientosLibres(Funcion funcion);
 };

@@ -44,7 +44,7 @@ void GestorCine::AgregarSala(){
     system("pause");
 }
 
-void GestorCine::AgregarVenta(){
+void GestorCine::AgregarVenta(){ ///PRUEBA
     Venta venta;
     ArchivoVentas archivo;
     venta.Cargar();
@@ -53,6 +53,109 @@ void GestorCine::AgregarVenta(){
     else
         cout << "ERROR AL AGREGAR LA VENTA." << endl;
     system("pause");
+}
+
+void GestorCine::ProcesarVenta(){
+    int idSelec, opcionSelec, posicion, cantidadEntradas, entradasDisponibles, dni, posicionCliente;
+    float valorEntrada;
+    ArchivoFunciones archivoFunciones;
+    system("cls");
+    cout << "PROCESAR VENTA\nSELECCIONAR FECHA APROXIMADA DE LA FUNCIÓN" << endl;
+    Fecha fechaFuncion;
+    fechaFuncion.Cargar();
+    Reporte reporte;
+    while(true){
+        reporte.ListarFuncionesFecha(fechaFuncion-10, fechaFuncion+10);
+        cout << endl << "1. Seleccionar función\n0. Volver" << endl << endl;
+        cout << "OPCIÓN: ";
+        cin >> opcionSelec;
+        if(opcionSelec != 1)
+            return;
+        cout << "ID: ";
+        cin >> idSelec;
+        posicion = archivoFunciones.BuscarID(idSelec);
+        if(posicion == -1){
+            cout << "No se encontró una función con el ID ingresado." << endl;
+            system("pause");
+            continue;
+        }
+        break;
+    }
+    Funcion funcion = archivoFunciones.LeerRegistro(posicion);
+    valorEntrada = CalcularPrecioEntrada(funcion);
+    entradasDisponibles = AsientosLibres(funcion);
+    if(entradasDisponibles == 0){
+        cout << "No hay entradas disponibles para la función seleccionada." << endl;
+        system("pause");
+        return;
+    }
+    while(true){
+        cout << "HAY " << entradasDisponibles << " ENTRADAS DISPONIBLES PARA LA FUNCIÓN SELECCIONADA" << endl;
+        cout << "CANTIDAD DE ENTRADAS: ";
+        cin >> cantidadEntradas;
+        if(cantidadEntradas > AsientosLibres(funcion)){
+            cout << "ERROR: La cantidad de entradas solicitadas supera la capacidad disponible." << endl;
+            system("pause");
+            system("cls");
+        }
+        break;
+    }
+    ArchivoClientes archivoClientes;
+    cout << "DNI DEL CLIENTE: ";
+    cin >> dni;
+    posicionCliente = archivoClientes.BuscarDni(dni);
+    Cliente cliente = archivoClientes.LeerRegistro(posicionCliente);
+    if(posicionCliente != -1){
+        cout << "CLIENTE ENCONTRADO: " << cliente.getNombre() << " " << cliente.getApellido() << endl;
+        cout << "¿DESEA CONTINUAR? 1.SÍ 2.NO\n";
+        cin >> opcionSelec;
+        if(opcionSelec != 1)
+            return;
+    }
+    else{
+        cout << "NO SE ENCONTRÓ UN CLIENTE CON ESE DNI, POR FAVOR CARGAR NUEVO CLIENTE" << endl;
+        system("pause");
+        system("cls");
+        cliente.Cargar();
+        if(archivoClientes.Guardar(cliente)){
+            cout << "NUEVO CLIENTE CARGADO CORRECTAMENTE." << endl;
+            posicionCliente = archivoClientes.BuscarDni(dni);
+            int idCliente = archivoClientes.LeerRegistro(posicionCliente).getId();
+            cliente.setId(idCliente);
+        }
+        else{
+            cout << "VENTA CANCELADA." << endl;
+            system("pause");
+            return;
+        }
+    }
+
+    cout << "FECHA Y HORA DE LA VENTA\n";
+    Fecha fechaVenta;
+    fechaVenta.CargarHora();
+
+    //VER Y CONFIRMAR COMPRA
+    reporte.VentaDetalle(funcion, cantidadEntradas, fechaVenta, cliente, valorEntrada);
+    cout << endl << "¿CONFIRMAR VENTA? 1.SÍ 2.NO\n";
+    cin >> opcionSelec;
+    if(opcionSelec != 1)
+        return;
+
+
+    //EJECUTAR
+    Venta venta(cliente.getId(), funcion.getIdFuncion(), cantidadEntradas, fechaVenta);
+    ArchivoVentas archivoVentas;
+    if(archivoVentas.Guardar(venta)){
+        cout << "VENTA REALIZADA CON ÉXITO." << endl;
+        system("pause");
+    }
+    else{
+        cout << "ERROR: NO SE PUDO REALIZAR LA VENTA." << endl;
+        system("pause");
+    }
+
+
+    ///EN DESARROLLO
 }
 
 void GestorCine::ModificarCliente(){
@@ -119,7 +222,6 @@ void GestorCine::ModificarFuncion(){
     int posicion;
     while(true){
         system("cls");
-        int opcionModificar;
         int id;
         cout << "MODIFICAR FUNCIÓN" << endl << endl;
         cout << "INGRESAR ID: ";
@@ -256,8 +358,6 @@ float GestorCine::CalcularPrecioEntrada(Funcion funcion){
     ArchivoSalas archivoSalas;
     int posSala = archivoSalas.BuscarID(funcion.getIdSala());
     Sala sala = archivoSalas.LeerRegistro(posSala);
-    sala.Mostrar();
-    cout << "pos sala" << posSala << endl;
     float precioBase = 6000;
 
     float multiplicadorTipo = 1;
@@ -273,4 +373,9 @@ float GestorCine::CalcularPrecioEntrada(Funcion funcion){
         multiplicadorCapacidad = 0.8;
 
     return precioBase * multiplicadorTipo * multiplicadorCapacidad;
+}
+
+int GestorCine::AsientosLibres(Funcion funcion){
+    ///EN DESARROLLO
+    return 10;
 }

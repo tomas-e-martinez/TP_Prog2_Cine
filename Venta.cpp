@@ -7,8 +7,8 @@ Venta::Venta(){
    _cantidadEntradas = 0;
 }
 
-Venta::Venta(int idVenta, int idCliente, int idFuncion, int cantidadEntradas, Fecha fecha){
-    _idVenta = idVenta;
+Venta::Venta(int idCliente, int idFuncion, int cantidadEntradas, Fecha fecha){
+    _idVenta = 0;
     _idCliente = idCliente;
     _idFuncion = idFuncion;
     _cantidadEntradas = cantidadEntradas;

@@ -273,7 +273,7 @@ void Menu::Ventas(GestorCine& gestor, Reporte& reporte){
         system("cls");
         cout << "SISTEMA DE GESTIÓN DE CINE" << endl;
         cout << "SUBMENÚ VENTAS" << endl << endl;
-        cout << "1. Agregar Venta" << endl;
+        cout << "1. Procesar Venta" << endl;
         cout << "2. Modificar Venta" << endl;
         cout << "3. Listado ordenado por ID" << endl;
         cout << endl << "0. Volver al menú principal" << endl << endl;
@@ -283,7 +283,7 @@ void Menu::Ventas(GestorCine& gestor, Reporte& reporte){
 
         switch(_opcion){
         case 1:
-            gestor.AgregarVenta();
+            gestor.ProcesarVenta();
             break;
         case 2:
             gestor.ModificarVenta();

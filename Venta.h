@@ -13,7 +13,7 @@ private:
 
 public:
     Venta();  // Constructor por defecto
-    Venta(int idVenta, int dniCliente, int idFuncion, int cantidadEntradas, Fecha fecha);  // Constructor con par metros
+    Venta(int idCliente, int idFuncion, int cantidadEntradas, Fecha fecha);  // Constructor con par metros
 
     void Cargar();
     void Mostrar();

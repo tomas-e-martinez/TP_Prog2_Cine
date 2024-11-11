@@ -608,7 +608,7 @@ void Reporte::ListarFunciones(const char* nombreArchivo){
     system("pause");
 }
 
-void Reporte::ListarFuncionesFecha(Fecha& minimo, Fecha& maximo, const char* nombreArchivo){
+void Reporte::ListarFuncionesFecha(const Fecha& minimo,const Fecha& maximo, const char* nombreArchivo){
     ArchivoPeliculas archivoPeliculas;
     ArchivoSalas archivoSalas;
     ArchivoFunciones archivo(nombreArchivo);
@@ -758,6 +758,31 @@ void Reporte::ListarFuncionesSala(int tipo, const char* nombreArchivo){
     system("pause");
     return;
 }
+
+void Reporte::VentaDetalle(Funcion& funcion, int cantEntradas, Fecha& fecha, Cliente& cliente, float valorEntrada, const char* nombreArchivo){
+    ArchivoPeliculas archivoPeliculas;
+    int posicionPelicula = archivoPeliculas.BuscarID(funcion.getIdPelicula());
+    Pelicula pelicula = archivoPeliculas.LeerRegistro(posicionPelicula);
+    ArchivoSalas archivoSalas;
+    int posicionSala = archivoSalas.BuscarID(funcion.getIdSala());
+    Sala sala = archivoSalas.LeerRegistro(posicionSala);
+
+    system("cls");
+    cout << "Película: " << pelicula.getTitulo() << endl;
+    cout << "Fecha: "    << funcion.getFecha().toStringFecha() << endl;
+    cout << "Hora: "     << funcion.getFecha().toStringHora() << endl;
+    cout << "Tipo: "     << sala.getTipo() << endl;
+    cout << "Sala N°"    << sala.getIdSala() << endl;
+    cout << "Duración: " << pelicula.getDuracion().toString() << endl;
+    cout << "Cliente: "  << cliente.getNombre() << " " << cliente.getApellido() << endl;
+    cout << "Teléfono del cliente: " << cliente.getTelefono() << endl;
+    cout << "N° de entradas: " << cantEntradas << endl;
+    cout << "Valor por entrada: $" << valorEntrada << endl;
+    cout << "Fecha de la venta: " << fecha.toStringFecha() << endl;
+    cout << "Hora de la venta: " << fecha.toStringHora() << endl;
+    cout << endl << "Total: $" << cantEntradas * valorEntrada << endl;
+}
+
 
 void Reporte::ListarVentas(const char* nombreArchivo){
     ArchivoVentas archivo(nombreArchivo);

@@ -51,7 +51,7 @@ void Fecha::CargarHora(){
     setMinutos(minutos);
 }
 
-std::string Fecha::toStringFecha(){
+std::string Fecha::toStringFecha() const{
     std::ostringstream oss;
     oss << std::setw(2) << std::setfill('0') << _dia << "/"
         << std::setw(2) << std::setfill('0') << _mes << "/"
@@ -59,11 +59,41 @@ std::string Fecha::toStringFecha(){
     return oss.str();
 }
 
-std::string Fecha::toStringHora(){
+std::string Fecha::toStringHora() const{
     std::ostringstream oss;
     oss << std::setw(2) << std::setfill('0') << _hora << ":"
         << std::setw(2) << std::setfill('0') << _minutos;
     return oss.str();
+}
+
+void Fecha::AjustarFecha(){
+    int diasPorMes[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    if(EsBisiesto(_anio))
+        diasPorMes[1] = 29;
+    else
+        diasPorMes[1] = 28;
+
+    while (_dia > diasPorMes[_mes - 1]) {
+        _dia -= diasPorMes[_mes - 1];
+        _mes++;
+        if (_mes > 12) {
+            _mes = 1;
+            _anio++;
+        }
+    }
+
+    while (_dia <= 0) {
+        _mes--;
+        if (_mes < 1) {
+            _mes = 12;
+            _anio--;
+        }
+        _dia += diasPorMes[_mes - 1];
+    }
+}
+
+bool Fecha::EsBisiesto(int anio) const{
+    return (anio % 4 == 0 && anio % 100 != 0) || (anio % 400 == 0);
 }
 
 int Fecha::getDia(){
@@ -149,4 +179,18 @@ bool Fecha::operator>(const Fecha& otra) const {
 
 bool Fecha::operator>=(const Fecha& otra) const {
     return !(*this < otra);
+}
+
+Fecha Fecha::operator+(int dias) const {
+    Fecha nuevaFecha = *this;
+    nuevaFecha._dia += dias;
+    nuevaFecha.AjustarFecha();
+    return nuevaFecha;
+}
+
+Fecha Fecha::operator-(int dias) const {
+    Fecha nuevaFecha = *this;
+    nuevaFecha._dia -= dias;
+    nuevaFecha.AjustarFecha();
+    return nuevaFecha;
 }
