@@ -45,7 +45,6 @@ Cliente CargarAleatorio::GenerarCliente(){
 
     ///GENERAR TELEFONO
     for(int i = 0; i < 10; i++){
-    char digitosTel[10];
         telefono[i] = '0' + rand() % 10;
     }
     telefono[10] = '\0';
@@ -149,4 +148,62 @@ void CargarAleatorio::CargarSalas(int cantidad){
 
     cout << "SALAS AGREGADAS: " << cantidad << endl;
     system("pause");
+}
+
+Venta CargarAleatorio::GenerarVenta(){
+    ArchivoFunciones archivoFunciones;
+    ArchivoClientes archivoClientes;
+
+    int cantClientes = archivoClientes.ContarRegistros();
+    if(cantClientes < 1){
+        Venta venta;
+        cout << "ERROR: No se encontraron clientes en el archivo." << endl;
+        system("pause");
+        return venta;
+    }
+    int idCliente;
+    while(true){
+        idCliente = rand() % cantClientes;
+        if(archivoClientes.BuscarID(idCliente) != -1)
+            break;
+    }
+
+    int cantFunciones = archivoFunciones.ContarRegistros();
+    if(cantFunciones < 1){
+        Venta venta;
+        cout << "ERROR: No se encontraron funciones en el archivo." << endl;
+        system("pause");
+        return venta;
+    }
+    int idFuncion;
+    while(true){
+        idFuncion = rand() % cantFunciones;
+        if(archivoFunciones.BuscarID(idFuncion) != -1)
+            break;
+    }
+
+    int cantidadEntradas = rand() % 10 + 1;
+
+    ///GENERAR FECHA Y HORA DE VENTA
+    int mes = rand() % 12 + 1;
+    int anio = 2024 - rand() % 4;
+    int dia;
+    if(mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12)
+        dia = rand() % 31 + 1;
+    else if (mes == 2)
+        dia = rand() % 28 + 1;
+    else
+        dia = rand() % 30 + 1;
+
+    int hora = 23 - rand() % 15;
+    int minutos = rand() % 60;
+
+    Fecha fechaVenta(dia, mes, anio, hora, minutos);
+
+    Venta venta(idCliente, idFuncion, cantidadEntradas, fechaVenta);
+    return venta;
+}
+
+void CargarAleatorio::CargarVentas(int cantidad){
+    return;
 }

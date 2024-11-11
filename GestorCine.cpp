@@ -153,9 +153,6 @@ void GestorCine::ProcesarVenta(){
         cout << "ERROR: NO SE PUDO REALIZAR LA VENTA." << endl;
         system("pause");
     }
-
-
-    ///EN DESARROLLO
 }
 
 void GestorCine::ModificarCliente(){
@@ -256,7 +253,6 @@ void GestorCine::ModificarPelicula(){
     int posicion;
     while(true){
         system("cls");
-        int opcionModificar;
         int id;
         cout << "MODIFICAR PELÍCULA" << endl << endl;
         cout << "INGRESAR ID: ";
@@ -291,7 +287,6 @@ void GestorCine::ModificarSala(){
     int posicion;
     while(true){
         system("cls");
-        int opcionModificar;
         int id;
         cout << "MODIFICAR SALA" << endl << endl;
         cout << "INGRESAR ID: ";
@@ -325,7 +320,6 @@ void GestorCine::ModificarVenta(){
     int posicion;
     while(true){
         system("cls");
-        int opcionModificar;
         int id;
         cout << "MODIFICAR VENTA" << endl << endl;
         cout << "INGRESAR ID: ";
