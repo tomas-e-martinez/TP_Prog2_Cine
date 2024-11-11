@@ -316,7 +316,7 @@
 	"GestorCine.h"
 	"ArchivoClientes.h"
 
-1731345898 c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.h
+1731354491 c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.h
 	"ArchivoClientes.h"
 	"ArchivoPeliculas.h"
 	"ArchivoSalas.h"
@@ -350,7 +350,7 @@
 1731119453 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\archivosalas.cpp
 	"ArchivoSalas.h"
 
-1731334500 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.cpp
+1731354531 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.cpp
 	"Menu.h"
 
 1731350884 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\gestorcine.cpp
@@ -369,7 +369,7 @@
 	"ArchivoFunciones.h"
 	"ArchivoVentas.h"
 
-1731353985 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\cargaraleatorio.cpp
+1731354410 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\cargaraleatorio.cpp
 	"CargarAleatorio.h"
 
 1731351003 c:\users\tomas\documents\programación 2\tp_prog2_cine\cargaraleatorio.h

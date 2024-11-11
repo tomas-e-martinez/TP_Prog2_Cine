@@ -276,6 +276,7 @@ void Menu::Ventas(GestorCine& gestor, Reporte& reporte){
         cout << "1. Procesar Venta" << endl;
         cout << "2. Modificar Venta" << endl;
         cout << "3. Listado ordenado por ID" << endl;
+        cout << "4. Listado ordenado por fecha" << endl;
         cout << endl << "0. Volver al menú principal" << endl << endl;
 
         cout << "Ingresar opción: ";
@@ -290,6 +291,9 @@ void Menu::Ventas(GestorCine& gestor, Reporte& reporte){
             break;
         case 3:
             reporte.ListarVentas();
+            break;
+        case 4:
+            reporte.ListarVentasOrdenFecha();
             break;
         case 0:
             return;

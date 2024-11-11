@@ -819,6 +819,64 @@ void Reporte::ListarVentas(const char* nombreArchivo){
     system("pause");
 }
 
+void Reporte::ListarVentasOrdenFecha(const char* nombreArchivo){
+    ArchivoVentas archivo;
+    Venta registro;
+
+    int cantidadRegistros = archivo.ContarRegistros();
+
+    Venta* ventas = new Venta[cantidadRegistros];
+    int indice = 0;
+
+    //ALMACENAR REGISTROS PARA ORDENAR POR FECHA
+    for(int i = 0; i < cantidadRegistros; i++){
+        registro = archivo.LeerRegistro(i);
+        ventas[indice++] = registro;
+    }
+
+    //ORDENAR REGISTROS
+    for(int i = 0; i < indice - 1; i++){
+        for(int j = 0; j < indice - 1; j++){
+            if(ventas[j].getFecha() > ventas[j+1].getFecha()){
+                Venta aux = ventas[j];
+                ventas[j] = ventas[j+1];
+                ventas[j+1] = aux;
+            }
+        }
+    }
+
+    system("cls");
+    cout << "CANTIDAD TOTAL DE FUNCIONES: " << cantidadRegistros << endl;
+    system("pause");
+    system("cls");
+
+    // ENCABEZADO
+    cout << left
+         << setw(5)  << "ID"
+         << setw(15) << "ID FUNCIÓN"
+         << setw(15) << "ID CLIENTE"
+         << setw(20) << "CANT. ENTRADAS"
+         << setw(20) << "FECHA"
+         << setw(10) << "HORA" << endl;
+
+    cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
+    for (int i = 0; i < cantidadRegistros; i++) {
+        registro = archivo.LeerRegistro(i);
+        cout << left
+             << setw(5)  << ventas[i].getIdVenta()
+             << setw(15) << ventas[i].getIdFuncion()
+             << setw(15) << ventas[i].getIdCliente()
+             << setw(20) << ventas[i].getCantidadEntradas()
+             << setw(20) << ventas[i].getFecha().toStringFecha()
+             << setw(10) << ventas[i].getFecha().toStringHora() << endl;
+    }
+
+    delete[] ventas;
+
+    cout << endl;
+    system("pause");
+}
+
 void Reporte::ListarSalas(const char* nombreArchivo){
     ArchivoSalas archivo(nombreArchivo);
     Sala registro;

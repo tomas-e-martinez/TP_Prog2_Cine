@@ -28,6 +28,7 @@ public:
 
 
     void ListarVentas(const char* nombreArchivo = "ventas.dat");
+    void ListarVentasOrdenFecha(const char* nombreArchivo = "ventas.dat");
 
     void ListarSalas(const char* nombreArchivo = "salas.dat");
     void ListarSalasTipo(const char* nombreArchivo = "salas.dat");
