@@ -376,6 +376,25 @@ float GestorCine::CalcularPrecioEntrada(Funcion funcion){
 }
 
 int GestorCine::AsientosLibres(Funcion funcion){
-    ///EN DESARROLLO
-    return 10;
+    ArchivoVentas archivoVentas;
+    ArchivoSalas archivoSalas;
+
+    int idSala, posSala, idFuncion, capacidad, ocupados = 0;
+    idSala = funcion.getIdSala();
+    idFuncion = funcion.getIdFuncion();
+
+    posSala = archivoSalas.BuscarID(idSala);
+    Sala sala = archivoSalas.LeerRegistro(posSala);
+    capacidad = sala.getCapacidad();
+
+    int cantidadVentas = archivoVentas.ContarRegistros();
+    Venta venta;
+    for(int i = 0; i < cantidadVentas; i++){
+        venta = archivoVentas.LeerRegistro(i);
+        if(venta.getIdFuncion() == idFuncion){
+            ocupados += venta.getCantidadEntradas();
+        }
+    }
+
+    return capacidad - ocupados;
 }
