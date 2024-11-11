@@ -323,6 +323,7 @@ void Menu::Reportes(Reporte& reporte){
 
         switch(_opcion){
         case 1:
+            reporte.RecaudacionAnual(reporte);
             break;
         case 2:
             break;

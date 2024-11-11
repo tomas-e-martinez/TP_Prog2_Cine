@@ -6,6 +6,8 @@
 #include "ArchivoFunciones.h"
 #include "ArchivoVentas.h"
 
+#include "GestorCine.h"
+
 class Reporte{
 public:
     void ListarPeliculas(const char* nombreArchivo = "peliculas.dat");
@@ -32,4 +34,6 @@ public:
 
     void ListarSalas(const char* nombreArchivo = "salas.dat");
     void ListarSalasTipo(const char* nombreArchivo = "salas.dat");
+
+    void RecaudacionAnual(Reporte& reporte);
 };

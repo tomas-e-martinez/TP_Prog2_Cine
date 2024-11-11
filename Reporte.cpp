@@ -783,7 +783,6 @@ void Reporte::VentaDetalle(Funcion& funcion, int cantEntradas, Fecha& fecha, Cli
     cout << endl << "Total: $" << cantEntradas * valorEntrada << endl;
 }
 
-
 void Reporte::ListarVentas(const char* nombreArchivo){
     ArchivoVentas archivo(nombreArchivo);
     Venta registro;
@@ -947,6 +946,59 @@ void Reporte::ListarSalasTipo(const char* nombreArchivo){
              << setw(5)  << salas[i].getIdSala()
              << setw(15) << salas[i].getCapacidad()
              << setw(10) << salas[i].getTipo() << endl;
+    }
+
+    cout << endl;
+    system("pause");
+}
+
+void Reporte::RecaudacionAnual(Reporte& reporte){
+    int anio, idFuncion, posFuncion;
+    float recaudacionAnualMeses[12] = {0};
+    float valorEntrada, totalVenta;
+    char meses[12][11] = {"ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"};
+
+    GestorCine gestor;
+    Funcion funcion;
+    Venta venta;
+    ArchivoFunciones archivoFunciones;
+    ArchivoVentas archivoVentas;
+
+    int cantidadVentas = archivoVentas.ContarRegistros();
+    if(cantidadVentas < 1){
+        cout << "ERROR: NO SE ENCONTRARON VENTAS EN EL ARCHIVO." << endl;
+        system("pause");
+        return;
+    }
+
+    system("cls");
+    cout << "-----------------------------------------" << endl;
+    cout << "INGRESE EL AÑO A CONSULTAR: ";
+    cin >> anio;
+    cout << "RECAUDACIÓN DEL " << anio << endl;
+    cout << "-----------------------------------------" << endl;
+
+    for(int i = 0; i < cantidadVentas; i++){
+        venta = archivoVentas.LeerRegistro(i);
+        if(venta.getFecha().getAnio() == anio){
+            idFuncion = venta.getIdFuncion();
+            posFuncion = archivoFunciones.BuscarID(idFuncion);
+            funcion = archivoFunciones.LeerRegistro(posFuncion);
+            valorEntrada = gestor.CalcularPrecioEntrada(funcion);
+            totalVenta = valorEntrada * venta.getCantidadEntradas();
+            recaudacionAnualMeses[venta.getFecha().getMes() - 1] += totalVenta;
+        }
+    }
+
+    // ENCABEZADO
+    cout << left
+         << setw(30) << "MES"
+         << setw(30) << "RECAUDACIÓN" << endl;
+
+    for (int i = 0; i < 12; i++) {
+        cout << left
+             << setw(30) << meses[i]
+             << setw(1) << "$" << fixed << setprecision(2) << setw(29) << recaudacionAnualMeses[i] << endl;
     }
 
     cout << endl;

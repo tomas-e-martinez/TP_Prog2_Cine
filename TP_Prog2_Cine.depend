@@ -310,18 +310,19 @@
 	<ctime>
 	"CargarAleatorio.h"
 
-1731119453 c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.h
+1731363958 c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.h
 	<iostream>
 	"Reporte.h"
 	"GestorCine.h"
 	"ArchivoClientes.h"
 
-1731354491 c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.h
+1731363944 c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.h
 	"ArchivoClientes.h"
 	"ArchivoPeliculas.h"
 	"ArchivoSalas.h"
 	"ArchivoFunciones.h"
 	"ArchivoVentas.h"
+	"GestorCine.h"
 
 1731119453 c:\users\tomas\documents\programación 2\tp_prog2_cine\archivosalas.h
 	"Sala.h"
@@ -335,7 +336,7 @@
 1731299365 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\pelicula.cpp
 	"Pelicula.h"
 
-1731348629 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.cpp
+1731365951 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.cpp
 	"Reporte.h"
 
 1731290298 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\sala.cpp
@@ -350,7 +351,7 @@
 1731119453 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\archivosalas.cpp
 	"ArchivoSalas.h"
 
-1731354531 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.cpp
+1731363978 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.cpp
 	"Menu.h"
 
 1731350884 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\gestorcine.cpp
