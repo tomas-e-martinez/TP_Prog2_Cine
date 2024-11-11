@@ -28,15 +28,13 @@ using namespace std;
 int main(){
     setlocale(LC_CTYPE, "Spanish");
 
-    srand(time(0));
+
+    /*srand(time(0));
     CargarAleatorio cargar;
-    Venta venta = cargar.GenerarVenta();
-    venta.Mostrar();
-
-
-    return 2;
+    cargar.CargarVentas(2000);
     Reporte prueba;
     prueba.ListarVentas();
+    prueba.ListarClientes();*/
 
     ///CARGAR PELICULAS
     /*while(true){

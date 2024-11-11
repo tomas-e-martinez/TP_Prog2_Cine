@@ -205,5 +205,40 @@ Venta CargarAleatorio::GenerarVenta(){
 }
 
 void CargarAleatorio::CargarVentas(int cantidad){
-    return;
+    ArchivoClientes archivoClientes;
+    ArchivoVentas archivoVentas;
+    Cliente cliente;
+    Venta venta;
+    int posCliente;
+
+    int contadorVentasTotal = 0;
+
+    while(contadorVentasTotal < cantidad){
+        int cantidadVentasCliente = rand() % 5 + 1;
+        cliente = GenerarCliente();
+        if(!archivoClientes.Guardar(cliente)){
+            cout << "ERROR AL AGREGAR CLIENTE." << endl;
+            system("pause");
+            return;
+        }
+
+        posCliente = archivoClientes.BuscarDni(cliente.getDni());
+        cliente = archivoClientes.LeerRegistro(posCliente);
+
+        int contadorVentasCliente = 0;
+        while(contadorVentasCliente < cantidadVentasCliente && contadorVentasTotal < cantidad){
+            venta = GenerarVenta();
+            venta.setIdCliente(cliente.getId());
+            if(!archivoVentas.Guardar(venta)){
+                cout << "ERROR AL AGREGAR LA VENTA." << endl;
+                system("pause");
+                return;
+            }
+            contadorVentasCliente++;
+            contadorVentasTotal++;
+        }
+    }
+
+    cout << "SE AGREGARON " << contadorVentasTotal << " VENTAS." << endl;
+    system("pause");
 }

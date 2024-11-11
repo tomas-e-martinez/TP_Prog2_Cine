@@ -287,7 +287,7 @@
 1731333603 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\funcion.cpp
 	"Funcion.h"
 
-1731352524 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\main.cpp
+1731354226 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\main.cpp
 	<iostream>
 	<iomanip>
 	<locale.h>
@@ -369,7 +369,7 @@
 	"ArchivoFunciones.h"
 	"ArchivoVentas.h"
 
-1731352577 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\cargaraleatorio.cpp
+1731353985 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\cargaraleatorio.cpp
 	"CargarAleatorio.h"
 
 1731351003 c:\users\tomas\documents\programación 2\tp_prog2_cine\cargaraleatorio.h
