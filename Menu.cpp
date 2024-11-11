@@ -184,16 +184,22 @@ void Menu::Peliculas(GestorCine& gestor, Reporte& reporte){
             reporte.ListarPeliculas();
             break;
         case 4:
+            reporte.ListarPeliculasOrdenGenero();
             break;
         case 5:
+            reporte.ListarPeliculasOrdenCalificacion();
             break;
         case 6:
+            //reporte.ListarPeliculasGenero();
             break;
         case 7:
+            //reporte.ListarPeliculasCalificacion();
             break;
         case 8:
+            //reporte.ListarPeliculasTitulo();
             break;
         case 9:
+            //reporte.ListarPeliculasEdad();
             break;
         case 0:
             return;

@@ -38,6 +38,138 @@ void Reporte::ListarPeliculas(const char* nombreArchivo){
     system("pause");
 }
 
+void Reporte::ListarPeliculasOrdenGenero(const char* nombreArchivo){
+    ArchivoPeliculas archivo(nombreArchivo);
+    Pelicula registro;
+
+    int cantidadRegistros = archivo.ContarRegistros();
+    system("cls");
+    cout << "CANTIDAD TOTAL DE PELÍCULAS: " << cantidadRegistros << endl;
+    system("pause");
+    system("cls");
+
+    Pelicula* peliculas = new Pelicula[cantidadRegistros];
+
+    //ALMACENAR REGISTROS PARA ORDENAR DESPUÉS
+    for(int i = 0; i < cantidadRegistros; i++){
+        registro = archivo.LeerRegistro(i);
+        peliculas[i] = registro;
+    }
+
+    //ORDENAR REGISTROS
+    for(int i = 0; i < cantidadRegistros - 1; i++){
+        for(int j = 0; j < cantidadRegistros - 1; j++){
+            if(strcmp(peliculas[j].getGenero(), peliculas[j+1].getGenero()) > 0){
+                Pelicula aux = peliculas[j];
+                peliculas[j] = peliculas[j+1];
+                peliculas[j+1] = aux;
+            }
+        }
+    }
+
+    //ENCABEZADO
+    cout << left
+         << setw(5)  << "ID"
+         << setw(40) << "TÍTULO"
+         << setw(20) << "GÉNERO"
+         << setw(20) << "FECHA DE ESTRENO"
+         << setw(10) << "DURACIÓN"
+         << setw(15) << "CALIFICACIÓN"
+         << setw(5)  << "EDAD" << endl;
+
+
+    cout << "---------------------------------------------------------------------------------------------------------------------" << endl;
+    for (int i = 0; i < cantidadRegistros; i++) {
+        cout << left
+             << setw(5)  << peliculas[i].getId()
+             << setw(40) << peliculas[i].getTitulo()
+             << setw(20) << peliculas[i].getGenero()
+             << setw(20) << peliculas[i].getFechaEstreno().toStringFecha()
+             << setw(10) << peliculas[i].getDuracion().toString()
+             << setw(15) << peliculas[i].getCalificacion()
+             << setw(5)  << (to_string(peliculas[i].getClasificacionedad()) + "+") << endl;
+    }
+
+    delete[] peliculas;
+
+    cout << endl;
+    system("pause");
+}
+
+void Reporte::ListarPeliculasOrdenCalificacion(const char* nombreArchivo){
+    ArchivoPeliculas archivo(nombreArchivo);
+    Pelicula registro;
+
+    int cantidadRegistros = archivo.ContarRegistros();
+    system("cls");
+    cout << "CANTIDAD TOTAL DE PELÍCULAS: " << cantidadRegistros << endl;
+    system("pause");
+    system("cls");
+
+    Pelicula* peliculas = new Pelicula[cantidadRegistros];
+
+    //ALMACENAR REGISTROS PARA ORDENAR DESPUÉS
+    for(int i = 0; i < cantidadRegistros; i++){
+        registro = archivo.LeerRegistro(i);
+        peliculas[i] = registro;
+    }
+
+    //ORDENAR REGISTROS
+    for(int i = 0; i < cantidadRegistros - 1; i++){
+        for(int j = 0; j < cantidadRegistros - 1; j++){
+            if(peliculas[j].getCalificacion() > peliculas[j+1].getCalificacion()){
+                Pelicula aux = peliculas[j];
+                peliculas[j] = peliculas[j+1];
+                peliculas[j+1] = aux;
+            }
+        }
+    }
+
+    //ENCABEZADO
+    cout << left
+         << setw(5)  << "ID"
+         << setw(40) << "TÍTULO"
+         << setw(20) << "GÉNERO"
+         << setw(20) << "FECHA DE ESTRENO"
+         << setw(10) << "DURACIÓN"
+         << setw(15) << "CALIFICACIÓN"
+         << setw(5)  << "EDAD" << endl;
+
+
+    cout << "---------------------------------------------------------------------------------------------------------------------" << endl;
+    for (int i = 0; i < cantidadRegistros; i++) {
+        cout << left
+             << setw(5)  << peliculas[i].getId()
+             << setw(40) << peliculas[i].getTitulo()
+             << setw(20) << peliculas[i].getGenero()
+             << setw(20) << peliculas[i].getFechaEstreno().toStringFecha()
+             << setw(10) << peliculas[i].getDuracion().toString()
+             << setw(15) << peliculas[i].getCalificacion()
+             << setw(5)  << (to_string(peliculas[i].getClasificacionedad()) + "+") << endl;
+    }
+
+    delete[] peliculas;
+
+    cout << endl;
+    system("pause");
+}
+
+void Reporte::ListarPeliculasGenero(int opcionGenero, const char* nombreArchivo){
+    return;
+} ///TODO
+
+void Reporte::ListarPeliculasCalificacion(float calificacion, const char* nombreArchivo){
+    return;
+} ///TODO
+
+void Reporte::ListarPeliculasTitulo(const char* titulo, const char* nombreArchivo){
+    return;
+} ///TODO
+
+void Reporte::ListarPeliculasEdad(int edad, const char* nombreArchivo){
+    return;
+} ///TODO
+
 void Reporte::ListarClientes(const char* nombreArchivo){
     ArchivoClientes archivo(nombreArchivo);
     Cliente registro;
