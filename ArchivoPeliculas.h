@@ -10,6 +10,7 @@ public:
 
     int ContarRegistros();
     int BuscarID(int id);
+    int BuscarTitulo(const char* titulo);
     Pelicula LeerRegistro(int pos);
     bool Guardar(Pelicula pelicula); //Agregar registro al archivo
     bool Guardar(Pelicula pelicula, int pos); //Sobreescribir registro del archivo

@@ -155,20 +155,222 @@ void Reporte::ListarPeliculasOrdenCalificacion(const char* nombreArchivo){
 }
 
 void Reporte::ListarPeliculasGenero(int opcionGenero, const char* nombreArchivo){
-    return;
-} ///TODO
+    char genero[20];
+    switch(opcionGenero){
+    case 1:
+        strcpy(genero, "Accion");
+        break;
+    case 2:
+        strcpy(genero, "Ciencia Ficcion");
+        break;
+    case 3:
+        strcpy(genero, "Animacion");
+        break;
+    case 4:
+        strcpy(genero, "Fantasia");
+        break;
+    case 5:
+        strcpy(genero, "Drama");
+        break;
+    case 0:
+        return;
+    default:
+        cout << "ERROR: LA OPCIÓN INGRESADA NO ES VÁLIDA." << endl;
+        system("pause");
+        return;
+    }
 
-void Reporte::ListarPeliculasCalificacion(float calificacion, const char* nombreArchivo){
-    return;
-} ///TODO
+    ArchivoPeliculas archivo(nombreArchivo);
+    Pelicula registro;
+
+
+    int cantidadRegistros = archivo.ContarRegistros();
+    Pelicula* peliculas = new Pelicula[cantidadRegistros];
+    int indice = 0;
+
+    //ALMACENAR REGISTROS QUE COINCIDAN CON EL GÉNERO
+    for(int i = 0; i < cantidadRegistros; i++){
+        registro = archivo.LeerRegistro(i);
+        if(strcmp(registro.getGenero(), genero) == 0)
+            peliculas[indice++] = registro;
+    }
+
+    system("cls");
+    cout << "CANTIDAD TOTAL DE PELÍCULAS: " << cantidadRegistros << endl;
+    cout << "PELÍCULAS ENCONTRADAS: " << indice << endl;
+    system("pause");
+    system("cls");
+
+    // ENCABEZADO
+    cout << "Se encontraron " << indice << " películas del género \"" << genero << "\"." << endl;
+    cout << left
+         << setw(5)  << "ID"
+         << setw(40) << "TÍTULO"
+         << setw(20) << "GÉNERO"
+         << setw(20) << "FECHA DE ESTRENO"
+         << setw(10) << "DURACIÓN"
+         << setw(15) << "CALIFICACIÓN"
+         << setw(5)  << "EDAD" << endl;
+
+
+    cout << "---------------------------------------------------------------------------------------------------------------------" << endl;
+    for (int i = 0; i < indice; i++) {
+        cout << left
+             << setw(5)  << peliculas[i].getId()
+             << setw(40) << peliculas[i].getTitulo()
+             << setw(20) << peliculas[i].getGenero()
+             << setw(20) << peliculas[i].getFechaEstreno().toStringFecha()
+             << setw(10) << peliculas[i].getDuracion().toString()
+             << setw(15) << peliculas[i].getCalificacion()
+             << setw(5)  << (to_string(peliculas[i].getClasificacionedad()) + "+") << endl;
+    }
+
+    delete[] peliculas;
+
+    cout << endl;
+    system("pause");
+}
+
+void Reporte::ListarPeliculasCalificacion(float minCalificacion, float maxCalificacion, const char* nombreArchivo){
+    ArchivoPeliculas archivo(nombreArchivo);
+    Pelicula registro;
+
+    int cantidadRegistros = archivo.ContarRegistros();
+    Pelicula* peliculas = new Pelicula[cantidadRegistros];
+    int indice = 0;
+
+    //ALMACENAR REGISTROS QUE ESTÉN EN EL RANGO DE CALIFICACIONES
+    for(int i = 0; i < cantidadRegistros; i++){
+        registro = archivo.LeerRegistro(i);
+        if(registro.getCalificacion() >= minCalificacion && registro.getCalificacion() <= maxCalificacion)
+            peliculas[indice++] = registro;
+    }
+
+    system("cls");
+    cout << "CANTIDAD TOTAL DE PELÍCULAS: " << cantidadRegistros << endl;
+    cout << "PELÍCULAS ENCONTRADAS: " << indice << endl;
+    system("pause");
+    system("cls");
+
+    //ORDENAR REGISTROS
+    for(int i = 0; i < indice - 1; i++){
+        for(int j = 0; j < indice - 1; j++){
+            if(peliculas[j].getCalificacion() > peliculas[j+1].getCalificacion()){
+                Pelicula aux = peliculas[j];
+                peliculas[j] = peliculas[j+1];
+                peliculas[j+1] = aux;
+            }
+        }
+    }
+
+    // ENCABEZADO
+    cout << "Se encontraron " << indice << " películas calificadas entre " << minCalificacion << " y " << maxCalificacion << "." << endl;
+    cout << left
+         << setw(5)  << "ID"
+         << setw(40) << "TÍTULO"
+         << setw(20) << "GÉNERO"
+         << setw(20) << "FECHA DE ESTRENO"
+         << setw(10) << "DURACIÓN"
+         << setw(15) << "CALIFICACIÓN"
+         << setw(5)  << "EDAD" << endl;
+
+
+    cout << "---------------------------------------------------------------------------------------------------------------------" << endl;
+    for (int i = 0; i < indice; i++) {
+        cout << left
+             << setw(5)  << peliculas[i].getId()
+             << setw(40) << peliculas[i].getTitulo()
+             << setw(20) << peliculas[i].getGenero()
+             << setw(20) << peliculas[i].getFechaEstreno().toStringFecha()
+             << setw(10) << peliculas[i].getDuracion().toString()
+             << setw(15) << peliculas[i].getCalificacion()
+             << setw(5)  << (to_string(peliculas[i].getClasificacionedad()) + "+") << endl;
+    }
+
+    delete[] peliculas;
+
+    cout << endl;
+    system("pause");
+}
 
 void Reporte::ListarPeliculasTitulo(const char* titulo, const char* nombreArchivo){
-    return;
-} ///TODO
+    ArchivoPeliculas archivo(nombreArchivo);
+    int posicion = archivo.BuscarTitulo(titulo);
 
-void Reporte::ListarPeliculasEdad(int edad, const char* nombreArchivo){
-    return;
-} ///TODO
+    if(posicion == -1){
+        cout << "No se encontro ninguna película con el título ingresado." << endl;
+        system("pause");
+        return;
+    }
+
+    Pelicula registro = archivo.LeerRegistro(posicion);
+    system("cls");
+    registro.Mostrar();
+    cout << endl;
+    system("pause");
+}
+
+void Reporte::ListarPeliculasEdad(int edadMax, const char* nombreArchivo){
+    ArchivoPeliculas archivo(nombreArchivo);
+    Pelicula registro;
+
+    int cantidadRegistros = archivo.ContarRegistros();
+    Pelicula* peliculas = new Pelicula[cantidadRegistros];
+    int indice = 0;
+
+    //ALMACENAR REGISTROS QUE ESTÉN DEBAJO DEL LÍMITE DE EDAD
+    for(int i = 0; i < cantidadRegistros; i++){
+        registro = archivo.LeerRegistro(i);
+        if(registro.getClasificacionedad() <= edadMax)
+            peliculas[indice++] = registro;
+    }
+
+    system("cls");
+    cout << "CANTIDAD TOTAL DE PELÍCULAS: " << cantidadRegistros << endl;
+    cout << "PELÍCULAS ENCONTRADAS: " << indice << endl;
+    system("pause");
+    system("cls");
+
+    //ORDENAR REGISTROS
+    for(int i = 0; i < indice - 1; i++){
+        for(int j = 0; j < indice - 1; j++){
+            if(peliculas[j].getClasificacionedad() > peliculas[j+1].getClasificacionedad()){
+                Pelicula aux = peliculas[j];
+                peliculas[j] = peliculas[j+1];
+                peliculas[j+1] = aux;
+            }
+        }
+    }
+
+    // ENCABEZADO
+    cout << "Se encontraron " << indice << " películas para una edad máxima de " << edadMax << "." << endl;
+    cout << left
+         << setw(5)  << "ID"
+         << setw(40) << "TÍTULO"
+         << setw(20) << "GÉNERO"
+         << setw(20) << "FECHA DE ESTRENO"
+         << setw(10) << "DURACIÓN"
+         << setw(15) << "CALIFICACIÓN"
+         << setw(5)  << "EDAD" << endl;
+
+
+    cout << "---------------------------------------------------------------------------------------------------------------------" << endl;
+    for (int i = 0; i < indice; i++) {
+        cout << left
+             << setw(5)  << peliculas[i].getId()
+             << setw(40) << peliculas[i].getTitulo()
+             << setw(20) << peliculas[i].getGenero()
+             << setw(20) << peliculas[i].getFechaEstreno().toStringFecha()
+             << setw(10) << peliculas[i].getDuracion().toString()
+             << setw(15) << peliculas[i].getCalificacion()
+             << setw(5)  << (to_string(peliculas[i].getClasificacionedad()) + "+") << endl;
+    }
+
+    delete[] peliculas;
+
+    cout << endl;
+    system("pause");
+}
 
 void Reporte::ListarClientes(const char* nombreArchivo){
     ArchivoClientes archivo(nombreArchivo);
@@ -244,7 +446,7 @@ void Reporte::ListarClientesEdad(int minimo, int maximo, const char* nombreArchi
 
 
     // ENCABEZADO
-    cout << indice << " CLIENTES CON EDAD ENTRE " << minimo << " Y " << maximo << endl;
+    cout << indice << " Clientes con edad entre " << minimo << " Y " << maximo << endl;
     cout << left
          << setw(5)  << "ID"
          << setw(10) << "DNI"
@@ -442,7 +644,7 @@ void Reporte::ListarFuncionesFecha(Fecha& minimo, Fecha& maximo, const char* nom
     system("cls");
 
     // ENCABEZADO
-    cout << indice << " FUNCIONES ENTRE " << minimo.toStringFecha() << " Y " << maximo.toStringFecha() << endl;
+    cout << "Se encontraron " << indice << " funciones entre " << minimo.toStringFecha() << " y " << maximo.toStringFecha() << "." << endl;
     cout << left
          << setw(5)  << "ID"
          << setw(40) << "PELÍCULA"
@@ -523,7 +725,7 @@ void Reporte::ListarFuncionesSala(int tipo, const char* nombreArchivo){
     system("cls");
 
     // ENCABEZADO
-    cout << indice << " FUNCIONES EN SALA DE TIPO " << tipoSala << endl;
+    cout << "Se encontraron " << indice << " funciones en salas de tipo " << tipoSala << "." << endl;
     cout << left
          << setw(5)  << "ID"
          << setw(40) << "PELÍCULA"

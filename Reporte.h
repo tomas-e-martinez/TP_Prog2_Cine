@@ -9,12 +9,12 @@
 class Reporte{
 public:
     void ListarPeliculas(const char* nombreArchivo = "peliculas.dat");
-    void ListarPeliculasOrdenGenero(const char* nombreArchivo = "peliculas.dat"); ///TODO
-    void ListarPeliculasOrdenCalificacion(const char* nombreArchivo = "peliculas.dat"); ///TODO
-    void ListarPeliculasGenero(int opcionGenero, const char* nombreArchivo = "peliculas.dat"); ///TODO
-    void ListarPeliculasCalificacion(float calificacion, const char* nombreArchivo = "peliculas.dat"); ///TODO
-    void ListarPeliculasTitulo(const char* titulo, const char* nombreArchivo = "peliculas.dat"); ///TODO
-    void ListarPeliculasEdad(int edad, const char* nombreArchivo = "peliculas.dat"); ///TODO
+    void ListarPeliculasOrdenGenero(const char* nombreArchivo = "peliculas.dat");
+    void ListarPeliculasOrdenCalificacion(const char* nombreArchivo = "peliculas.dat");
+    void ListarPeliculasGenero(int opcionGenero, const char* nombreArchivo = "peliculas.dat");
+    void ListarPeliculasCalificacion(float minCalificacion, float maxCalificacion, const char* nombreArchivo = "peliculas.dat");
+    void ListarPeliculasTitulo(const char* titulo, const char* nombreArchivo = "peliculas.dat");
+    void ListarPeliculasEdad(int edadMax, const char* nombreArchivo = "peliculas.dat");
 
     void ListarClientes(const char* nombreArchivo = "clientes.dat");
     void ListarClientesEdad(int minimo, int maximo, const char* nombreArchivo = "clientes.dat");

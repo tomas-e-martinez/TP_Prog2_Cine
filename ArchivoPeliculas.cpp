@@ -33,6 +33,25 @@ int ArchivoPeliculas::BuscarID(int id){
     return -1;
 }
 
+
+int ArchivoPeliculas::BuscarTitulo(const char* titulo){
+    FILE* p = fopen(_nombre, "rb");
+    if(p == NULL){
+        return -1;
+    }
+    Pelicula pelicula;
+    int i = 0;
+    while(fread(&pelicula, sizeof(Pelicula), 1, p)){
+        if(strcmp(pelicula.getTitulo(), titulo) == 0){
+            fclose(p);
+            return i;
+        }
+        i++;
+    }
+    fclose(p);
+    return -1;
+}
+
 Pelicula ArchivoPeliculas::LeerRegistro(int pos){
     FILE* p = fopen(_nombre, "rb");
     Pelicula pelicula;

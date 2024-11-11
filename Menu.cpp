@@ -127,7 +127,6 @@ void Menu::Funciones(GestorCine& gestor, Reporte& reporte){
             break;
         case 4: {
             system("cls");
-            int minimo, maximo;
             cout << "BUSCAR FUNCIONES POR FECHA\n\nDESDE\n";
             Fecha fecha1;
             fecha1.Cargar();
@@ -173,10 +172,12 @@ void Menu::Peliculas(GestorCine& gestor, Reporte& reporte){
 
         cout << "Ingresar opción: ";
         cin >> _opcion;
+        cin.ignore();
 
         switch(_opcion){
         case 1:
             gestor.AgregarPelicula();
+            break;
         case 2:
             gestor.ModificarPelicula();
             break;
@@ -190,16 +191,35 @@ void Menu::Peliculas(GestorCine& gestor, Reporte& reporte){
             reporte.ListarPeliculasOrdenCalificacion();
             break;
         case 6:
-            //reporte.ListarPeliculasGenero();
+            system("cls");
+            int opcionGenero;
+            cout << "BUSCAR PELÍCULAS POR GÉNERO\n1. Accion\n2. Ciencia Ficcion\n3. Animacion\n4. Fantasia\n5. Drama\n\n0. Cancelar" << endl << endl;
+            cout << "INGRESAR OPCIÓN: ";
+            cin >> opcionGenero;
+            reporte.ListarPeliculasGenero(opcionGenero);
             break;
         case 7:
-            //reporte.ListarPeliculasCalificacion();
+            system("cls");
+            float minimo, maximo;
+            cout << "BUSCAR PELÍCULAS POR CALIFICACIÓN (0.00/10.00)\nMÍNIMO: ";
+            cin >> minimo;
+            cout << "MÁXIMO:";
+            cin >> maximo;
+            reporte.ListarPeliculasCalificacion(minimo, maximo);
             break;
         case 8:
-            //reporte.ListarPeliculasTitulo();
+            system("cls");
+            char titulo[100];
+            cout << "BUSCAR PELÍCULA POR TÍTULO\nIngrese el título: ";
+            cin.getline(titulo, sizeof(titulo));
+            reporte.ListarPeliculasTitulo(titulo);
             break;
         case 9:
-            //reporte.ListarPeliculasEdad();
+            system("cls");
+            int edadMax;
+            cout << "BUSCAR PELÍCULAS POR CLASIFICACIÓN DE EDAD\nIngrese la edad límite: ";
+            cin >> edadMax;
+            reporte.ListarPeliculasEdad(edadMax);
             break;
         case 0:
             return;
