@@ -131,7 +131,10 @@ void Fecha::setMes(int mes){
 }
 
 void Fecha::setAnio(int anio){
-    _anio = anio;
+    if(anio > 0 && anio < 100)
+        _anio = anio + 2000;
+    else
+        _anio = anio;
 }
 
 void Fecha::setHora(int hora){
