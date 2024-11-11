@@ -25,4 +25,6 @@ public:
     void ModificarPelicula();
     void ModificarSala();
     void ModificarVenta();
+
+    float CalcularPrecioEntrada(Funcion funcion);
 };

@@ -251,3 +251,26 @@ void GestorCine::ModificarVenta(){
         return;
     }
 }
+
+float GestorCine::CalcularPrecioEntrada(Funcion funcion){
+    ArchivoSalas archivoSalas;
+    int posSala = archivoSalas.BuscarID(funcion.getIdSala());
+    Sala sala = archivoSalas.LeerRegistro(posSala);
+    sala.Mostrar();
+    cout << "pos sala" << posSala << endl;
+    float precioBase = 6000;
+
+    float multiplicadorTipo = 1;
+    if(strcmp(sala.getTipo(), "3D") == 0)
+        multiplicadorTipo = 1.5;
+    if(strcmp(sala.getTipo(), "IMAX") == 0)
+        multiplicadorTipo = 2;
+
+    float multiplicadorCapacidad = 1;
+    if(sala.getCapacidad() > 500)
+        multiplicadorCapacidad = 1.2;
+    if(sala.getCapacidad() < 250)
+        multiplicadorCapacidad = 0.8;
+
+    return precioBase * multiplicadorTipo * multiplicadorCapacidad;
+}
