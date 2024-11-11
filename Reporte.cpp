@@ -244,7 +244,7 @@ void Reporte::ListarClientesEdad(int minimo, int maximo, const char* nombreArchi
 
 
     // ENCABEZADO
-    cout << "CLIENTES CON EDAD ENTRE " << minimo << " Y " << maximo << endl;
+    cout << indice << " CLIENTES CON EDAD ENTRE " << minimo << " Y " << maximo << endl;
     cout << left
          << setw(5)  << "ID"
          << setw(10) << "DNI"
@@ -442,7 +442,7 @@ void Reporte::ListarFuncionesFecha(Fecha& minimo, Fecha& maximo, const char* nom
     system("cls");
 
     // ENCABEZADO
-    cout << "FUNCIONES ENTRE " << minimo.toStringFecha() << " Y " << maximo.toStringFecha() << endl;
+    cout << indice << " FUNCIONES ENTRE " << minimo.toStringFecha() << " Y " << maximo.toStringFecha() << endl;
     cout << left
          << setw(5)  << "ID"
          << setw(40) << "PELÍCULA"
@@ -523,7 +523,7 @@ void Reporte::ListarFuncionesSala(int tipo, const char* nombreArchivo){
     system("cls");
 
     // ENCABEZADO
-    cout << "FUNCIONES EN SALA DE TIPO " << tipoSala << endl;
+    cout << indice << " FUNCIONES EN SALA DE TIPO " << tipoSala << endl;
     cout << left
          << setw(5)  << "ID"
          << setw(40) << "PELÍCULA"
