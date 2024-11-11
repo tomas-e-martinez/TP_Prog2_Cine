@@ -89,7 +89,7 @@ Funcion CargarAleatorio::GenerarFuncion(){
     int cantidadSalas = archivoSalas.ContarRegistros();
     int idSala = rand() % cantidadSalas;
 
-    int anio = 2024 - rand() % 3;
+    int anio = 2024 - rand() % 4;
     int dia;
     int mes = rand() % 12 + 1;
     if(mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12)

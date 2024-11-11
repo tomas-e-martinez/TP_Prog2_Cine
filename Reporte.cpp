@@ -6,7 +6,7 @@ void Reporte::ListarPeliculas(const char* nombreArchivo){
 
     int cantidadRegistros = archivo.ContarRegistros();
     system("cls");
-    cout << "Cantidad de películas: " << cantidadRegistros << endl;
+    cout << "CANTIDAD TOTAL DE PELÍCULAS: " << cantidadRegistros << endl;
     system("pause");
     system("cls");
 
@@ -44,7 +44,7 @@ void Reporte::ListarClientes(const char* nombreArchivo){
 
     int cantidadRegistros = archivo.ContarRegistros();
     system("cls");
-    cout << "Cantidad de clientes: " << cantidadRegistros << endl;
+    cout << "CANTIDAD TOTAL DE CLIENTES: " << cantidadRegistros << endl;
     system("pause");
     system("cls");
 
@@ -79,10 +79,6 @@ void Reporte::ListarClientesEdad(int minimo, int maximo, const char* nombreArchi
     int edad;
 
     int cantidadRegistros = archivo.ContarRegistros();
-    system("cls");
-    cout << "Cantidad de clientes: " << cantidadRegistros << endl;
-    system("pause");
-    system("cls");
 
     Cliente* clientes = new Cliente[cantidadRegistros];
     int indice = 0;
@@ -108,7 +104,15 @@ void Reporte::ListarClientesEdad(int minimo, int maximo, const char* nombreArchi
         }
     }
 
+    system("cls");
+    cout << "CANTIDAD TOTAL DE CLIENTES: " << cantidadRegistros << endl;
+    cout << "CLIENTES ENCONTRADOS: " << indice << endl;
+    system("pause");
+    system("cls");
+
+
     // ENCABEZADO
+    cout << "CLIENTES CON EDAD ENTRE " << minimo << " Y " << maximo << endl;
     cout << left
          << setw(5)  << "ID"
          << setw(10) << "DNI"
@@ -140,16 +144,14 @@ void Reporte::ListarClientesEdad(int minimo, int maximo, const char* nombreArchi
 void Reporte::ListarClientesApellido(const char* nombreArchivo){
     ArchivoClientes archivo(nombreArchivo);
     Cliente registro;
-    int edad;
 
     int cantidadRegistros = archivo.ContarRegistros();
     system("cls");
-    cout << "Cantidad de clientes: " << cantidadRegistros << endl;
+    cout << "CANTIDAD TOTAL DE CLIENTES: " << cantidadRegistros << endl;
     system("pause");
     system("cls");
 
     Cliente* clientes = new Cliente[cantidadRegistros];
-    int indice = 0;
 
     //ALMACENAR REGISTROS PARA ORDENAR DESPUÉS
     for(int i = 0; i < cantidadRegistros; i++){
@@ -237,7 +239,7 @@ void Reporte::ListarFunciones(const char* nombreArchivo){
 
     int cantidadRegistros = archivo.ContarRegistros();
     system("cls");
-    cout << "Cantidad de funciones: " << cantidadRegistros << endl;
+    cout << "CANTIDAD TOTAL DE FUNCIONES: " << cantidadRegistros << endl;
     system("pause");
     system("cls");
 
@@ -260,7 +262,7 @@ void Reporte::ListarFunciones(const char* nombreArchivo){
              << setw(5)  << registro.getIdFuncion()
              << setw(40) << pelicula.getTitulo()
              << setw(15) << pelicula.getDuracion().toString()
-             << setw(10)  << (to_string(pelicula.getClasificacionedad()) + "+")
+             << setw(10) << (to_string(pelicula.getClasificacionedad()) + "+")
              << setw(10) << sala.getTipo()
              << setw(20) << registro.getFecha().toStringFecha()
              << setw(10) << registro.getFecha().toStringHora() << endl;
@@ -268,6 +270,153 @@ void Reporte::ListarFunciones(const char* nombreArchivo){
 
     cout << endl;
     system("pause");
+}
+
+void Reporte::ListarFuncionesFecha(Fecha& minimo, Fecha& maximo, const char* nombreArchivo){
+    ArchivoPeliculas archivoPeliculas;
+    ArchivoSalas archivoSalas;
+    ArchivoFunciones archivo(nombreArchivo);
+    Funcion registro;
+
+    int cantidadRegistros = archivo.ContarRegistros();
+
+    Funcion* funciones = new Funcion[cantidadRegistros];
+    int indice = 0;
+
+    //ALMACENAR REGISTROS EN RANGO DE FECHAS
+    for(int i = 0; i < cantidadRegistros; i++){
+        registro = archivo.LeerRegistro(i);
+        if(registro.getFecha() >= minimo && registro.getFecha() <= maximo)
+            funciones[indice++] = registro;
+    }
+
+    //ORDENAR REGISTROS
+    for(int i = 0; i < indice - 1; i++){
+        for(int j = 0; j < indice - 1; j++){
+            if(funciones[j].getFecha() > funciones[j+1].getFecha()){
+                Funcion aux = funciones[j];
+                funciones[j] = funciones[j+1];
+                funciones[j+1] = aux;
+            }
+        }
+    }
+
+    system("cls");
+    cout << "CANTIDAD TOTAL DE FUNCIONES: " << cantidadRegistros << endl;
+    cout << "FUNCIONES ENCONTRADAS: " << indice << endl;
+    system("pause");
+    system("cls");
+
+    // ENCABEZADO
+    cout << "FUNCIONES ENTRE " << minimo.toStringFecha() << " Y " << maximo.toStringFecha() << endl;
+    cout << left
+         << setw(5)  << "ID"
+         << setw(40) << "PELÍCULA"
+         << setw(15) << "DURACIÓN"
+         << setw(10)  << "EDAD"
+         << setw(10) << "SALA"
+         << setw(20) << "FECHA"
+         << setw(10) << "HORA" << endl;
+
+    cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
+    for (int i = 0; i < indice; i++) {
+        registro = funciones[i];
+        Pelicula pelicula = archivoPeliculas.LeerRegistro(registro.getIdPelicula());
+        Sala sala = archivoSalas.LeerRegistro(registro.getIdSala());
+        cout << left
+             << setw(5)  << registro.getIdFuncion()
+             << setw(40) << pelicula.getTitulo()
+             << setw(15) << pelicula.getDuracion().toString()
+             << setw(10) << (to_string(pelicula.getClasificacionedad()) + "+")
+             << setw(10) << sala.getTipo()
+             << setw(20) << registro.getFecha().toStringFecha()
+             << setw(10) << registro.getFecha().toStringHora() << endl;
+    }
+
+    delete[] funciones;
+
+    cout << endl;
+    system("pause");
+    return;
+}
+
+void Reporte::ListarFuncionesSala(int tipo, const char* nombreArchivo){
+    char tipoSala[5];
+    switch(tipo){
+    case 1:
+        strcpy(tipoSala, "2D");
+        break;
+    case 2:
+        strcpy(tipoSala, "3D");
+        break;
+    case 3:
+        strcpy(tipoSala, "IMAX");
+        break;
+    case 0:
+        return;
+    default:
+        cout << "ERROR: OPCIÓN INVÁLIDA." << endl;
+        system("pause");
+        return;
+    }
+
+    ArchivoPeliculas archivoPeliculas;
+    ArchivoSalas archivoSalas;
+    ArchivoFunciones archivoFunciones(nombreArchivo);
+    Funcion registro;
+    Sala sala;
+    Pelicula pelicula;
+
+    int cantidadRegistros = archivoFunciones.ContarRegistros();
+
+    Funcion* funciones = new Funcion[cantidadRegistros];
+    int indice = 0;
+
+    //ALMACENAR REGISTROS QUE COINCIDAN CON EL TIPO DE SALA
+    for(int i = 0; i < cantidadRegistros; i++){
+        registro = archivoFunciones.LeerRegistro(i);
+        sala = archivoSalas.LeerRegistro(registro.getIdSala());
+        if(strcmp(sala.getTipo(), tipoSala) == 0)
+            funciones[indice++] = registro;
+    }
+
+    system("cls");
+    cout << "CANTIDAD TOTAL DE FUNCIONES: " << cantidadRegistros << endl;
+    cout << "FUNCIONES ENCONTRADAS: " << indice << endl;
+    system("pause");
+    system("cls");
+
+    // ENCABEZADO
+    cout << "FUNCIONES EN SALA DE TIPO " << tipoSala << endl;
+    cout << left
+         << setw(5)  << "ID"
+         << setw(40) << "PELÍCULA"
+         << setw(15) << "DURACIÓN"
+         << setw(10)  << "EDAD"
+         << setw(10) << "SALA"
+         << setw(20) << "FECHA"
+         << setw(10) << "HORA" << endl;
+
+    cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
+    for (int i = 0; i < indice; i++) {
+        registro = funciones[i];
+        pelicula = archivoPeliculas.LeerRegistro(registro.getIdPelicula());
+        sala = archivoSalas.LeerRegistro(registro.getIdSala());
+        cout << left
+             << setw(5)  << registro.getIdFuncion()
+             << setw(40) << pelicula.getTitulo()
+             << setw(15) << pelicula.getDuracion().toString()
+             << setw(10) << (to_string(pelicula.getClasificacionedad()) + "+")
+             << setw(10) << sala.getTipo()
+             << setw(20) << registro.getFecha().toStringFecha()
+             << setw(10) << registro.getFecha().toStringHora() << endl;
+    }
+
+    delete[] funciones;
+
+    cout << endl;
+    system("pause");
+    return;
 }
 
 void Reporte::ListarVentas(const char* nombreArchivo){

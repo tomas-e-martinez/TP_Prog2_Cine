@@ -125,9 +125,25 @@ void Menu::Funciones(GestorCine& gestor, Reporte& reporte){
         case 3:
             reporte.ListarFunciones();
             break;
-        case 4:
+        case 4: {
+            system("cls");
+            int minimo, maximo;
+            cout << "BUSCAR FUNCIONES POR FECHA\n\nDESDE\n";
+            Fecha fecha1;
+            fecha1.Cargar();
+            cout << "\nHASTA\n";
+            Fecha fecha2;
+            fecha2.Cargar();
+            reporte.ListarFuncionesFecha(fecha1, fecha2);
             break;
+        }
         case 5:
+            system("cls");
+            int opcionTipo;
+            cout << "BUSCAR FUNCIONES POR TIPO DE SALA\n1. 2D\n2. 3D\n3. IMAX\n\n0. Cancelar" << endl << endl;
+            cout << "INGRESAR OPCIÓN: ";
+            cin >> opcionTipo;
+            reporte.ListarFuncionesSala(opcionTipo);
             break;
         case 0:
             return;

@@ -16,6 +16,10 @@ public:
     void ListarClientesDNI(int dni, const char* nombreArchivo = "clientes.dat");
 
     void ListarFunciones(const char* nombreArchivo = "funciones.dat");
+    void ListarFuncionesFecha(Fecha& minimo, Fecha& maximo, const char* nombreArchivo = "funciones.dat");
+    void ListarFuncionesSala(int tipo, const char* nombreArchivo = "funciones.dat");
+
+
     void ListarVentas(const char* nombreArchivo = "ventas.dat");
     void ListarSalas(const char* nombreArchivo = "salas.dat");
 };
