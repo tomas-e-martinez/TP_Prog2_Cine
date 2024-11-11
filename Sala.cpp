@@ -6,11 +6,10 @@ Sala::Sala(){
     strcpy(_tipo, "NULO");
 }
 
-Sala::Sala(int idSala, int capacidad, const char* tipo){
-    _idSala = idSala;
+Sala::Sala(int capacidad, int tipo){
+    _idSala = 0;
     _capacidad = capacidad;
-    strcpy(_tipo,tipo);
-
+    setTipo(tipo);
 }
 
 void Sala::Cargar(){
@@ -20,20 +19,7 @@ void Sala::Cargar(){
     cout << "TIPO\n 1.2D\n 2.3D\n 3.IMAX" << endl;
     cout << "OPCIÓN: ";
     cin >> opcion;
-    switch(opcion){
-    case 1:
-        strcpy(_tipo, "2D");
-        break;
-    case 2:
-        strcpy(_tipo, "3D");
-        break;
-    case 3:
-        strcpy(_tipo, "IMAX");
-        break;
-    default:
-        strcpy(_tipo, "NULO");
-        break;
-    }
+    setTipo(opcion);
     cout << "CAPACIDAD: ";
     cin >> _capacidad;
     cin.ignore();
@@ -62,10 +48,11 @@ bool Sala::Modificar(){
             setCapacidad(capacidad);
             break;
         case 2:
-            char tipo[5];
-            cout << endl << "NUEVO TIPO: ";
-            cin.getline(tipo, sizeof(tipo));
-            setTipo(tipo);
+            int opcionTipo;
+            cout << endl << "NUEVO TIPO\n1. 2D\n2. 3D\n3. IMAX\n\n";
+            cout << "INGRESAR OPCIÓN: ";
+            cin >> opcionTipo;
+            setTipo(opcionTipo);
             break;
         case 0:
             return true;
@@ -96,8 +83,21 @@ void Sala::setIdSala(int idSala){
     _idSala = idSala;
 }
 
-void Sala::setTipo(const char* tipo){
-    strcpy(_tipo, tipo);
+void Sala::setTipo(int tipo){
+    switch(tipo){
+    case 1:
+        strcpy(_tipo, "2D");
+        break;
+    case 2:
+        strcpy(_tipo, "3D");
+        break;
+    case 3:
+        strcpy(_tipo, "IMAX");
+        break;
+    default:
+        strcpy(_tipo, "NULO");
+        break;
+    }
 }
 
 void Sala::setCapacidad(int capacidad){

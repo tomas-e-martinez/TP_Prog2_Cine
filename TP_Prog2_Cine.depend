@@ -287,7 +287,7 @@
 1731266476 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\funcion.cpp
 	"Funcion.h"
 
-1731287448 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\main.cpp
+1731291075 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\main.cpp
 	<iostream>
 	<iomanip>
 	<locale.h>
@@ -316,7 +316,7 @@
 	"GestorCine.h"
 	"ArchivoClientes.h"
 
-1731284059 c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.h
+1731291263 c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.h
 	"ArchivoClientes.h"
 	"ArchivoPeliculas.h"
 	"ArchivoSalas.h"
@@ -326,7 +326,7 @@
 1731119453 c:\users\tomas\documents\programación 2\tp_prog2_cine\archivosalas.h
 	"Sala.h"
 
-1731266607 c:\users\tomas\documents\programación 2\tp_prog2_cine\sala.h
+1731288664 c:\users\tomas\documents\programación 2\tp_prog2_cine\sala.h
 	<iostream>
 	<cstring>
 	"Fecha.h"
@@ -335,10 +335,10 @@
 1731266467 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\pelicula.cpp
 	"Pelicula.h"
 
-1731287168 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.cpp
+1731291663 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.cpp
 	"Reporte.h"
 
-1731266757 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\sala.cpp
+1731290298 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\sala.cpp
 	"Sala.h"
 
 1731119453 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\tiempo.cpp
@@ -350,7 +350,7 @@
 1731119453 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\archivosalas.cpp
 	"ArchivoSalas.h"
 
-1731285815 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.cpp
+1731291680 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.cpp
 	"Menu.h"
 
 1731266998 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\gestorcine.cpp
@@ -368,10 +368,10 @@
 	"ArchivoFunciones.h"
 	"ArchivoVentas.h"
 
-1731287360 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\cargaraleatorio.cpp
+1731290084 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\cargaraleatorio.cpp
 	"CargarAleatorio.h"
 
-1731119453 c:\users\tomas\documents\programación 2\tp_prog2_cine\cargaraleatorio.h
+1731287928 c:\users\tomas\documents\programación 2\tp_prog2_cine\cargaraleatorio.h
 	"Cliente.h"
 	"Funcion.h"
 	"Pelicula.h"

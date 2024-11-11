@@ -248,8 +248,9 @@ void Reporte::ListarFunciones(const char* nombreArchivo){
          << setw(5)  << "ID"
          << setw(40) << "PELÍCULA"
          << setw(15) << "DURACIÓN"
-         << setw(10)  << "EDAD"
+         << setw(10) << "EDAD"
          << setw(10) << "SALA"
+         << setw(10) << "TIPO"
          << setw(20) << "FECHA"
          << setw(10) << "HORA" << endl;
 
@@ -263,6 +264,7 @@ void Reporte::ListarFunciones(const char* nombreArchivo){
              << setw(40) << pelicula.getTitulo()
              << setw(15) << pelicula.getDuracion().toString()
              << setw(10) << (to_string(pelicula.getClasificacionedad()) + "+")
+             << setw(10) << ("N°" + to_string(registro.getIdSala()))
              << setw(10) << sala.getTipo()
              << setw(20) << registro.getFecha().toStringFecha()
              << setw(10) << registro.getFecha().toStringHora() << endl;
@@ -313,8 +315,9 @@ void Reporte::ListarFuncionesFecha(Fecha& minimo, Fecha& maximo, const char* nom
          << setw(5)  << "ID"
          << setw(40) << "PELÍCULA"
          << setw(15) << "DURACIÓN"
-         << setw(10)  << "EDAD"
+         << setw(10) << "EDAD"
          << setw(10) << "SALA"
+         << setw(10) << "TIPO"
          << setw(20) << "FECHA"
          << setw(10) << "HORA" << endl;
 
@@ -328,6 +331,7 @@ void Reporte::ListarFuncionesFecha(Fecha& minimo, Fecha& maximo, const char* nom
              << setw(40) << pelicula.getTitulo()
              << setw(15) << pelicula.getDuracion().toString()
              << setw(10) << (to_string(pelicula.getClasificacionedad()) + "+")
+             << setw(10) << ("N°" + to_string(registro.getIdSala()))
              << setw(10) << sala.getTipo()
              << setw(20) << registro.getFecha().toStringFecha()
              << setw(10) << registro.getFecha().toStringHora() << endl;
@@ -392,8 +396,9 @@ void Reporte::ListarFuncionesSala(int tipo, const char* nombreArchivo){
          << setw(5)  << "ID"
          << setw(40) << "PELÍCULA"
          << setw(15) << "DURACIÓN"
-         << setw(10)  << "EDAD"
+         << setw(10) << "EDAD"
          << setw(10) << "SALA"
+         << setw(10) << "TIPO"
          << setw(20) << "FECHA"
          << setw(10) << "HORA" << endl;
 
@@ -407,6 +412,7 @@ void Reporte::ListarFuncionesSala(int tipo, const char* nombreArchivo){
              << setw(40) << pelicula.getTitulo()
              << setw(15) << pelicula.getDuracion().toString()
              << setw(10) << (to_string(pelicula.getClasificacionedad()) + "+")
+             << setw(10) << ("N°" + to_string(registro.getIdSala()))
              << setw(10) << sala.getTipo()
              << setw(20) << registro.getFecha().toStringFecha()
              << setw(10) << registro.getFecha().toStringHora() << endl;
@@ -460,7 +466,7 @@ void Reporte::ListarSalas(const char* nombreArchivo){
 
     int cantidadRegistros = archivo.ContarRegistros();
     system("cls");
-    cout << "Cantidad de salas: " << cantidadRegistros << endl;
+    cout << "CANTIDAD TOTAL DE SALAS: " << cantidadRegistros << endl;
     system("pause");
     system("cls");
 
@@ -477,6 +483,53 @@ void Reporte::ListarSalas(const char* nombreArchivo){
              << setw(5)  << registro.getIdSala()
              << setw(15) << registro.getCapacidad()
              << setw(10) << registro.getTipo() << endl;
+    }
+
+    cout << endl;
+    system("pause");
+}
+
+void Reporte::ListarSalasTipo(const char* nombreArchivo){
+    ArchivoSalas archivo(nombreArchivo);
+    Sala registro;
+
+    int cantidadRegistros = archivo.ContarRegistros();
+    Sala* salas = new Sala[cantidadRegistros];
+
+    //ALMACENAR REGISTROS PARA ORDENAR POR TIPO
+    for(int i = 0; i < cantidadRegistros; i++){
+        registro = archivo.LeerRegistro(i);
+        salas[i] = registro;
+    }
+
+    //ORDENAR REGISTROS
+    for(int i = 0; i <  cantidadRegistros - 1; i++){
+        for(int j = 0; j < cantidadRegistros - 1; j++){
+            if(strcmp(salas[j].getTipo(), salas[j+1].getTipo()) > 0){
+                Sala aux = salas[j];
+                salas[j] = salas[j+1];
+                salas[j+1] = aux;
+            }
+        }
+    }
+
+    system("cls");
+    cout << "CANTIDAD TOTAL DE SALAS: " << cantidadRegistros << endl;
+    system("pause");
+    system("cls");
+
+    // ENCABEZADO
+    cout << left
+         << setw(5)  << "ID"
+         << setw(15) << "CAPACIDAD"
+         << setw(10) << "TIPO" << endl;
+
+    cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
+    for (int i = 0; i < cantidadRegistros; i++) {
+        cout << left
+             << setw(5)  << salas[i].getIdSala()
+             << setw(15) << salas[i].getCapacidad()
+             << setw(10) << salas[i].getTipo() << endl;
     }
 
     cout << endl;

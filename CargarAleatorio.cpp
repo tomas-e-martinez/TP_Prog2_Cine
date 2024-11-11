@@ -121,3 +121,32 @@ void CargarAleatorio::CargarFunciones(int cantidad){
         cout << "FUNCIONES AGREGADAS: " << cantidad << endl;
         system("pause");
 }
+
+Sala CargarAleatorio::GenerarSala(){
+    int capacidad = (rand() % 150 + 51) * 5;
+    int opcionTipo = rand() % 100 + 1;
+    if(opcionTipo <= 75)
+        opcionTipo = 1;
+    else if(opcionTipo <= 95)
+        opcionTipo = 2;
+    else if(opcionTipo <= 100)
+        opcionTipo = 3;
+
+    Sala sala(capacidad, opcionTipo);
+    return sala;
+}
+
+void CargarAleatorio::CargarSalas(int cantidad){
+    Sala registro;
+    ArchivoSalas archivo;
+    for(int i = 0; i < cantidad; i++){
+        registro = GenerarSala();
+        if(!archivo.Guardar(registro)){
+            cout << "ERROR AL AGREGAR REGISTRO." << endl;
+            break;
+        }
+    }
+
+    cout << "SALAS AGREGADAS: " << cantidad << endl;
+    system("pause");
+}

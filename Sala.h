@@ -15,7 +15,7 @@ private:
 
 public:
     Sala();
-    Sala(int idSala, int capacidad, const char* tipo);
+    Sala(int capacidad, int tipo);
 
     void Cargar();
     void Mostrar();
@@ -27,6 +27,6 @@ public:
 
     void setIdSala(int idSala);
     void setCapacidad(int capacidad);
-    void setTipo(const char* tipo);
+    void setTipo(int tipo);
 };
 

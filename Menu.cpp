@@ -230,6 +230,7 @@ void Menu::Salas(GestorCine& gestor, Reporte& reporte){
             reporte.ListarSalas();
             break;
         case 4:
+            reporte.ListarSalasTipo();
             break;
         case 0:
             return;
