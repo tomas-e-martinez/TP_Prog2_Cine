@@ -1004,3 +1004,101 @@ void Reporte::RecaudacionAnual(Reporte& reporte){
     cout << endl;
     system("pause");
 }
+
+void Reporte::RecaudacionTipoSala(Reporte& reporte){
+    int anio, idFuncion, posFuncion, opcion, idSala, posSala;
+    float recaudacionTipos[3] = {0};
+    char tipos[3][5] = {"2D", "3D", "IMAX"};
+    float valorEntrada, totalVenta;
+
+    GestorCine gestor;
+    Funcion funcion;
+    Venta venta;
+    Sala sala;
+    ArchivoFunciones archivoFunciones;
+    ArchivoVentas archivoVentas;
+    ArchivoSalas archivoSalas;
+
+    int cantidadVentas = archivoVentas.ContarRegistros();
+    if(cantidadVentas < 1){
+        cout << "ERROR: NO SE ENCONTRARON VENTAS EN EL ARCHIVO." << endl;
+        system("pause");
+        return;
+    }
+
+    Fecha fechaMin;
+    Fecha fechaMax;
+
+    while(true){
+        system("cls");
+        cout << "RECAUDACIÓN POR TIPO DE SALA\n1. Ingresar rango de fechas\n2. Año actual\n\n0. Cancelar\n\nOPCION:";
+        cin >> opcion;
+        switch(opcion){
+        case 1:
+            cout << "RECAUDACIÓN DESDE" << endl;
+            fechaMin.Cargar();
+            cout << endl << "HASTA" << endl;
+            fechaMax.Cargar();
+            break;
+        case 2:
+            fechaMin.setDia(1);
+            fechaMin.setMes(1);
+            fechaMin.setAnio(2024);
+            fechaMax.setDia(1);
+            fechaMax.setMes(1);
+            fechaMax.setAnio(2025);
+            break;
+        case 0:
+            return;
+        default:
+            cout << "ERROR: INGRESE UNA OPCIÓN VÁLIDA" << endl;
+            system("pause");
+            continue;
+        }
+        break;
+    }
+
+    system("cls");
+    cout << "-----------------------------------------" << endl;
+    cout << "RECAUDACIÓN POR TIPO DE SALA " << endl;
+    cout << "DESDE " << fechaMin.toStringFecha() << endl;
+    cout << "HASTA " << fechaMax.toStringFecha() << endl;
+    cout << "-----------------------------------------" << endl;
+
+    for(int i = 0; i < cantidadVentas; i++){
+        venta = archivoVentas.LeerRegistro(i);
+        if(venta.getFecha() >= fechaMin && venta.getFecha() <= fechaMax){
+            idFuncion = venta.getIdFuncion();
+            posFuncion = archivoFunciones.BuscarID(idFuncion);
+            funcion = archivoFunciones.LeerRegistro(posFuncion);
+
+            idSala = funcion.getIdSala();
+            posSala = archivoSalas.BuscarID(idSala);
+            sala = archivoSalas.LeerRegistro(posSala);
+
+            valorEntrada = gestor.CalcularPrecioEntrada(funcion);
+            totalVenta = valorEntrada * venta.getCantidadEntradas();
+
+            int indice = 0;
+            while(strcmp(sala.getTipo(), tipos[indice]) != 0){
+                indice++;
+            }
+
+            recaudacionTipos[indice] += totalVenta;
+        }
+    }
+
+    // ENCABEZADO
+    cout << left
+         << setw(30) << "TIPO"
+         << setw(30) << "RECAUDACIÓN" << endl;
+
+    for (int i = 0; i < 3; i++) {
+        cout << left
+             << setw(30) << tipos[i]
+             << setw(1) << "$" << fixed << setprecision(2) << setw(29) << recaudacionTipos[i] << endl;
+    }
+
+    cout << endl;
+    system("pause");
+}

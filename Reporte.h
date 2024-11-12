@@ -36,4 +36,5 @@ public:
     void ListarSalasTipo(const char* nombreArchivo = "salas.dat");
 
     void RecaudacionAnual(Reporte& reporte);
+    void RecaudacionTipoSala(Reporte& reporte);
 };

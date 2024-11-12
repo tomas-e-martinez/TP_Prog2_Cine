@@ -30,6 +30,7 @@ void Fecha::Cargar(){
     setDia(dia);
     setMes(mes);
     setAnio(anio);
+    AjustarFecha();
 }
 
 void Fecha::CargarHora(){
