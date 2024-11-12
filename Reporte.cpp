@@ -1031,7 +1031,7 @@ void Reporte::RecaudacionTipoSala(Reporte& reporte){
 
     while(true){
         system("cls");
-        cout << "RECAUDACIÓN POR TIPO DE SALA\n1. Ingresar rango de fechas\n2. Año actual\n\n0. Cancelar\n\nOPCION:";
+        cout << "RECAUDACIÓN POR TIPO DE SALA\n1. Ingresar rango de fechas\n2. Año actual\n\n0. Cancelar\n\nOPCIÓN: ";
         cin >> opcion;
         switch(opcion){
         case 1:
@@ -1098,6 +1098,104 @@ void Reporte::RecaudacionTipoSala(Reporte& reporte){
              << setw(30) << tipos[i]
              << setw(1) << "$" << fixed << setprecision(2) << setw(29) << recaudacionTipos[i] << endl;
     }
+
+    cout << endl;
+    system("pause");
+}
+
+void Reporte::EntradasVendidasPorPelicula(Reporte& reporte){
+    int opcion, idPelicula, posPelicula, idFuncion, posFuncion;
+
+    GestorCine gestor;
+    Pelicula pelicula;
+    Venta venta;
+    Funcion funcion;
+    ArchivoPeliculas archivoPeliculas;
+    ArchivoVentas archivoVentas;
+    ArchivoFunciones archivoFunciones;
+
+    int cantidadPeliculas = archivoPeliculas.ContarRegistros();
+    if(cantidadPeliculas < 1){
+        cout << "ERROR: NO SE ENCONTRARON PELÍCULAS EN EL ARCHIVO." << endl;
+        system("pause");
+        return;
+    }
+    int* acuEntradasPelicula = new int[cantidadPeliculas]();
+
+    int cantidadVentas = archivoVentas.ContarRegistros();
+    if(cantidadVentas < 1){
+        cout << "ERROR: NO SE ENCONTRARON VENTAS EN EL ARCHIVO." << endl;
+        system("pause");
+        return;
+    }
+
+    Fecha fechaMin;
+    Fecha fechaMax;
+
+    while(true){
+        system("cls");
+        cout << "CANTIDAD DE ENTRADAS VENDIDAS POR PELÍCULA\n1. Ingresar rango de fechas\n2. Año actual\n\n0. Cancelar\n\nOPCIÓN: ";
+        cin >> opcion;
+        switch(opcion){
+        case 1:
+            cout << "RECAUDACIÓN DESDE" << endl;
+            fechaMin.Cargar();
+            cout << endl << "HASTA" << endl;
+            fechaMax.Cargar();
+            break;
+        case 2:
+            fechaMin.setDia(1);
+            fechaMin.setMes(1);
+            fechaMin.setAnio(2024);
+            fechaMax.setDia(1);
+            fechaMax.setMes(1);
+            fechaMax.setAnio(2025);
+            break;
+        case 0:
+            return;
+        default:
+            cout << "ERROR: INGRESE UNA OPCIÓN VÁLIDA" << endl;
+            system("pause");
+            continue;
+        }
+        break;
+    }
+
+    system("cls");
+    cout << "-------------------------------------------------------------------" << endl;
+    cout << "CANTIDAD DE ENTRADAS VENDIDAS POR PELÍCULA" << endl;
+    cout << "DESDE " << fechaMin.toStringFecha() << endl;
+    cout << "HASTA " << fechaMax.toStringFecha() << endl;
+    cout << "-------------------------------------------------------------------" << endl;
+
+    for(int i = 0; i < cantidadVentas; i++){
+        venta = archivoVentas.LeerRegistro(i);
+        if(venta.getFecha() >= fechaMin && venta.getFecha() <= fechaMax){
+            idFuncion = venta.getIdFuncion();
+            posFuncion = archivoFunciones.BuscarID(idFuncion);
+            funcion = archivoFunciones.LeerRegistro(posFuncion);
+
+            idPelicula = funcion.getIdPelicula();
+
+            acuEntradasPelicula[idPelicula] += venta.getCantidadEntradas();
+        }
+    }
+
+    // ENCABEZADO
+    cout << left
+         << setw(50) << "PELÍCULA"
+         << setw(30) << "ENTRADAS VENDIDAS" << endl;
+
+    for (int i = 0; i < cantidadPeliculas; i++) {
+        posPelicula = archivoPeliculas.BuscarID(i);
+        pelicula = archivoPeliculas.LeerRegistro(posPelicula);
+        cout << left
+             << setw(50) << pelicula.getTitulo()
+             << setw(30) << acuEntradasPelicula[i] << endl;
+    }
+
+
+    delete[] acuEntradasPelicula;
 
     cout << endl;
     system("pause");

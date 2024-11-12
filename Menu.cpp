@@ -333,6 +333,7 @@ void Menu::Reportes(Reporte& reporte){
         case 4:
             break;
         case 5:
+            reporte.EntradasVendidasPorPelicula(reporte);
             break;
         case 6:
             break;
