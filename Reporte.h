@@ -40,4 +40,5 @@ public:
     void RecaudacionTitulo(Reporte& reporte);
     void RecaudacionGenero(Reporte& reporte);
     void EntradasVendidasPorPelicula(Reporte& reporte);
+    void EntradasVendidasPorGenero(Reporte& reporte);
 };

@@ -338,6 +338,7 @@ void Menu::Reportes(Reporte& reporte){
             reporte.EntradasVendidasPorPelicula(reporte);
             break;
         case 6:
+            reporte.EntradasVendidasPorGenero(reporte);
             break;
         case 0:
             return;

@@ -1408,3 +1408,101 @@ void Reporte::EntradasVendidasPorPelicula(Reporte& reporte){
     cout << endl;
     system("pause");
 }
+
+void Reporte::EntradasVendidasPorGenero(Reporte& reporte){
+    char generos[8][20] = {"Accion", "Ciencia Ficcion", "Animacion", "Fantasia", "Drama", "Comedia", "Terror", "Sin Genero"};
+    float ventasGeneros[8] = {0};
+    int opcion, idPelicula, posPelicula, idFuncion, posFuncion, cantEntradasVendidas;
+
+    GestorCine gestor;
+    Pelicula pelicula;
+    Venta venta;
+    Funcion funcion;
+    ArchivoPeliculas archivoPeliculas;
+    ArchivoVentas archivoVentas;
+    ArchivoFunciones archivoFunciones;
+
+    /// CONTAMOS LAS VENTAS
+    int cantidadVentas = archivoVentas.ContarRegistros();
+    if (cantidadVentas < 1) {
+        cout << "ERROR: NO SE ENCONTRARON VENTAS EN EL ARCHIVO." << endl;
+        system("pause");
+        return;
+    }
+
+    Fecha fechaMin;
+    Fecha fechaMax;
+
+    /// SELECCIONAMOS EL RANGO DE LAS FECHAS
+    while (true) {
+        system("cls");
+        cout << "CANTIDAD DE ENTRADAS VENDIDAS POR GÉNERO\n1. Ingresar rango de fechas\n2. Año actual\n\n0. Cancelar\n\nOPCIÓN: ";
+        cin >> opcion;
+        switch (opcion) {
+        case 1:
+            cout << "ENTRADAS VENDIDAS DESDE" << endl;
+            fechaMin.Cargar();
+            cout << endl << "HASTA" << endl;
+            fechaMax.Cargar();
+            break;
+        case 2:
+            fechaMin.setDia(1);
+            fechaMin.setMes(1);
+            fechaMin.setAnio(2024);
+            fechaMax.setDia(1);
+            fechaMax.setMes(1);
+            fechaMax.setAnio(2025);
+            break;
+        case 0:
+            return;
+        default:
+            cout << "ERROR: INGRESE UNA OPCIÓN VÁLIDA" << endl;
+            system("pause");
+            continue;
+        }
+        break;
+    }
+
+    system("cls");
+    cout << "-------------------------------------------------------------------" << endl;
+    cout << "CANTIDAD DE ENTRADAS VENDIDA POR GÉNERO" << endl;
+    cout << "DESDE " << fechaMin.toStringFecha() << endl;
+    cout << "HASTA " << fechaMax.toStringFecha() << endl;
+    cout << "-------------------------------------------------------------------" << endl;
+
+    /// PROCESAMOS LAS VENTAS
+    for (int i = 0; i < cantidadVentas; i++) {
+        venta = archivoVentas.LeerRegistro(i);
+        if (venta.getFecha() >= fechaMin && venta.getFecha() <= fechaMax) {
+            idFuncion = venta.getIdFuncion();
+            posFuncion = archivoFunciones.BuscarID(idFuncion);
+            funcion = archivoFunciones.LeerRegistro(posFuncion);
+
+            idPelicula = funcion.getIdPelicula();
+            posPelicula = archivoPeliculas.BuscarID(idPelicula);
+            pelicula = archivoPeliculas.LeerRegistro(posPelicula);
+
+            /// BUSCAMOS EL GENERO DE LA PELICULA
+            int indiceGenero = 0;
+            while (indiceGenero < 8) {
+                if (strcmp(pelicula.getGenero(), generos[indiceGenero]) == 0) {
+                    break;
+                }
+                indiceGenero++;
+            }
+            ventasGeneros[indiceGenero] += venta.getCantidadEntradas();
+        }
+    }
+
+    cout << left
+         << setw(30) << "GÉNERO"
+         << setw(20) << "ENTRADAS VENDIDAS" << endl;
+    for (int i = 0; i < 8; i++) {
+        cout << left
+             << setw(30) << generos[i]
+             << setw(20) << ventasGeneros[i] << endl;
+    }
+
+    cout << endl;
+    system("pause");
+}
