@@ -316,7 +316,7 @@
 	"GestorCine.h"
 	"ArchivoClientes.h"
 
-1731458301 c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.h
+1731459289 c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.h
 	"ArchivoClientes.h"
 	"ArchivoPeliculas.h"
 	"ArchivoSalas.h"
@@ -336,7 +336,7 @@
 1731299365 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\pelicula.cpp
 	"Pelicula.h"
 
-1731444173 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.cpp
+1731458804 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.cpp
 	"Reporte.h"
 
 1731290298 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\sala.cpp
@@ -351,7 +351,7 @@
 1731119453 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\archivosalas.cpp
 	"ArchivoSalas.h"
 
-1731458288 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.cpp
+1731460355 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.cpp
 	"Menu.h"
 
 1731350884 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\gestorcine.cpp

@@ -172,6 +172,15 @@ void Reporte::ListarPeliculasGenero(int opcionGenero, const char* nombreArchivo)
     case 5:
         strcpy(genero, "Drama");
         break;
+    case 6:
+        strcpy(genero, "Comedia");
+        break;
+    case 7:
+        strcpy(genero, "Terror");
+        break;
+    case 8:
+        strcpy(genero, "Aventura");
+        break;
     case 0:
         return;
     default:
@@ -1198,6 +1207,106 @@ void Reporte::RecaudacionTitulo(Reporte& reporte){
 
 
     delete[] recaudacionPeliculas;
+
+    cout << endl;
+    system("pause");
+}
+
+void Reporte::RecaudacionGenero(Reporte& reporte){
+    char generos[8][20] = {"Accion", "Ciencia Ficcion", "Animacion", "Fantasia", "Drama", "Comedia", "Terror", "Sin Genero"};
+    float recaudacionGeneros[8] = {0};
+    int opcion, idPelicula, posPelicula, idFuncion, posFuncion;
+    float precioEntrada;
+
+    GestorCine gestor;
+    Pelicula pelicula;
+    Venta venta;
+    Funcion funcion;
+    ArchivoPeliculas archivoPeliculas;
+    ArchivoVentas archivoVentas;
+    ArchivoFunciones archivoFunciones;
+
+    int cantidadVentas = archivoVentas.ContarRegistros();
+    if(cantidadVentas < 1){
+        cout << "ERROR: NO SE ENCONTRARON VENTAS EN EL ARCHIVO." << endl;
+        system("pause");
+        return;
+    }
+
+    Fecha fechaMin;
+    Fecha fechaMax;
+
+    while(true){
+        system("cls");
+        cout << "RECAUDACIÓN POR GÉNERO\n1. Ingresar rango de fechas\n2. Año actual\n\n0. Cancelar\n\nOPCIÓN: ";
+        cin >> opcion;
+        switch(opcion){
+        case 1:
+            cout << "RECAUDACIÓN DESDE" << endl;
+            fechaMin.Cargar();
+            cout << endl << "HASTA" << endl;
+            fechaMax.Cargar();
+            break;
+        case 2:
+            fechaMin.setDia(1);
+            fechaMin.setMes(1);
+            fechaMin.setAnio(2024);
+            fechaMax.setDia(1);
+            fechaMax.setMes(1);
+            fechaMax.setAnio(2025);
+            break;
+        case 0:
+            return;
+        default:
+            cout << "ERROR: INGRESE UNA OPCIÓN VÁLIDA" << endl;
+            system("pause");
+            continue;
+        }
+        break;
+    }
+
+    system("cls");
+    cout << "-------------------------------------------------------------------" << endl;
+    cout << "RECAUDACIÓN POR GÉNERO" << endl;
+    cout << "DESDE " << fechaMin.toStringFecha() << endl;
+    cout << "HASTA " << fechaMax.toStringFecha() << endl;
+    cout << "-------------------------------------------------------------------" << endl;
+
+    for(int i = 0; i < cantidadVentas; i++){
+        venta = archivoVentas.LeerRegistro(i);
+        if(venta.getFecha() >= fechaMin && venta.getFecha() <= fechaMax){
+            idFuncion = venta.getIdFuncion();
+            posFuncion = archivoFunciones.BuscarID(idFuncion);
+            funcion = archivoFunciones.LeerRegistro(posFuncion);
+
+            idPelicula = funcion.getIdPelicula();
+            posPelicula = archivoPeliculas.BuscarID(idPelicula);
+            pelicula = archivoPeliculas.LeerRegistro(posPelicula);
+
+            int indiceGenero = 0;
+            while(indiceGenero < 8){
+                if(strcmp(pelicula.getGenero(), generos[indiceGenero]) == 0)
+                    break;
+                indiceGenero++;
+            }
+            precioEntrada = gestor.CalcularPrecioEntrada(funcion);
+
+            recaudacionGeneros[indiceGenero] += precioEntrada * venta.getCantidadEntradas();
+        }
+    }
+
+    // ENCABEZADO
+    cout << left
+         << setw(30) << "GÉNERO"
+         << setw(30) << "RECAUDACIÓN" << endl;
+
+    for (int i = 0; i < 8; i++) {
+        posPelicula = archivoPeliculas.BuscarID(i);
+        pelicula = archivoPeliculas.LeerRegistro(posPelicula);
+        cout << left
+             << setw(30) << generos[i]
+             << setw(1) << "$" << fixed << setprecision(2) << setw(29) << recaudacionGeneros[i] << endl;
+    }
 
     cout << endl;
     system("pause");

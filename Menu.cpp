@@ -193,7 +193,7 @@ void Menu::Peliculas(GestorCine& gestor, Reporte& reporte){
         case 6:
             system("cls");
             int opcionGenero;
-            cout << "BUSCAR PELÍCULAS POR GÉNERO\n1. Accion\n2. Ciencia Ficcion\n3. Animacion\n4. Fantasia\n5. Drama\n\n0. Cancelar" << endl << endl;
+            cout << "BUSCAR PELÍCULAS POR GÉNERO\n1. Accion\n2. Ciencia Ficcion\n3. Animacion\n4. Fantasia\n5. Drama\n6. Comedia\n7. Terror\n8. Aventura\n\n0. Cancelar" << endl << endl;
             cout << "INGRESAR OPCIÓN: ";
             cin >> opcionGenero;
             reporte.ListarPeliculasGenero(opcionGenero);
@@ -332,6 +332,7 @@ void Menu::Reportes(Reporte& reporte){
             reporte.RecaudacionTitulo(reporte);
             break;
         case 4:
+            reporte.RecaudacionGenero(reporte);
             break;
         case 5:
             reporte.EntradasVendidasPorPelicula(reporte);
