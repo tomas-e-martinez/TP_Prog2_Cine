@@ -287,7 +287,7 @@
 1731333603 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\funcion.cpp
 	"Funcion.h"
 
-1731354226 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\main.cpp
+1731524370 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\main.cpp
 	<iostream>
 	<iomanip>
 	<locale.h>
@@ -336,7 +336,7 @@
 1731299365 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\pelicula.cpp
 	"Pelicula.h"
 
-1731523637 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.cpp
+1731525281 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.cpp
 	"Reporte.h"
 
 1731290298 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\sala.cpp
@@ -351,7 +351,7 @@
 1731119453 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\archivosalas.cpp
 	"ArchivoSalas.h"
 
-1731460355 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.cpp
+1731523650 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.cpp
 	"Menu.h"
 
 1731350884 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\gestorcine.cpp

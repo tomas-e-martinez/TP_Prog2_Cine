@@ -1213,8 +1213,8 @@ void Reporte::RecaudacionTitulo(Reporte& reporte){
 }
 
 void Reporte::RecaudacionGenero(Reporte& reporte){
-    char generos[8][20] = {"Accion", "Ciencia Ficcion", "Animacion", "Fantasia", "Drama", "Comedia", "Terror", "Sin Genero"};
-    float recaudacionGeneros[8] = {0};
+    char generos[9][20] = {"Accion", "Ciencia Ficcion", "Animacion", "Fantasia", "Drama", "Comedia", "Terror", "Aventura", "Sin Genero"};
+    float recaudacionGeneros[9] = {0};
     int opcion, idPelicula, posPelicula, idFuncion, posFuncion;
     float precioEntrada;
 
@@ -1300,7 +1300,7 @@ void Reporte::RecaudacionGenero(Reporte& reporte){
          << setw(30) << "GÉNERO"
          << setw(30) << "RECAUDACIÓN" << endl;
 
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < 9; i++) {
         posPelicula = archivoPeliculas.BuscarID(i);
         pelicula = archivoPeliculas.LeerRegistro(posPelicula);
         cout << left
@@ -1410,9 +1410,13 @@ void Reporte::EntradasVendidasPorPelicula(Reporte& reporte){
 }
 
 void Reporte::EntradasVendidasPorGenero(Reporte& reporte){
-    char generos[8][20] = {"Accion", "Ciencia Ficcion", "Animacion", "Fantasia", "Drama", "Comedia", "Terror", "Sin Genero"};
-    float ventasGeneros[8] = {0};
+    char generos[9][20] = {"Accion", "Ciencia Ficcion", "Animacion", "Fantasia", "Drama", "Comedia", "Terror", "Aventura", "Sin Genero"};
+    int ventasGeneros[9] = {0};
     int opcion, idPelicula, posPelicula, idFuncion, posFuncion, cantEntradasVendidas;
+    for (int i = 0; i < 8; i++) {
+    cout << generos[i] << ": " << ventasGeneros[i] << endl;
+    }
+    system("pause");
 
     GestorCine gestor;
     Pelicula pelicula;
@@ -1497,7 +1501,7 @@ void Reporte::EntradasVendidasPorGenero(Reporte& reporte){
     cout << left
          << setw(30) << "GÉNERO"
          << setw(20) << "ENTRADAS VENDIDAS" << endl;
-    for (int i = 0; i < 8; i++) {
+    for (int i = 0; i < 9; i++) {
         cout << left
              << setw(30) << generos[i]
              << setw(20) << ventasGeneros[i] << endl;
