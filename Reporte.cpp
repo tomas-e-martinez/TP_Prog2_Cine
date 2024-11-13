@@ -1006,7 +1006,7 @@ void Reporte::RecaudacionAnual(Reporte& reporte){
 }
 
 void Reporte::RecaudacionTipoSala(Reporte& reporte){
-    int anio, idFuncion, posFuncion, opcion, idSala, posSala;
+    int idFuncion, posFuncion, opcion, idSala, posSala;
     float recaudacionTipos[3] = {0};
     char tipos[3][5] = {"2D", "3D", "IMAX"};
     float valorEntrada, totalVenta;
@@ -1103,10 +1103,109 @@ void Reporte::RecaudacionTipoSala(Reporte& reporte){
     system("pause");
 }
 
+void Reporte::RecaudacionTitulo(Reporte& reporte){
+    int opcion, idPelicula, posPelicula, idFuncion, posFuncion;
+    float precioEntrada;
+
+    GestorCine gestor;
+    Pelicula pelicula;
+    Venta venta;
+    Funcion funcion;
+    ArchivoPeliculas archivoPeliculas;
+    ArchivoVentas archivoVentas;
+    ArchivoFunciones archivoFunciones;
+
+    int cantidadPeliculas = archivoPeliculas.ContarRegistros();
+    if(cantidadPeliculas < 1){
+        cout << "ERROR: NO SE ENCONTRARON PELÍCULAS EN EL ARCHIVO." << endl;
+        system("pause");
+        return;
+    }
+    float* recaudacionPeliculas= new float[cantidadPeliculas]();
+
+    int cantidadVentas = archivoVentas.ContarRegistros();
+    if(cantidadVentas < 1){
+        cout << "ERROR: NO SE ENCONTRARON VENTAS EN EL ARCHIVO." << endl;
+        system("pause");
+        return;
+    }
+
+    Fecha fechaMin;
+    Fecha fechaMax;
+
+    while(true){
+        system("cls");
+        cout << "RECAUDACIÓN POR PELÍCULA\n1. Ingresar rango de fechas\n2. Año actual\n\n0. Cancelar\n\nOPCIÓN: ";
+        cin >> opcion;
+        switch(opcion){
+        case 1:
+            cout << "RECAUDACIÓN DESDE" << endl;
+            fechaMin.Cargar();
+            cout << endl << "HASTA" << endl;
+            fechaMax.Cargar();
+            break;
+        case 2:
+            fechaMin.setDia(1);
+            fechaMin.setMes(1);
+            fechaMin.setAnio(2024);
+            fechaMax.setDia(1);
+            fechaMax.setMes(1);
+            fechaMax.setAnio(2025);
+            break;
+        case 0:
+            return;
+        default:
+            cout << "ERROR: INGRESE UNA OPCIÓN VÁLIDA" << endl;
+            system("pause");
+            continue;
+        }
+        break;
+    }
+
+    system("cls");
+    cout << "-------------------------------------------------------------------" << endl;
+    cout << "RECAUDACIÓN POR PELÍCULA" << endl;
+    cout << "DESDE " << fechaMin.toStringFecha() << endl;
+    cout << "HASTA " << fechaMax.toStringFecha() << endl;
+    cout << "-------------------------------------------------------------------" << endl;
+
+    for(int i = 0; i < cantidadVentas; i++){
+        venta = archivoVentas.LeerRegistro(i);
+        if(venta.getFecha() >= fechaMin && venta.getFecha() <= fechaMax){
+            idFuncion = venta.getIdFuncion();
+            posFuncion = archivoFunciones.BuscarID(idFuncion);
+            funcion = archivoFunciones.LeerRegistro(posFuncion);
+
+            precioEntrada = gestor.CalcularPrecioEntrada(funcion);
+            idPelicula = funcion.getIdPelicula();
+
+            recaudacionPeliculas[idPelicula] += precioEntrada * venta.getCantidadEntradas();
+        }
+    }
+
+    // ENCABEZADO
+    cout << left
+         << setw(50) << "PELÍCULA"
+         << setw(30) << "RECAUDACIÓN" << endl;
+
+    for (int i = 0; i < cantidadPeliculas; i++) {
+        posPelicula = archivoPeliculas.BuscarID(i);
+        pelicula = archivoPeliculas.LeerRegistro(posPelicula);
+        cout << left
+             << setw(50) << pelicula.getTitulo()
+             << setw(1) << "$" << fixed << setprecision(2) << setw(29) << recaudacionPeliculas[i] << endl;
+    }
+
+
+    delete[] recaudacionPeliculas;
+
+    cout << endl;
+    system("pause");
+}
+
 void Reporte::EntradasVendidasPorPelicula(Reporte& reporte){
     int opcion, idPelicula, posPelicula, idFuncion, posFuncion;
 
-    GestorCine gestor;
     Pelicula pelicula;
     Venta venta;
     Funcion funcion;
@@ -1138,7 +1237,7 @@ void Reporte::EntradasVendidasPorPelicula(Reporte& reporte){
         cin >> opcion;
         switch(opcion){
         case 1:
-            cout << "RECAUDACIÓN DESDE" << endl;
+            cout << "VENTAS DESDE" << endl;
             fechaMin.Cargar();
             cout << endl << "HASTA" << endl;
             fechaMax.Cargar();

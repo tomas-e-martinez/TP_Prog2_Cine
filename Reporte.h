@@ -37,5 +37,6 @@ public:
 
     void RecaudacionAnual(Reporte& reporte);
     void RecaudacionTipoSala(Reporte& reporte);
+    void RecaudacionTitulo(Reporte& reporte);
     void EntradasVendidasPorPelicula(Reporte& reporte);
 };

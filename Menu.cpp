@@ -329,6 +329,7 @@ void Menu::Reportes(Reporte& reporte){
             reporte.RecaudacionTipoSala(reporte);
             break;
         case 3:
+            reporte.RecaudacionTitulo(reporte);
             break;
         case 4:
             break;
