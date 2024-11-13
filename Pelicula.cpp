@@ -22,13 +22,43 @@ Pelicula::Pelicula(int id, int clasificacionEdad, const char* titulo, const char
 
 void Pelicula::Cargar(){
     system("cls");
+    int opcionGenero;
     cout << "CARGAR NUEVA PELÍCULA" << endl;
     cout << "TÍTULO: ";
     cin.getline(_titulo, sizeof(_titulo));
     cout << "SINOPSIS: ";
     cin.getline(_sinopsis, sizeof(_sinopsis));
-    cout << "GÉNERO: ";
-    cin.getline(_genero, sizeof(_genero));
+    cout << "GÉNERO\n1. Accion\n2. Ciencia Ficcion\n3. Animacion\n4. Fantasia\n5. Drama\n6. Comedia\n7. Terror\n8. Aventura\n\nOPCIÓN: ";
+    cin >> opcionGenero;
+    switch(opcionGenero){
+    case 1:
+        strcpy(_genero, "Accion");
+        break;
+    case 2:
+        strcpy(_genero, "Ciencia Ficcion");
+        break;
+    case 3:
+        strcpy(_genero, "Animacion");
+        break;
+    case 4:
+        strcpy(_genero, "Fantasia");
+        break;
+    case 5:
+        strcpy(_genero, "Drama");
+        break;
+    case 6:
+        strcpy(_genero, "Comedia");
+        break;
+    case 7:
+        strcpy(_genero, "Terror");
+        break;
+    case 8:
+        strcpy(_genero, "Aventura");
+        break;
+    default:
+        strcpy(_genero, "Sin Genero");
+        break;
+    }
     cout << "CALIFICACIÓN: ";
     cin >> _calificacion;
     cin.ignore();

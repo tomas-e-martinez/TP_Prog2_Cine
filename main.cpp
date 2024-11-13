@@ -31,10 +31,11 @@ int main(){
     ///CARGAR ALEATORIOS
     /*srand(time(0));
     CargarAleatorio cargar;
-    cargar.CargarVentas(2000);
+    cargar.CargarVentas(400);
     Reporte prueba;
     prueba.ListarVentas();
-    prueba.ListarClientes();*/
+    return 2;*/
+
 
     ///CARGAR PELICULAS
     /*while(true){

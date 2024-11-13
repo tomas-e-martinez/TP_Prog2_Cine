@@ -212,6 +212,9 @@ void CargarAleatorio::CargarVentas(int cantidad){
     int posCliente;
 
     int contadorVentasTotal = 0;
+    int contadorVentasCliente = 0;
+
+
 
     while(contadorVentasTotal < cantidad){
         int cantidadVentasCliente = rand() % 5 + 1;
@@ -225,7 +228,7 @@ void CargarAleatorio::CargarVentas(int cantidad){
         posCliente = archivoClientes.BuscarDni(cliente.getDni());
         cliente = archivoClientes.LeerRegistro(posCliente);
 
-        int contadorVentasCliente = 0;
+        contadorVentasCliente = 0;
         while(contadorVentasCliente < cantidadVentasCliente && contadorVentasTotal < cantidad){
             venta = GenerarVenta();
             venta.setIdCliente(cliente.getId());
@@ -236,6 +239,10 @@ void CargarAleatorio::CargarVentas(int cantidad){
             }
             contadorVentasCliente++;
             contadorVentasTotal++;
+
+            system("cls");
+            cout << "GENERANDO " << cantidad << " VENTAS..." << endl;
+            cout << contadorVentasTotal << "/" << cantidad << endl;
         }
     }
 

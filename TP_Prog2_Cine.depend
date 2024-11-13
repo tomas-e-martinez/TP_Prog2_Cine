@@ -287,7 +287,7 @@
 1731333603 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\funcion.cpp
 	"Funcion.h"
 
-1731524370 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\main.cpp
+1731528639 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\main.cpp
 	<iostream>
 	<iomanip>
 	<locale.h>
@@ -333,10 +333,10 @@
 	"Fecha.h"
 	"Tiempo.h"
 
-1731299365 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\pelicula.cpp
+1731526124 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\pelicula.cpp
 	"Pelicula.h"
 
-1731525281 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.cpp
+1731527884 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.cpp
 	"Reporte.h"
 
 1731290298 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\sala.cpp
@@ -370,7 +370,7 @@
 	"ArchivoFunciones.h"
 	"ArchivoVentas.h"
 
-1731354410 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\cargaraleatorio.cpp
+1731528751 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\cargaraleatorio.cpp
 	"CargarAleatorio.h"
 
 1731351003 c:\users\tomas\documents\programación 2\tp_prog2_cine\cargaraleatorio.h

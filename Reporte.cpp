@@ -854,7 +854,7 @@ void Reporte::ListarVentasOrdenFecha(const char* nombreArchivo){
     }
 
     system("cls");
-    cout << "CANTIDAD TOTAL DE FUNCIONES: " << cantidadRegistros << endl;
+    cout << "CANTIDAD TOTAL DE VENTAS: " << cantidadRegistros << endl;
     system("pause");
     system("cls");
 
@@ -1413,10 +1413,6 @@ void Reporte::EntradasVendidasPorGenero(Reporte& reporte){
     char generos[9][20] = {"Accion", "Ciencia Ficcion", "Animacion", "Fantasia", "Drama", "Comedia", "Terror", "Aventura", "Sin Genero"};
     int ventasGeneros[9] = {0};
     int opcion, idPelicula, posPelicula, idFuncion, posFuncion, cantEntradasVendidas;
-    for (int i = 0; i < 8; i++) {
-    cout << generos[i] << ": " << ventasGeneros[i] << endl;
-    }
-    system("pause");
 
     GestorCine gestor;
     Pelicula pelicula;
