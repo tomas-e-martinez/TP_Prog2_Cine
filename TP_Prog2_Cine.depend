@@ -386,3 +386,168 @@
 	"ArchivoVentas.h"
 	<cstdlib>
 
+1731582268 source:c:\users\tomás\desktop\tp_prog2_cine\archivoclientes.cpp
+	"ArchivoClientes.h"
+
+1731582268 c:\users\tomás\desktop\tp_prog2_cine\archivoclientes.h
+	"Cliente.h"
+
+1731582268 c:\users\tomás\desktop\tp_prog2_cine\cliente.h
+	<iostream>
+	<cstring>
+	"Fecha.h"
+	"Tiempo.h"
+
+1731582268 c:\users\tomás\desktop\tp_prog2_cine\fecha.h
+	<iostream>
+	<string>
+	<iomanip>
+
+1731582268 c:\users\tomás\desktop\tp_prog2_cine\tiempo.h
+	<iostream>
+	<string>
+
+1731582268 source:c:\users\tomás\desktop\tp_prog2_cine\archivofunciones.cpp
+	"ArchivoFunciones.h"
+
+1731582268 c:\users\tomás\desktop\tp_prog2_cine\archivofunciones.h
+	"Funcion.h"
+
+1731582268 c:\users\tomás\desktop\tp_prog2_cine\funcion.h
+	<iostream>
+	<cstring>
+	"Fecha.h"
+	"Tiempo.h"
+
+1731582268 source:c:\users\tomás\desktop\tp_prog2_cine\archivopeliculas.cpp
+	"ArchivoPeliculas.h"
+
+1731582268 c:\users\tomás\desktop\tp_prog2_cine\archivopeliculas.h
+	"Pelicula.h"
+
+1731582268 c:\users\tomás\desktop\tp_prog2_cine\pelicula.h
+	<iostream>
+	<cstring>
+	"Fecha.h"
+	"Tiempo.h"
+
+1731582268 source:c:\users\tomás\desktop\tp_prog2_cine\archivosalas.cpp
+	"ArchivoSalas.h"
+
+1731582268 c:\users\tomás\desktop\tp_prog2_cine\archivosalas.h
+	"Sala.h"
+
+1731582268 c:\users\tomás\desktop\tp_prog2_cine\sala.h
+	<iostream>
+	<cstring>
+	"Fecha.h"
+	"Tiempo.h"
+
+1731582268 source:c:\users\tomás\desktop\tp_prog2_cine\archivoventas.cpp
+	"ArchivoVentas.h"
+
+1731582268 c:\users\tomás\desktop\tp_prog2_cine\archivoventas.h
+	"Venta.h"
+
+1731582268 c:\users\tomás\desktop\tp_prog2_cine\venta.h
+	<iostream>
+	<cstring>
+	"Fecha.h"
+	"Tiempo.h"
+
+1731582268 source:c:\users\tomás\desktop\tp_prog2_cine\cargaraleatorio.cpp
+	"CargarAleatorio.h"
+
+1731582268 c:\users\tomás\desktop\tp_prog2_cine\cargaraleatorio.h
+	"Cliente.h"
+	"Funcion.h"
+	"Pelicula.h"
+	"Sala.h"
+	"Venta.h"
+	"ArchivoClientes.h"
+	"ArchivoFunciones.h"
+	"ArchivoPeliculas.h"
+	"ArchivoSalas.h"
+	"ArchivoVentas.h"
+	<cstdlib>
+
+1731582268 source:c:\users\tomás\desktop\tp_prog2_cine\cliente.cpp
+	"Cliente.h"
+
+1731582268 source:c:\users\tomás\desktop\tp_prog2_cine\fecha.cpp
+	"Fecha.h"
+
+1731582268 source:c:\users\tomás\desktop\tp_prog2_cine\funcion.cpp
+	"Funcion.h"
+
+1731582268 source:c:\users\tomás\desktop\tp_prog2_cine\gestorcine.cpp
+	"GestorCine.h"
+
+1731582268 c:\users\tomás\desktop\tp_prog2_cine\gestorcine.h
+	"Pelicula.h"
+	"Cliente.h"
+	"Sala.h"
+	"Funcion.h"
+	"Venta.h"
+	"Reporte.h"
+	"ArchivoPeliculas.h"
+	"ArchivoClientes.h"
+	"ArchivoSalas.h"
+	"ArchivoFunciones.h"
+	"ArchivoVentas.h"
+
+1731582268 c:\users\tomás\desktop\tp_prog2_cine\reporte.h
+	"ArchivoClientes.h"
+	"ArchivoPeliculas.h"
+	"ArchivoSalas.h"
+	"ArchivoFunciones.h"
+	"ArchivoVentas.h"
+	"GestorCine.h"
+
+1731582268 source:c:\users\tomás\desktop\tp_prog2_cine\main.cpp
+	<iostream>
+	<iomanip>
+	<locale.h>
+	<string>
+	"Menu.h"
+	"Fecha.h"
+	"Tiempo.h"
+	"Pelicula.h"
+	"Cliente.h"
+	"Sala.h"
+	"Funcion.h"
+	"Venta.h"
+	"Reporte.h"
+	"GestorCine.h"
+	"ArchivoPeliculas.h"
+	"ArchivoClientes.h"
+	"ArchivoSalas.h"
+	"ArchivoFunciones.h"
+	"ArchivoVentas.h"
+	<ctime>
+	"CargarAleatorio.h"
+
+1731582268 c:\users\tomás\desktop\tp_prog2_cine\menu.h
+	<iostream>
+	"Reporte.h"
+	"GestorCine.h"
+	"ArchivoClientes.h"
+
+1731582268 source:c:\users\tomás\desktop\tp_prog2_cine\menu.cpp
+	"Menu.h"
+
+1731582268 source:c:\users\tomás\desktop\tp_prog2_cine\pelicula.cpp
+	"Pelicula.h"
+
+1731582268 source:c:\users\tomás\desktop\tp_prog2_cine\reporte.cpp
+	"Reporte.h"
+
+1731582268 source:c:\users\tomás\desktop\tp_prog2_cine\sala.cpp
+	"Sala.h"
+
+1731582268 source:c:\users\tomás\desktop\tp_prog2_cine\tiempo.cpp
+	"Tiempo.h"
+
+1731582268 source:c:\users\tomás\desktop\tp_prog2_cine\venta.cpp
+	"Venta.h"
+
