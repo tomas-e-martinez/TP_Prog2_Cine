@@ -392,16 +392,17 @@
 1731582268 c:\users\tomás\desktop\tp_prog2_cine\archivoclientes.h
 	"Cliente.h"
 
-1731582268 c:\users\tomás\desktop\tp_prog2_cine\cliente.h
+1731588182 c:\users\tomás\desktop\tp_prog2_cine\cliente.h
 	<iostream>
 	<cstring>
 	"Fecha.h"
 	"Tiempo.h"
 
-1731582268 c:\users\tomás\desktop\tp_prog2_cine\fecha.h
+1731586772 c:\users\tomás\desktop\tp_prog2_cine\fecha.h
 	<iostream>
 	<string>
 	<iomanip>
+	<sstream>
 
 1731582268 c:\users\tomás\desktop\tp_prog2_cine\tiempo.h
 	<iostream>
@@ -471,7 +472,7 @@
 	"ArchivoVentas.h"
 	<cstdlib>
 
-1731582268 source:c:\users\tomás\desktop\tp_prog2_cine\cliente.cpp
+1731588332 source:c:\users\tomás\desktop\tp_prog2_cine\cliente.cpp
 	"Cliente.h"
 
 1731582268 source:c:\users\tomás\desktop\tp_prog2_cine\fecha.cpp
@@ -480,7 +481,7 @@
 1731582268 source:c:\users\tomás\desktop\tp_prog2_cine\funcion.cpp
 	"Funcion.h"
 
-1731582268 source:c:\users\tomás\desktop\tp_prog2_cine\gestorcine.cpp
+1731588347 source:c:\users\tomás\desktop\tp_prog2_cine\gestorcine.cpp
 	"GestorCine.h"
 
 1731582268 c:\users\tomás\desktop\tp_prog2_cine\gestorcine.h

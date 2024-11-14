@@ -17,11 +17,16 @@ Cliente::Cliente(int dni, const char* nombre, const char* apellido, const char* 
     _fechaNacimiento = fechaNacimiento;
 }
 
-void Cliente::Cargar(){
+void Cliente::Cargar(int dni){
+    if(dni == 0){
     system("cls");
     cout << "CARGAR NUEVO CLIENTE" << endl;
     cout << "DNI: ";
     cin >> _dni;
+    }
+    else
+        setDni(dni);
+
     cin.ignore();
     cout << "NOMBRE: ";
     cin.getline(_nombre, sizeof(_nombre));

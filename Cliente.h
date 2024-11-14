@@ -18,7 +18,7 @@ public:
     Cliente();
     Cliente(int dni, const char* nombre, const char* apellido, const char* telefono, Fecha fechaNacimiento);
 
-    void Cargar();
+    void Cargar(int dni = 0);
     void Mostrar();
     bool Modificar();
 

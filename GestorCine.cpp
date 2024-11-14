@@ -3,7 +3,17 @@
 void GestorCine::AgregarCliente(){
     Cliente cliente;
     ArchivoClientes archivo;
-    cliente.Cargar();
+    int dni;
+    system("cls");
+    cout << "CARGAR NUEVO CLIENTE" << endl;
+    cout << "DNI: ";
+    cin >> dni;
+    if(archivo.BuscarDni(dni) != -1){
+        cout << "ERROR: YA EXISTE UN CLIENTE CON EL DNI INGRESADO." << endl;
+        system("pause");
+        return;
+    }
+    cliente.Cargar(dni);
     if(archivo.Guardar(cliente))
         cout << "CLIENTE AGREGADO CON ÉXITO." << endl;
     else
