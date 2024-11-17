@@ -107,7 +107,7 @@ void Menu::Funciones(GestorCine& gestor, Reporte& reporte){
         cout << "SUBMENÚ FUNCIONES" << endl << endl;
         cout << "1. Agregar Función" << endl;
         cout << "2. Modificar Función" << endl;
-        cout << "3. Dar de baja una Función" << endl;
+        cout << "3. Baja Función" << endl;
         cout << "4. Listado ordenado por ID" << endl;
         cout << "5. Buscar por fecha" << endl;
         cout << "6. Buscar por tipo de sala" << endl;

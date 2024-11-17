@@ -233,11 +233,11 @@ void GestorCine::ModificarFuncion(){
         cout << "MODIFICAR FUNCIÓN" << endl << endl;
         cout << "INGRESAR ID: ";
         cin >> id;
-        posicion = archivo.BuscarID(id);
+        posicion = archivo.BuscarID(id, false);
         if(posicion == -1){
             cout << "ERROR: NO SE ENCONTRÓ UNA FUNCIÓN CON EL ID INGRESADO." << endl;
             system("pause");
-            continue;
+            return;
         }
 
         funcion = archivo.LeerRegistro(posicion);
@@ -365,7 +365,7 @@ void GestorCine::BajaFuncion(){
     while(true){
         system("cls");
         int id;
-        cout << "DAR DE BAJA FUNCIÓN" << endl << endl;
+        cout << "BAJA FUNCIÓN" << endl << endl;
         cout << "INGRESAR ID: ";
         cin >> id;
         posicion = archivo.BuscarID(id);
@@ -377,7 +377,7 @@ void GestorCine::BajaFuncion(){
 
         funcion = archivo.LeerRegistro(posicion);
         if(!funcion.getActivo()){
-            cout << endl << "ERROR: LA FUNCIÓN YA FUE DADA DE BAJA." << endl;
+            cout << endl << "ERROR: LA FUNCIÓN YA FUE ELIMINADA." << endl;
             system("pause");
             return;
         }
@@ -392,9 +392,9 @@ void GestorCine::BajaFuncion(){
             case 1:
                 funcion.setActivo(false);
                 if(archivo.Guardar(funcion, posicion))
-                    cout << endl << "BAJA REALIZADA CON ÉXITO." << endl;
+                    cout << endl << "FUNCIÓN ELIMINADA CON ÉXITO." << endl;
                 else
-                    cout << endl << "ERROR: NO SE PUEDO REALIZAR LA BAJA." << endl;
+                    cout << endl << "ERROR: NO SE PUDO ELIMINAR LA FUNCIÓN." << endl;
                 system("pause");
                 return;
             case 2:

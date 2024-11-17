@@ -633,7 +633,7 @@ void Reporte::ListarFuncionesFecha(const Fecha& minimo,const Fecha& maximo, cons
     //ALMACENAR REGISTROS EN RANGO DE FECHAS
     for(int i = 0; i < cantidadRegistros; i++){
         registro = archivo.LeerRegistro(i);
-        if(registro.getFecha() >= minimo && registro.getFecha() <= maximo)
+        if(registro.getFecha() >= minimo && registro.getFecha() <= maximo && registro.getActivo())
             funciones[indice++] = registro;
     }
 
@@ -725,7 +725,7 @@ void Reporte::ListarFuncionesSala(int tipo, const char* nombreArchivo){
     for(int i = 0; i < cantidadRegistros; i++){
         registro = archivoFunciones.LeerRegistro(i);
         sala = archivoSalas.LeerRegistro(registro.getIdSala());
-        if(strcmp(sala.getTipo(), tipoSala) == 0)
+        if(strcmp(sala.getTipo(), tipoSala) == 0 && registro.getActivo())
             funciones[indice++] = registro;
     }
 

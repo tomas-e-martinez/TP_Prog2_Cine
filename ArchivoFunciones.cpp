@@ -15,7 +15,7 @@ int ArchivoFunciones::ContarRegistros(){
     return cantidad;
 }
 
-int ArchivoFunciones::BuscarID(int id){
+int ArchivoFunciones::BuscarID(int id, bool todos){
     FILE* p = fopen(_nombre, "rb");
     if(p == NULL){
         return -1;
@@ -25,7 +25,10 @@ int ArchivoFunciones::BuscarID(int id){
     while(fread(&funcion, sizeof(Funcion), 1, p)){
         if(funcion.getIdFuncion() == id){
             fclose(p);
-            return i;
+            if(todos || funcion.getActivo())
+                return i;
+            else
+                return -1;
         }
         i++;
     }
