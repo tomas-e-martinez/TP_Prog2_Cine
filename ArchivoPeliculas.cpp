@@ -15,7 +15,7 @@ int ArchivoPeliculas::ContarRegistros(){
     return cantidad;
 }
 
-int ArchivoPeliculas::BuscarID(int id){
+int ArchivoPeliculas::BuscarID(int id, bool todos){
     FILE* p = fopen(_nombre, "rb");
     if(p == NULL){
         return -1;
@@ -25,7 +25,10 @@ int ArchivoPeliculas::BuscarID(int id){
     while(fread(&pelicula, sizeof(Pelicula), 1, p)){
         if(pelicula.getId() == id){
             fclose(p);
-            return i;
+            if(todos || pelicula.getActivo())
+                return i;
+            else
+                return -1;
         }
         i++;
     }
@@ -34,7 +37,7 @@ int ArchivoPeliculas::BuscarID(int id){
 }
 
 
-int ArchivoPeliculas::BuscarTitulo(const char* titulo){
+int ArchivoPeliculas::BuscarTitulo(const char* titulo, bool todos){
     FILE* p = fopen(_nombre, "rb");
     if(p == NULL){
         return -1;
@@ -44,7 +47,10 @@ int ArchivoPeliculas::BuscarTitulo(const char* titulo){
     while(fread(&pelicula, sizeof(Pelicula), 1, p)){
         if(strcmp(pelicula.getTitulo(), titulo) == 0){
             fclose(p);
-            return i;
+            if(todos || pelicula.getActivo())
+                return i;
+            else
+                return -1;
         }
         i++;
     }

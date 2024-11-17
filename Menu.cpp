@@ -107,7 +107,7 @@ void Menu::Funciones(GestorCine& gestor, Reporte& reporte){
         cout << "SUBMENÚ FUNCIONES" << endl << endl;
         cout << "1. Agregar Función" << endl;
         cout << "2. Modificar Función" << endl;
-        cout << "3. Baja Función" << endl;
+        cout << "3. Eliminar Función" << endl;
         cout << "4. Listado ordenado por ID" << endl;
         cout << "5. Buscar por fecha" << endl;
         cout << "6. Buscar por tipo de sala" << endl;
@@ -165,13 +165,14 @@ void Menu::Peliculas(GestorCine& gestor, Reporte& reporte){
         cout << "SUBMENÚ PELÍCULAS" << endl << endl;
         cout << "1. Agregar Película" << endl;
         cout << "2. Modificar Película" << endl;
-        cout << "3. Listado ordenado por ID" << endl;
-        cout << "4. Listado ordenado por género" << endl;
-        cout << "5. Listado ordenado por puntuación" << endl;
-        cout << "6. Buscar por género" << endl;
-        cout << "7. Buscar por puntuación" << endl;
-        cout << "8. Buscar por título" << endl;
-        cout << "9. Buscar por clasificación de edad" << endl;
+        cout << "3. Eliminar Película" << endl;
+        cout << "4. Listado ordenado por ID" << endl;
+        cout << "5. Listado ordenado por género" << endl;
+        cout << "6. Listado ordenado por puntuación" << endl;
+        cout << "7. Buscar por género" << endl;
+        cout << "8. Buscar por puntuación" << endl;
+        cout << "9. Buscar por título" << endl;
+        cout << "10. Buscar por clasificación de edad" << endl;
         cout << endl << "0. Volver al menú principal" << endl << endl;
 
         cout << "Ingresar opción: ";
@@ -186,15 +187,18 @@ void Menu::Peliculas(GestorCine& gestor, Reporte& reporte){
             gestor.ModificarPelicula();
             break;
         case 3:
-            reporte.ListarPeliculas();
+            gestor.BajaPelicula();
             break;
         case 4:
-            reporte.ListarPeliculasOrdenGenero();
+            reporte.ListarPeliculas();
             break;
         case 5:
-            reporte.ListarPeliculasOrdenCalificacion();
+            reporte.ListarPeliculasOrdenGenero();
             break;
         case 6:
+            reporte.ListarPeliculasOrdenCalificacion();
+            break;
+        case 7:
             system("cls");
             int opcionGenero;
             cout << "BUSCAR PELÍCULAS POR GÉNERO\n1. Accion\n2. Ciencia Ficcion\n3. Animacion\n4. Fantasia\n5. Drama\n6. Comedia\n7. Terror\n8. Aventura\n\n0. Cancelar" << endl << endl;
@@ -202,7 +206,7 @@ void Menu::Peliculas(GestorCine& gestor, Reporte& reporte){
             cin >> opcionGenero;
             reporte.ListarPeliculasGenero(opcionGenero);
             break;
-        case 7:
+        case 8:
             system("cls");
             float minimo, maximo;
             cout << "BUSCAR PELÍCULAS POR CALIFICACIÓN (0.00/10.00)\nMÍNIMO: ";
@@ -211,14 +215,14 @@ void Menu::Peliculas(GestorCine& gestor, Reporte& reporte){
             cin >> maximo;
             reporte.ListarPeliculasCalificacion(minimo, maximo);
             break;
-        case 8:
+        case 9:
             system("cls");
             char titulo[100];
             cout << "BUSCAR PELÍCULA POR TÍTULO\nIngrese el título: ";
             cin.getline(titulo, sizeof(titulo));
             reporte.ListarPeliculasTitulo(titulo);
             break;
-        case 9:
+        case 10:
             system("cls");
             int edadMax;
             cout << "BUSCAR PELÍCULAS POR CLASIFICACIÓN DE EDAD\nIngrese la edad límite: ";

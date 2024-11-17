@@ -7,6 +7,7 @@ Pelicula::Pelicula(){
     strcpy(_sinopsis, "Sin sinopsis");
     strcpy(_genero, "Sin género");
     _calificacion = 0.0f;
+    _activo = true;
 }
 
 Pelicula::Pelicula(int id, int clasificacionEdad, const char* titulo, const char* sinopsis, const char* genero, float calificacion, Fecha fechaEstreno, Tiempo duracion){
@@ -18,6 +19,7 @@ Pelicula::Pelicula(int id, int clasificacionEdad, const char* titulo, const char
     _calificacion = calificacion;
     _fechaEstreno = fechaEstreno;
     _duracion = duracion;
+    _activo = true;
 }
 
 void Pelicula::Cargar(){
@@ -175,6 +177,10 @@ Tiempo& Pelicula::getDuracion(){
     return _duracion;
 }
 
+bool Pelicula::getActivo(){
+    return _activo;
+}
+
 void Pelicula::setId(int id){
     _id = id;
 }
@@ -205,4 +211,8 @@ void Pelicula::setFechaEstreno(Fecha fechaEstreno){
 
 void Pelicula::setDuracion(Tiempo duracion){
     _duracion = duracion;
+}
+
+void Pelicula::setActivo(bool activo){
+    _activo = activo;
 }

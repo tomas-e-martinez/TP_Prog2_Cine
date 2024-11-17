@@ -15,6 +15,7 @@ private:
     float _calificacion;
     Fecha _fechaEstreno;
     Tiempo _duracion;
+    bool _activo;
 public:
     Pelicula();
     Pelicula(int id, int clasificacionEdad, const char* titulo, const char* sinopsis, const char* genero, float calificacion, Fecha fechaEstreno, Tiempo duracion);
@@ -31,6 +32,7 @@ public:
     float getCalificacion();
     Fecha& getFechaEstreno();
     Tiempo& getDuracion();
+    bool getActivo();
 
     void setId(int id);
     void setTitulo(const char* titulo);
@@ -40,4 +42,5 @@ public:
     void setCalificacion(float calificacion);
     void setFechaEstreno(Fecha fechaEstreno);
     void setDuracion(Tiempo duracion);
+    void setActivo(bool activo);
 };

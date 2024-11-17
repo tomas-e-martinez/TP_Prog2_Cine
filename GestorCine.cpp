@@ -83,7 +83,7 @@ void GestorCine::ProcesarVenta(){
             return;
         cout << "ID: ";
         cin >> idSelec;
-        posicion = archivoFunciones.BuscarID(idSelec);
+        posicion = archivoFunciones.BuscarID(idSelec, false);
         if(posicion == -1){
             cout << "No se encontró una función con el ID ingresado." << endl;
             system("pause");
@@ -267,7 +267,7 @@ void GestorCine::ModificarPelicula(){
         cout << "MODIFICAR PELÍCULA" << endl << endl;
         cout << "INGRESAR ID: ";
         cin >> id;
-        posicion = archivo.BuscarID(id);
+        posicion = archivo.BuscarID(id, false);
         if(posicion == -1){
             cout << "ERROR: NO SE ENCONTRÓ UNA PELÍCULA CON EL ID INGRESADO." << endl;
             system("pause");
@@ -368,19 +368,14 @@ void GestorCine::BajaFuncion(){
         cout << "BAJA FUNCIÓN" << endl << endl;
         cout << "INGRESAR ID: ";
         cin >> id;
-        posicion = archivo.BuscarID(id);
+        posicion = archivo.BuscarID(id, false);
         if(posicion == -1){
             cout << "ERROR: NO SE ENCONTRÓ UNA FUNCIÓN CON EL ID INGRESADO." << endl;
             system("pause");
-            continue;
+            return;
         }
 
         funcion = archivo.LeerRegistro(posicion);
-        if(!funcion.getActivo()){
-            cout << endl << "ERROR: LA FUNCIÓN YA FUE ELIMINADA." << endl;
-            system("pause");
-            return;
-        }
 
         while(true){
             system("cls");
@@ -406,7 +401,53 @@ void GestorCine::BajaFuncion(){
                 system("pause");
                 break;
             }
+        }
+    }
+}
 
+void GestorCine::BajaPelicula(){
+    ArchivoPeliculas archivo;
+    Pelicula pelicula;
+    int posicion;
+    while(true){
+        system("cls");
+        int id;
+        cout << "ELIMINAR PELÍCULA" << endl << endl;
+        cout << "INGRESAR ID: ";
+        cin >> id;
+        posicion = archivo.BuscarID(id, false);
+        if(posicion == -1){
+            cout << "ERROR: NO SE ENCONTRÓ UNA PELÍCULA CON EL ID INGRESADO." << endl;
+            system("pause");
+            continue;
+        }
+
+        pelicula = archivo.LeerRegistro(posicion);
+
+        while(true){
+            system("cls");
+            pelicula.Mostrar();
+            cout << endl << "¿CONFIRMAR BAJA?\n1. Sí\n2. No\n\nOPCIÓN: ";
+            int opcion;
+            cin >> opcion;
+            switch(opcion){
+            case 1:
+                pelicula.setActivo(false);
+                if(archivo.Guardar(pelicula, posicion))
+                    cout << endl << "PELÍCULA ELIMINADA CON ÉXITO." << endl;
+                else
+                    cout << endl << "ERROR: NO SE PUDO ELIMINAR LA PELÍCULA." << endl;
+                system("pause");
+                return;
+            case 2:
+                cout << endl << "BAJA CANCELADA." << endl;
+                system("pause");
+                return;
+            default:
+                cout << "ERROR: INGRESE UNA OPCIÓN VÁLIDA." << endl;
+                system("pause");
+                break;
+            }
         }
     }
 }
