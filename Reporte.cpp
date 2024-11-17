@@ -600,6 +600,8 @@ void Reporte::ListarFunciones(const char* nombreArchivo){
     cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
     for (int i = 0; i < cantidadRegistros; i++) {
         registro = archivo.LeerRegistro(i);
+        if(!registro.getActivo())
+            continue;
         Pelicula pelicula = archivoPeliculas.LeerRegistro(registro.getIdPelicula());
         Sala sala = archivoSalas.LeerRegistro(registro.getIdSala());
         cout << left

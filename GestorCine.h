@@ -28,6 +28,8 @@ public:
     void ModificarSala();
     void ModificarVenta();
 
+    void BajaFuncion();
+
     float CalcularPrecioEntrada(Funcion funcion);
     int AsientosLibres(Funcion funcion);
 };

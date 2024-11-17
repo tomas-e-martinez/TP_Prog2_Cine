@@ -83,6 +83,7 @@ Funcion CargarAleatorio::GenerarFuncion(){
     ArchivoPeliculas archivoPeliculas;
     int cantidadPeliculas = archivoPeliculas.ContarRegistros();
     int idPelicula = rand() % cantidadPeliculas;
+    bool activo = rand() % 2;
 
     ArchivoSalas archivoSalas;
     int cantidadSalas = archivoSalas.ContarRegistros();
@@ -103,19 +104,28 @@ Funcion CargarAleatorio::GenerarFuncion(){
     Fecha fechaFuncion(dia, mes, anio, hora, minutos);
 
 
+
+
     Funcion funcion(idPelicula, idSala, fechaFuncion);
+    funcion.setActivo(activo);
     return funcion;
 }
 
 void CargarAleatorio::CargarFunciones(int cantidad){
     Funcion registro;
     ArchivoFunciones archivo;
+    int contadorTotal = 0;
     for(int i = 0; i < cantidad; i++){
         registro = GenerarFuncion();
         if(!archivo.Guardar(registro)){
             cout << "ERROR AL AGREGAR REGISTRO." << endl;
             break;
         }
+        contadorTotal++;
+
+        system("cls");
+        cout << "GENERANDO " << cantidad << " FUNCIONES..." << endl;
+        cout << contadorTotal << "/" << cantidad << endl;
     }
         cout << "FUNCIONES AGREGADAS: " << cantidad << endl;
         system("pause");

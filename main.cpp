@@ -31,9 +31,9 @@ int main(){
     ///CARGAR ALEATORIOS
     /*srand(time(0));
     CargarAleatorio cargar;
-    cargar.CargarVentas(400);
+    cargar.CargarFunciones(20);
     Reporte prueba;
-    prueba.ListarVentas();
+    prueba.ListarFunciones();
     return 2;*/
 
 

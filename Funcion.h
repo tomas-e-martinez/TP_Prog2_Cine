@@ -12,6 +12,7 @@ class Funcion{
 private:
     int _idFuncion, _idPelicula, _idSala;
     Fecha _fecha;
+    bool _activo;
 
 public:
     Funcion();
@@ -25,9 +26,11 @@ public:
     int getIdPelicula();
     int getIdSala();
     Fecha& getFecha();
+    bool getActivo();
 
     void setIdFuncion(int idFuncion);
     void setIdPelicula(int idPelicula);
     void setIdSala(int idSala);
     void setFecha(Fecha fecha);
+    void setActivo(bool activo);
 };

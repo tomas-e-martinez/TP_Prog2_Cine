@@ -4,6 +4,7 @@ Funcion::Funcion(){
     _idFuncion = 0;
     _idPelicula = 0;
     _idSala = 0;
+    _activo = true;
 }
 
 Funcion::Funcion(int idPelicula, int idSala, Fecha fecha){
@@ -11,6 +12,7 @@ Funcion::Funcion(int idPelicula, int idSala, Fecha fecha){
     _idPelicula = idPelicula;
     _idSala = idSala;
     _fecha = fecha;
+    _activo = true;
 }
 
 void Funcion::Cargar(){
@@ -30,6 +32,10 @@ void Funcion::Mostrar(){
     cout << "ID SALA: " << _idSala << endl;
     cout << "FECHA: " << _fecha.toStringFecha() << endl;
     cout << "HORA: " << _fecha.toStringHora() << endl;
+    if(_activo)
+        cout << "ESTADO: Activa" << endl;
+    else
+        cout << "ESTADO: Inactiva" << endl;
 }
 
 bool Funcion::Modificar(){
@@ -87,6 +93,9 @@ Fecha& Funcion::getFecha(){
     return _fecha;
 }
 
+bool Funcion::getActivo(){
+    return _activo;
+}
 
 void Funcion::setIdFuncion(int idFuncion){
     _idFuncion = idFuncion;
@@ -103,4 +112,6 @@ void Funcion::setFecha(Fecha fecha){
     _fecha = fecha;
 }
 
-
+void Funcion::setActivo(bool activo){
+    _activo = activo;
+}

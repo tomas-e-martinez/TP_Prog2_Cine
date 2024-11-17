@@ -358,6 +358,59 @@ void GestorCine::ModificarVenta(){
     }
 }
 
+void GestorCine::BajaFuncion(){
+    ArchivoFunciones archivo;
+    Funcion funcion;
+    int posicion;
+    while(true){
+        system("cls");
+        int id;
+        cout << "DAR DE BAJA FUNCIÓN" << endl << endl;
+        cout << "INGRESAR ID: ";
+        cin >> id;
+        posicion = archivo.BuscarID(id);
+        if(posicion == -1){
+            cout << "ERROR: NO SE ENCONTRÓ UNA FUNCIÓN CON EL ID INGRESADO." << endl;
+            system("pause");
+            continue;
+        }
+
+        funcion = archivo.LeerRegistro(posicion);
+        if(!funcion.getActivo()){
+            cout << endl << "ERROR: LA FUNCIÓN YA FUE DADA DE BAJA." << endl;
+            system("pause");
+            return;
+        }
+
+        while(true){
+            system("cls");
+            funcion.Mostrar();
+            cout << endl << "¿CONFIRMAR BAJA?\n1. Sí\n2. No\n\nOPCIÓN: ";
+            int opcion;
+            cin >> opcion;
+            switch(opcion){
+            case 1:
+                funcion.setActivo(false);
+                if(archivo.Guardar(funcion, posicion))
+                    cout << endl << "BAJA REALIZADA CON ÉXITO." << endl;
+                else
+                    cout << endl << "ERROR: NO SE PUEDO REALIZAR LA BAJA." << endl;
+                system("pause");
+                return;
+            case 2:
+                cout << endl << "BAJA CANCELADA." << endl;
+                system("pause");
+                return;
+            default:
+                cout << "ERROR: INGRESE UNA OPCIÓN VÁLIDA." << endl;
+                system("pause");
+                break;
+            }
+
+        }
+    }
+}
+
 float GestorCine::CalcularPrecioEntrada(Funcion funcion){
     ArchivoSalas archivoSalas;
     int posSala = archivoSalas.BuscarID(funcion.getIdSala());

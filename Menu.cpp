@@ -107,9 +107,10 @@ void Menu::Funciones(GestorCine& gestor, Reporte& reporte){
         cout << "SUBMENÚ FUNCIONES" << endl << endl;
         cout << "1. Agregar Función" << endl;
         cout << "2. Modificar Función" << endl;
-        cout << "3. Listado ordenado por ID" << endl;
-        cout << "4. Buscar por fecha" << endl;
-        cout << "5. Buscar por tipo de sala" << endl;
+        cout << "3. Dar de baja una Función" << endl;
+        cout << "4. Listado ordenado por ID" << endl;
+        cout << "5. Buscar por fecha" << endl;
+        cout << "6. Buscar por tipo de sala" << endl;
         cout << endl << "0. Volver al menú principal" << endl << endl;
 
         cout << "Ingresar opción: ";
@@ -123,9 +124,12 @@ void Menu::Funciones(GestorCine& gestor, Reporte& reporte){
             gestor.ModificarFuncion();
             break;
         case 3:
+            gestor.BajaFuncion();
+            break;
+        case 4:
             reporte.ListarFunciones();
             break;
-        case 4: {
+        case 5: {
             system("cls");
             cout << "BUSCAR FUNCIONES POR FECHA\n\nDESDE\n";
             Fecha fecha1;
@@ -136,7 +140,7 @@ void Menu::Funciones(GestorCine& gestor, Reporte& reporte){
             reporte.ListarFuncionesFecha(fecha1, fecha2);
             break;
         }
-        case 5:
+        case 6:
             system("cls");
             int opcionTipo;
             cout << "BUSCAR FUNCIONES POR TIPO DE SALA\n1. 2D\n2. 3D\n3. IMAX\n\n0. Cancelar" << endl << endl;
