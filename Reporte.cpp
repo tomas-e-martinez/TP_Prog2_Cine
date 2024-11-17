@@ -985,15 +985,11 @@ void Reporte::ListarSalasTipo(const char* nombreArchivo){
 }
 
 void Reporte::RecaudacionAnual(Reporte& reporte){
-    int anio, idFuncion, posFuncion;
+    int anio;
     float recaudacionAnualMeses[12] = {0};
-    float valorEntrada, totalVenta;
     char meses[12][11] = {"ENERO", "FEBRERO", "MARZO", "ABRIL", "MAYO", "JUNIO", "JULIO", "AGOSTO", "SEPTIEMBRE", "OCTUBRE", "NOVIEMBRE", "DICIEMBRE"};
 
-    GestorCine gestor;
-    Funcion funcion;
     Venta venta;
-    ArchivoFunciones archivoFunciones;
     ArchivoVentas archivoVentas;
 
     int cantidadVentas = archivoVentas.ContarRegistros();
@@ -1013,12 +1009,7 @@ void Reporte::RecaudacionAnual(Reporte& reporte){
     for(int i = 0; i < cantidadVentas; i++){
         venta = archivoVentas.LeerRegistro(i);
         if(venta.getFecha().getAnio() == anio && venta.getActivo()){
-            idFuncion = venta.getIdFuncion();
-            posFuncion = archivoFunciones.BuscarID(idFuncion);
-            funcion = archivoFunciones.LeerRegistro(posFuncion);
-            valorEntrada = gestor.CalcularPrecioEntrada(funcion);
-            totalVenta = valorEntrada * venta.getCantidadEntradas();
-            recaudacionAnualMeses[venta.getFecha().getMes() - 1] += totalVenta;
+            recaudacionAnualMeses[venta.getFecha().getMes() - 1] += venta.getImporteTotal();
         }
     }
 
@@ -1041,7 +1032,6 @@ void Reporte::RecaudacionTipoSala(Reporte& reporte){
     int idFuncion, posFuncion, opcion, idSala, posSala;
     float recaudacionTipos[3] = {0};
     char tipos[3][5] = {"2D", "3D", "IMAX"};
-    float valorEntrada, totalVenta;
 
     GestorCine gestor;
     Funcion funcion;
@@ -1108,15 +1098,12 @@ void Reporte::RecaudacionTipoSala(Reporte& reporte){
             posSala = archivoSalas.BuscarID(idSala);
             sala = archivoSalas.LeerRegistro(posSala);
 
-            valorEntrada = gestor.CalcularPrecioEntrada(funcion);
-            totalVenta = valorEntrada * venta.getCantidadEntradas();
-
             int indice = 0;
             while(strcmp(sala.getTipo(), tipos[indice]) != 0){
                 indice++;
             }
 
-            recaudacionTipos[indice] += totalVenta;
+            recaudacionTipos[indice] += venta.getImporteTotal();
         }
     }
 
@@ -1137,7 +1124,6 @@ void Reporte::RecaudacionTipoSala(Reporte& reporte){
 
 void Reporte::RecaudacionTitulo(Reporte& reporte){
     int opcion, idPelicula, posPelicula, idFuncion, posFuncion;
-    float precioEntrada;
 
     GestorCine gestor;
     Pelicula pelicula;
@@ -1208,10 +1194,9 @@ void Reporte::RecaudacionTitulo(Reporte& reporte){
             posFuncion = archivoFunciones.BuscarID(idFuncion);
             funcion = archivoFunciones.LeerRegistro(posFuncion);
 
-            precioEntrada = gestor.CalcularPrecioEntrada(funcion);
             idPelicula = funcion.getIdPelicula();
 
-            recaudacionPeliculas[idPelicula] += precioEntrada * venta.getCantidadEntradas();
+            recaudacionPeliculas[idPelicula] += venta.getImporteTotal();
         }
     }
 
@@ -1223,6 +1208,8 @@ void Reporte::RecaudacionTitulo(Reporte& reporte){
     for (int i = 0; i < cantidadPeliculas; i++) {
         posPelicula = archivoPeliculas.BuscarID(i);
         pelicula = archivoPeliculas.LeerRegistro(posPelicula);
+        if(!pelicula.getActivo())
+            continue;
         cout << left
              << setw(50) << pelicula.getTitulo()
              << setw(1) << "$" << fixed << setprecision(2) << setw(29) << recaudacionPeliculas[i] << endl;
@@ -1239,7 +1226,6 @@ void Reporte::RecaudacionGenero(Reporte& reporte){
     char generos[9][20] = {"Accion", "Ciencia Ficcion", "Animacion", "Fantasia", "Drama", "Comedia", "Terror", "Aventura", "Sin Genero"};
     float recaudacionGeneros[9] = {0};
     int opcion, idPelicula, posPelicula, idFuncion, posFuncion;
-    float precioEntrada;
 
     GestorCine gestor;
     Pelicula pelicula;
@@ -1312,9 +1298,8 @@ void Reporte::RecaudacionGenero(Reporte& reporte){
                     break;
                 indiceGenero++;
             }
-            precioEntrada = gestor.CalcularPrecioEntrada(funcion);
 
-            recaudacionGeneros[indiceGenero] += precioEntrada * venta.getCantidadEntradas();
+            recaudacionGeneros[indiceGenero] += venta.getImporteTotal();
         }
     }
 
