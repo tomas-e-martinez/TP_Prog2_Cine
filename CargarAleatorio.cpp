@@ -85,7 +85,7 @@ Funcion CargarAleatorio::GenerarFuncion(){
     int idPelicula;
     while(true){
         idPelicula = rand() % cantidadPeliculas;
-        if(archivoPeliculas.BuscarID(idPelicula, false) != 1)
+        if(archivoPeliculas.BuscarID(idPelicula, false) != -1)
             break;
     }
     bool activo = true;
@@ -95,7 +95,7 @@ Funcion CargarAleatorio::GenerarFuncion(){
     int idSala;
     while(true){
         idSala = rand() % cantidadSalas;
-        if(archivoSalas.BuscarID(idSala, false) != 1)
+        if(archivoSalas.BuscarID(idSala, false) != -1)
             break;
     }
 
