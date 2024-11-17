@@ -1416,6 +1416,8 @@ void Reporte::EntradasVendidasPorPelicula(Reporte& reporte){
     for (int i = 0; i < cantidadPeliculas; i++) {
         posPelicula = archivoPeliculas.BuscarID(i);
         pelicula = archivoPeliculas.LeerRegistro(posPelicula);
+        if(!pelicula.getActivo())
+            continue;
         cout << left
              << setw(50) << pelicula.getTitulo()
              << setw(30) << acuEntradasPelicula[i] << endl;
