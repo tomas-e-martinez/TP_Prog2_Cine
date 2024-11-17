@@ -188,7 +188,7 @@ Venta CargarAleatorio::GenerarVenta(){
     int idFuncion;
     while(true){
         idFuncion = rand() % cantFunciones;
-        if(archivoFunciones.BuscarID(idFuncion) != -1)
+        if(archivoFunciones.BuscarID(idFuncion, false) != -1)
             break;
     }
 
