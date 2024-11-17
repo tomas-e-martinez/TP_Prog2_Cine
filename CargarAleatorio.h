@@ -1,5 +1,6 @@
 #pragma once
 
+#include "GestorCine.h"
 #include "Cliente.h"
 #include "Funcion.h"
 #include "Pelicula.h"

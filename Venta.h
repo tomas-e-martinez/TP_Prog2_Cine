@@ -11,10 +11,11 @@ private:
     int _idVenta, _idCliente, _idFuncion, _cantidadEntradas;
     Fecha _fecha;
     bool _activo;
+    float _importeTotal;
 
 public:
     Venta();  // Constructor por defecto
-    Venta(int idCliente, int idFuncion, int cantidadEntradas, Fecha fecha);  // Constructor con par metros
+    Venta(int idCliente, int idFuncion, int cantidadEntradas, Fecha fecha, float importeTotal);  // Constructor con par metros
 
     void Cargar();
     void Mostrar();
@@ -26,6 +27,7 @@ public:
     Fecha& getFecha();
     int getCantidadEntradas();
     bool getActivo();
+    float getImporteTotal();
 
     void setIdVenta(int idVenta);
     void setIdCliente(int idCliente);
@@ -33,4 +35,5 @@ public:
     void setFecha(Fecha fecha);
     void setCantidadEntradas(int cantidadEntradas);
     void setActivo(bool activo);
+    void setImporteTotal(float importe);
 };

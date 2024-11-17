@@ -158,7 +158,8 @@ void GestorCine::ProcesarVenta(){
 
 
     //EJECUTAR
-    Venta venta(cliente.getId(), funcion.getIdFuncion(), cantidadEntradas, fechaVenta);
+    float totalVenta = cantidadEntradas * valorEntrada;
+    Venta venta(cliente.getId(), funcion.getIdFuncion(), cantidadEntradas, fechaVenta, totalVenta);
     ArchivoVentas archivoVentas;
     if(archivoVentas.Guardar(venta)){
         cout << "VENTA REALIZADA CON ÉXITO." << endl;

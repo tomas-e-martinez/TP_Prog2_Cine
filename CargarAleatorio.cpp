@@ -177,6 +177,7 @@ void CargarAleatorio::CargarSalas(int cantidad){
 Venta CargarAleatorio::GenerarVenta(){
     ArchivoFunciones archivoFunciones;
     ArchivoClientes archivoClientes;
+    GestorCine gestor;
 
     int cantClientes = archivoClientes.ContarRegistros();
     if(cantClientes < 1){
@@ -205,8 +206,13 @@ Venta CargarAleatorio::GenerarVenta(){
         if(archivoFunciones.BuscarID(idFuncion, false) != -1)
             break;
     }
+    Funcion funcion;
+    int posFuncion = archivoFunciones.BuscarID(idFuncion);
+    funcion = archivoFunciones.LeerRegistro(posFuncion);
+    float valorEntrada = gestor.CalcularPrecioEntrada(funcion);
 
     int cantidadEntradas = rand() % 10 + 1;
+    float totalVenta = cantidadEntradas * valorEntrada;
     bool activo = true;
 
     ///GENERAR FECHA Y HORA DE VENTA
@@ -225,7 +231,7 @@ Venta CargarAleatorio::GenerarVenta(){
 
     Fecha fechaVenta(dia, mes, anio, hora, minutos);
 
-    Venta venta(idCliente, idFuncion, cantidadEntradas, fechaVenta);
+    Venta venta(idCliente, idFuncion, cantidadEntradas, fechaVenta, totalVenta);
     venta.setActivo(activo);
     return venta;
 }

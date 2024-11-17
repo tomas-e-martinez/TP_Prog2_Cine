@@ -6,15 +6,17 @@ Venta::Venta(){
    _idFuncion = 0;
    _cantidadEntradas = 0;
    _activo = true;
+   _importeTotal = 0;
 }
 
-Venta::Venta(int idCliente, int idFuncion, int cantidadEntradas, Fecha fecha){
+Venta::Venta(int idCliente, int idFuncion, int cantidadEntradas, Fecha fecha, float importeTotal){
     _idVenta = 0;
     _idCliente = idCliente;
     _idFuncion = idFuncion;
     _cantidadEntradas = cantidadEntradas;
     _fecha = fecha;
     _activo = true;
+    _importeTotal = importeTotal;
 }
 
 
@@ -27,6 +29,8 @@ void Venta::Cargar(){
     cin >> _idCliente;
     cout << "CANTIDAD DE ENTRADAS: ";
     cin >> _cantidadEntradas;
+    cout << "IMPORTE TOTAL: ";
+    cin >> _importeTotal;
     cout << "FECHA: " << endl;
     _fecha.CargarHora();
 }
@@ -38,6 +42,7 @@ void Venta::Mostrar() {
         cout << "CANTIDAD DE ENTRADAS: " << _cantidadEntradas << endl;
         cout << "FECHA DE LA VENTA: " << _fecha.toStringFecha() << endl;
         cout << "HORA: " << _fecha.toStringHora() << endl;
+        cout << "IMPORTE TOTAL: $" << _importeTotal << endl;
 }
 
 bool Venta::Modificar(){
@@ -45,7 +50,7 @@ bool Venta::Modificar(){
     while(true){
         system("cls");
         Mostrar();
-        cout << endl << "1. ID Cliente\n2. ID Función\n3. Cantidad de entradas\n4. Fecha\n\n0. Guardar y salir\n-1. Cancelar modificación" << endl << endl;
+        cout << endl << "1. ID Cliente\n2. ID Función\n3. Cantidad de entradas\n4. Fecha\n5. Importe total\n\n0. Guardar y salir\n-1. Cancelar modificación" << endl << endl;
         cout << "ADVERTENCIA: INGRESAR UN VALOR DEL MISMO TIPO\nINGRESAR OPCIÓN A MODIFICAR: ";
         cin >> opcion;
         cin.ignore();
@@ -71,6 +76,12 @@ bool Venta::Modificar(){
         case 4:
             cout << endl << "NUEVA FECHA \n";
             _fecha.CargarHora();
+            break;
+        case 5:
+            float nuevoImporte;
+            cout << endl << "NUEVO IMPORTE TOTAL: \n";
+            cin >> nuevoImporte;
+            setImporteTotal(nuevoImporte);
             break;
         case 0:
             return true;
@@ -109,6 +120,10 @@ bool Venta::getActivo(){
     return _activo;
 }
 
+float Venta::getImporteTotal(){
+    return _importeTotal;
+}
+
 
 void Venta::setIdVenta(int idVenta){
     _idVenta = idVenta;
@@ -132,4 +147,8 @@ void Venta::setCantidadEntradas(int cantidadEntradas){
 
 void Venta::setActivo(bool activo){
     _activo = activo;
+}
+
+void Venta::setImporteTotal(float importeTotal){
+    _importeTotal = importeTotal;
 }

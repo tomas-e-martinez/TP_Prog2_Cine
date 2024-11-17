@@ -820,7 +820,8 @@ void Reporte::ListarVentas(const char* nombreArchivo){
          << setw(15) << "ID CLIENTE"
          << setw(20) << "CANT. ENTRADAS"
          << setw(20) << "FECHA"
-         << setw(10) << "HORA" << endl;
+         << setw(10) << "HORA"
+         << setw(15) << "IMPORTE" << endl;
 
     cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
     for (int i = 0; i < cantidadRegistros; i++) {
@@ -833,7 +834,8 @@ void Reporte::ListarVentas(const char* nombreArchivo){
              << setw(15) << registro.getIdCliente()
              << setw(20) << registro.getCantidadEntradas()
              << setw(20) << registro.getFecha().toStringFecha()
-             << setw(10) << registro.getFecha().toStringHora() << endl;
+             << setw(10) << registro.getFecha().toStringHora()
+             << setw(1) << "$" << fixed << setprecision(2) << setw(14) << registro.getImporteTotal() << endl;
     }
 
     cout << endl;
@@ -878,7 +880,8 @@ void Reporte::ListarVentasOrdenFecha(const char* nombreArchivo){
          << setw(15) << "ID CLIENTE"
          << setw(20) << "CANT. ENTRADAS"
          << setw(20) << "FECHA"
-         << setw(10) << "HORA" << endl;
+         << setw(10) << "HORA"
+         << setw(15) << "IMPORTE" << endl;
 
     cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
     for (int i = 0; i < cantidadRegistros; i++) {
@@ -891,7 +894,8 @@ void Reporte::ListarVentasOrdenFecha(const char* nombreArchivo){
              << setw(15) << ventas[i].getIdCliente()
              << setw(20) << ventas[i].getCantidadEntradas()
              << setw(20) << ventas[i].getFecha().toStringFecha()
-             << setw(10) << ventas[i].getFecha().toStringHora() << endl;
+             << setw(10) << ventas[i].getFecha().toStringHora()
+             << setw(1) << "$" << fixed << setprecision(2) << setw(14) << registro.getImporteTotal() << endl;
     }
 
     delete[] ventas;
