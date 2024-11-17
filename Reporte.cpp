@@ -1008,7 +1008,7 @@ void Reporte::RecaudacionAnual(Reporte& reporte){
 
     for(int i = 0; i < cantidadVentas; i++){
         venta = archivoVentas.LeerRegistro(i);
-        if(venta.getFecha().getAnio() == anio){
+        if(venta.getFecha().getAnio() == anio && venta.getActivo()){
             idFuncion = venta.getIdFuncion();
             posFuncion = archivoFunciones.BuscarID(idFuncion);
             funcion = archivoFunciones.LeerRegistro(posFuncion);
@@ -1095,7 +1095,7 @@ void Reporte::RecaudacionTipoSala(Reporte& reporte){
 
     for(int i = 0; i < cantidadVentas; i++){
         venta = archivoVentas.LeerRegistro(i);
-        if(venta.getFecha() >= fechaMin && venta.getFecha() <= fechaMax){
+        if(venta.getFecha() >= fechaMin && venta.getFecha() <= fechaMax && venta.getActivo()){
             idFuncion = venta.getIdFuncion();
             posFuncion = archivoFunciones.BuscarID(idFuncion);
             funcion = archivoFunciones.LeerRegistro(posFuncion);
@@ -1199,7 +1199,7 @@ void Reporte::RecaudacionTitulo(Reporte& reporte){
 
     for(int i = 0; i < cantidadVentas; i++){
         venta = archivoVentas.LeerRegistro(i);
-        if(venta.getFecha() >= fechaMin && venta.getFecha() <= fechaMax){
+        if(venta.getFecha() >= fechaMin && venta.getFecha() <= fechaMax && venta.getActivo()){
             idFuncion = venta.getIdFuncion();
             posFuncion = archivoFunciones.BuscarID(idFuncion);
             funcion = archivoFunciones.LeerRegistro(posFuncion);
@@ -1293,7 +1293,7 @@ void Reporte::RecaudacionGenero(Reporte& reporte){
 
     for(int i = 0; i < cantidadVentas; i++){
         venta = archivoVentas.LeerRegistro(i);
-        if(venta.getFecha() >= fechaMin && venta.getFecha() <= fechaMax){
+        if(venta.getFecha() >= fechaMin && venta.getFecha() <= fechaMax && venta.getActivo()){
             idFuncion = venta.getIdFuncion();
             posFuncion = archivoFunciones.BuscarID(idFuncion);
             funcion = archivoFunciones.LeerRegistro(posFuncion);
@@ -1397,7 +1397,7 @@ void Reporte::EntradasVendidasPorPelicula(Reporte& reporte){
 
     for(int i = 0; i < cantidadVentas; i++){
         venta = archivoVentas.LeerRegistro(i);
-        if(venta.getFecha() >= fechaMin && venta.getFecha() <= fechaMax){
+        if(venta.getFecha() >= fechaMin && venta.getFecha() <= fechaMax && venta.getActivo()){
             idFuncion = venta.getIdFuncion();
             posFuncion = archivoFunciones.BuscarID(idFuncion);
             funcion = archivoFunciones.LeerRegistro(posFuncion);
@@ -1492,7 +1492,7 @@ void Reporte::EntradasVendidasPorGenero(Reporte& reporte){
     /// PROCESAMOS LAS VENTAS
     for (int i = 0; i < cantidadVentas; i++) {
         venta = archivoVentas.LeerRegistro(i);
-        if (venta.getFecha() >= fechaMin && venta.getFecha() <= fechaMax) {
+        if (venta.getFecha() >= fechaMin && venta.getFecha() <= fechaMax && venta.getActivo()) {
             idFuncion = venta.getIdFuncion();
             posFuncion = archivoFunciones.BuscarID(idFuncion);
             funcion = archivoFunciones.LeerRegistro(posFuncion);

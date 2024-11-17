@@ -288,7 +288,7 @@
 1731809354 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\funcion.cpp
 	"Funcion.h"
 
-1731817093 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\main.cpp
+1731818640 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\main.cpp
 	<iostream>
 	<iomanip>
 	<locale.h>
@@ -337,7 +337,7 @@
 1731811861 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\pelicula.cpp
 	"Pelicula.h"
 
-1731818413 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.cpp
+1731818799 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.cpp
 	"Reporte.h"
 
 1731813464 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\sala.cpp
