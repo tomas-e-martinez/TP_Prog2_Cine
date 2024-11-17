@@ -15,7 +15,7 @@ int ArchivoClientes::ContarRegistros(){
     return cantidad;
 }
 
-int ArchivoClientes::BuscarID(int id){
+int ArchivoClientes::BuscarID(int id, bool todos){
     FILE* p = fopen(_nombre, "rb");
     if(p == NULL){
         return -1;
@@ -25,7 +25,10 @@ int ArchivoClientes::BuscarID(int id){
     while(fread(&cliente, sizeof(Cliente), 1, p)){
         if(cliente.getId() == id){
             fclose(p);
-            return i;
+            if(todos || cliente.getActivo())
+                return i;
+            else
+                return -1;
         }
         i++;
     }
@@ -33,7 +36,7 @@ int ArchivoClientes::BuscarID(int id){
     return -1;
 }
 
-int ArchivoClientes::BuscarDni(int dni){
+int ArchivoClientes::BuscarDni(int dni, bool todos){
     FILE* p = fopen(_nombre, "rb");
     if(p == NULL){
         return -1;
@@ -43,7 +46,10 @@ int ArchivoClientes::BuscarDni(int dni){
     while(fread(&cliente, sizeof(Cliente), 1, p)){
         if(cliente.getDni() == dni){
             fclose(p);
-            return i;
+            if(todos || cliente.getActivo())
+                return i;
+            else
+                return -1;
         }
         i++;
     }

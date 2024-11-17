@@ -221,10 +221,10 @@
 1730766960 source:c:\users\tomas\onedrive\desktop\tp_prog2_cine\menu.cpp
 	"Menu.h"
 
-1731119453 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\archivoclientes.cpp
+1731818006 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\archivoclientes.cpp
 	"ArchivoClientes.h"
 
-1731119453 c:\users\tomas\documents\programación 2\tp_prog2_cine\archivoclientes.h
+1731817963 c:\users\tomas\documents\programación 2\tp_prog2_cine\archivoclientes.h
 	"Cliente.h"
 
 1731817673 c:\users\tomas\documents\programación 2\tp_prog2_cine\cliente.h
@@ -279,7 +279,7 @@
 	"Fecha.h"
 	"Tiempo.h"
 
-1731646681 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\cliente.cpp
+1731817721 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\cliente.cpp
 	"Cliente.h"
 
 1731443304 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\fecha.cpp
@@ -337,7 +337,7 @@
 1731811861 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\pelicula.cpp
 	"Pelicula.h"
 
-1731816909 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.cpp
+1731818413 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.cpp
 	"Reporte.h"
 
 1731813464 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\sala.cpp
@@ -355,7 +355,7 @@
 1731815650 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.cpp
 	"Menu.h"
 
-1731816836 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\gestorcine.cpp
+1731818059 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\gestorcine.cpp
 	"GestorCine.h"
 
 1731815534 c:\users\tomas\documents\programación 2\tp_prog2_cine\gestorcine.h
@@ -371,7 +371,7 @@
 	"ArchivoFunciones.h"
 	"ArchivoVentas.h"
 
-1731817017 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\cargaraleatorio.cpp
+1731818226 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\cargaraleatorio.cpp
 	"CargarAleatorio.h"
 
 1731351003 c:\users\tomas\documents\programación 2\tp_prog2_cine\cargaraleatorio.h

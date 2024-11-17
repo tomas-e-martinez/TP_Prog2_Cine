@@ -185,7 +185,7 @@ void GestorCine::ModificarCliente(){
             int id;
             cout << "ID: ";
             cin >> id;
-            posicion = archivo.BuscarID(id);
+            posicion = archivo.BuscarID(id, false);
             if(posicion == -1){
                 cout << "ERROR: NO SE ENCONTRÓ UN CLIENTE CON EL ID INGRESADO." << endl;
                 system("pause");
@@ -196,7 +196,7 @@ void GestorCine::ModificarCliente(){
             int dni;
             cout << "DNI: ";
             cin >> dni;
-            posicion = archivo.BuscarDni(dni);
+            posicion = archivo.BuscarDni(dni, false);
             if(posicion == -1){
                 cout << "ERROR: NO SE ENCONTRÓ UN CLIENTE CON EL DNI INGRESADO." << endl;
                 system("pause");
@@ -364,7 +364,73 @@ void GestorCine::ModificarVenta(){
 }
 
 void GestorCine::BajaCliente(){
-    return;
+    ArchivoClientes archivo;
+    Cliente cliente;
+    int posicion;
+    while(true){
+        system("cls");
+        int opcionEliminar;
+        cout << "ELIMINAR CLIENTE - MÉTODO DE BÚSQUEDA\n1. ID\n2. DNI\n\n0. Cancelar" << endl << endl;
+        cout << "INGRESAR OPCIÓN: ";
+        cin >> opcionEliminar;
+        switch(opcionEliminar){
+        case 1:
+            int id;
+            cout << "ID: ";
+            cin >> id;
+            posicion = archivo.BuscarID(id, false);
+            if(posicion == -1){
+                cout << "ERROR: NO SE ENCONTRÓ UN CLIENTE CON EL ID INGRESADO." << endl;
+                system("pause");
+                continue;
+            }
+            break;
+        case 2:
+            int dni;
+            cout << "DNI: ";
+            cin >> dni;
+            posicion = archivo.BuscarDni(dni, false);
+            if(posicion == -1){
+                cout << "ERROR: NO SE ENCONTRÓ UN CLIENTE CON EL DNI INGRESADO." << endl;
+                system("pause");
+                continue;
+            }
+            break;
+        case 0:
+            return;
+        default:
+            cout << endl << "ERROR: INGRESE UNA OPCIÓN VÁLIDA." << endl;
+            system("pause");
+            break;
+        }
+
+        cliente = archivo.LeerRegistro(posicion);
+        while(true){
+            system("cls");
+            cliente.Mostrar();
+            cout << endl << "¿CONFIRMAR BAJA?\n1. Sí\n2. No\n\nOPCIÓN: ";
+            int opcion;
+            cin >> opcion;
+            switch(opcion){
+            case 1:
+                cliente.setActivo(false);
+                if(archivo.Guardar(cliente, posicion))
+                    cout << endl << "CLIENTE ELIMINADO CON ÉXITO." << endl;
+                else
+                    cout << endl << "ERROR: NO SE PUDO ELIMINAR EL CLIENTE." << endl;
+                system("pause");
+                return;
+            case 2:
+                cout << endl << "BAJA CANCELADA." << endl;
+                system("pause");
+                return;
+            default:
+                cout << "ERROR: INGRESE UNA OPCIÓN VÁLIDA." << endl;
+                system("pause");
+                break;
+            }
+        }
+    }
 }
 
 void GestorCine::BajaFuncion(){

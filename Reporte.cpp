@@ -408,6 +408,8 @@ void Reporte::ListarClientes(const char* nombreArchivo){
     cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
     for (int i = 0; i < cantidadRegistros; i++) {
         registro = archivo.LeerRegistro(i);
+        if(!registro.getActivo())
+            continue;
         cout << left
              << setw(5)  << registro.getId()
              << setw(10) << registro.getDni()
@@ -431,11 +433,11 @@ void Reporte::ListarClientesEdad(int minimo, int maximo, const char* nombreArchi
     Cliente* clientes = new Cliente[cantidadRegistros];
     int indice = 0;
 
-    //ALMACENAR REGISTROS EN RANGO DE EDAD
+    //ALMACENAR REGISTROS EN RANGO DE EDAD QUE ESTÉN ACTIVOS
     for(int i = 0; i < cantidadRegistros; i++){
         registro = archivo.LeerRegistro(i);
         edad = 2024 - registro.getFechaNacimiento().getAnio();
-        if(edad >= minimo && edad <= maximo)
+        if(edad >= minimo && edad <= maximo && registro.getActivo())
             clientes[indice++] = registro;
     }
 
@@ -529,6 +531,8 @@ void Reporte::ListarClientesApellido(const char* nombreArchivo){
 
     cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
     for (int i = 0; i < cantidadRegistros; i++) {
+        if(!clientes[i].getActivo())
+            continue;
         cout << left
              << setw(5)  << clientes[i].getId()
              << setw(10) << clientes[i].getDni()
@@ -546,7 +550,7 @@ void Reporte::ListarClientesApellido(const char* nombreArchivo){
 
 void Reporte::ListarClientesDNI(int dni, const char* nombreArchivo){
     ArchivoClientes archivo(nombreArchivo);
-    int posicion = archivo.BuscarDni(dni);
+    int posicion = archivo.BuscarDni(dni, false);
 
     if(posicion == -1){
         cout << "No se encontró ningún cliente con el DNI ingresado. " << endl;

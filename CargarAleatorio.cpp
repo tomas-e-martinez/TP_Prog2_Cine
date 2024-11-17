@@ -30,6 +30,7 @@ void CargarAleatorio::CargarClientes(int cantidad){
 Cliente CargarAleatorio::GenerarCliente(){
     int dni = DNI(); ///GENERAR DNI
     char nombre[30], apellido[30], telefono[20];
+    bool activo = true;
 
     ///GENERAR FECHA DE NACIMIENTO
     int mesNac = rand() % 12 + 1;
@@ -76,6 +77,7 @@ Cliente CargarAleatorio::GenerarCliente(){
     strcpy(apellido, apellidos[rand() % 40]);
 
     Cliente cliente(dni, nombre, apellido, telefono, fechaNac);
+    cliente.setActivo(activo);
     return cliente;
 }
 
@@ -186,7 +188,7 @@ Venta CargarAleatorio::GenerarVenta(){
     int idCliente;
     while(true){
         idCliente = rand() % cantClientes;
-        if(archivoClientes.BuscarID(idCliente) != -1)
+        if(archivoClientes.BuscarID(idCliente, false) != -1)
             break;
     }
 
