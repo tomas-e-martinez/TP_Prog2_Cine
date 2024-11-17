@@ -15,7 +15,7 @@ int ArchivoVentas::ContarRegistros(){
     return cantidad;
 }
 
-int ArchivoVentas::BuscarID(int id){
+int ArchivoVentas::BuscarID(int id, bool todos){
     FILE* p = fopen(_nombre, "rb");
     if(p == NULL){
         return -1;
@@ -25,7 +25,10 @@ int ArchivoVentas::BuscarID(int id){
     while(fread(&venta, sizeof(Venta), 1, p)){
         if(venta.getIdVenta() == id){
             fclose(p);
-            return i;
+            if(todos || venta.getActivo())
+                return i;
+            else
+                return -1;
         }
         i++;
     }

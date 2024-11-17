@@ -28,9 +28,11 @@ public:
     void ModificarSala();
     void ModificarVenta();
 
+    void BajaCliente();
     void BajaFuncion();
     void BajaPelicula();
     void BajaSala();
+    void BajaVenta();
 
     float CalcularPrecioEntrada(Funcion funcion);
     int AsientosLibres(Funcion funcion);

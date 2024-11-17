@@ -10,6 +10,7 @@ class Venta {
 private:
     int _idVenta, _idCliente, _idFuncion, _cantidadEntradas;
     Fecha _fecha;
+    bool _activo;
 
 public:
     Venta();  // Constructor por defecto
@@ -24,11 +25,12 @@ public:
     int getIdFuncion();
     Fecha& getFecha();
     int getCantidadEntradas();
+    bool getActivo();
 
     void setIdVenta(int idVenta);
     void setIdCliente(int idCliente);
     void setIdFuncion(int idFuncion);
     void setFecha(Fecha fecha);
     void setCantidadEntradas(int cantidadEntradas);
-
+    void setActivo(bool activo);
 };

@@ -5,6 +5,7 @@ Venta::Venta(){
     _idCliente = 0;
    _idFuncion = 0;
    _cantidadEntradas = 0;
+   _activo = true;
 }
 
 Venta::Venta(int idCliente, int idFuncion, int cantidadEntradas, Fecha fecha){
@@ -13,6 +14,7 @@ Venta::Venta(int idCliente, int idFuncion, int cantidadEntradas, Fecha fecha){
     _idFuncion = idFuncion;
     _cantidadEntradas = cantidadEntradas;
     _fecha = fecha;
+    _activo = true;
 }
 
 
@@ -103,6 +105,10 @@ int Venta::getCantidadEntradas(){
     return _cantidadEntradas;
 }
 
+bool Venta::getActivo(){
+    return _activo;
+}
+
 
 void Venta::setIdVenta(int idVenta){
     _idVenta = idVenta;
@@ -122,4 +128,8 @@ void Venta::setFecha(Fecha fecha){
 
 void Venta::setCantidadEntradas(int cantidadEntradas){
     _cantidadEntradas = cantidadEntradas;
+}
+
+void Venta::setActivo(bool activo){
+    _activo = activo;
 }

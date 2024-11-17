@@ -52,10 +52,11 @@ void Menu::Clientes(GestorCine& gestor, Reporte& reporte){
         cout << "SUBMENÚ CLIENTES" << endl << endl;
         cout << "1. Agregar Cliente" << endl;
         cout << "2. Modificar Cliente" << endl;
-        cout << "3. Listado ordenado por ID" << endl;
-        cout << "4. Listado ordenado por apellido" << endl;
-        cout << "5. Buscar por DNI" << endl;
-        cout << "6. Buscar por rango de edad" << endl;
+        cout << "3. Eliminar Cliente" << endl;
+        cout << "4. Listado ordenado por ID" << endl;
+        cout << "5. Listado ordenado por apellido" << endl;
+        cout << "6. Buscar por DNI" << endl;
+        cout << "7. Buscar por rango de edad" << endl;
         cout << endl << "0. Volver al menú principal" << endl << endl;
 
         cout << "Ingresar opción: ";
@@ -69,19 +70,22 @@ void Menu::Clientes(GestorCine& gestor, Reporte& reporte){
             gestor.ModificarCliente();
             break;
         case 3:
-            reporte.ListarClientes();
+            gestor.BajaCliente();
             break;
         case 4:
-            reporte.ListarClientesApellido();
+            reporte.ListarClientes();
             break;
         case 5:
+            reporte.ListarClientesApellido();
+            break;
+        case 6:
             system("cls");
             int dni;
             cout << "BUSCAR CLIENTE POR DNI\n\nIngrese el N° de DNI: ";
             cin >> dni;
             reporte.ListarClientesDNI(dni);
             break;
-        case 6:
+        case 7:
             system("cls");
             int minimo, maximo;
             cout << "BUSCAR CLIENTES POR RANGO DE EDAD\n\nIngrese edad mínima: ";
@@ -287,8 +291,9 @@ void Menu::Ventas(GestorCine& gestor, Reporte& reporte){
         cout << "SUBMENÚ VENTAS" << endl << endl;
         cout << "1. Procesar Venta" << endl;
         cout << "2. Modificar Venta" << endl;
-        cout << "3. Listado ordenado por ID" << endl;
-        cout << "4. Listado ordenado por fecha" << endl;
+        cout << "3. Eliminar Venta" << endl;
+        cout << "4. Listado ordenado por ID" << endl;
+        cout << "5. Listado ordenado por fecha" << endl;
         cout << endl << "0. Volver al menú principal" << endl << endl;
 
         cout << "Ingresar opción: ";
@@ -302,9 +307,12 @@ void Menu::Ventas(GestorCine& gestor, Reporte& reporte){
             gestor.ModificarVenta();
             break;
         case 3:
-            reporte.ListarVentas();
+            gestor.BajaVenta();
             break;
         case 4:
+            reporte.ListarVentas();
+            break;
+        case 5:
             reporte.ListarVentasOrdenFecha();
             break;
         case 0:

@@ -9,7 +9,7 @@ public:
     ArchivoVentas(const char* nombre = "ventas.dat");
 
     int ContarRegistros();
-    int BuscarID(int id);
+    int BuscarID(int id, bool todos = true);
     Venta LeerRegistro(int pos);
     bool Guardar(Venta venta); //Agregar registro al archivo
     bool Guardar(Venta venta, int pos); //Sobreescribir registro del archivo

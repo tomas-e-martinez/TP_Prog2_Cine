@@ -13,6 +13,7 @@ private:
     int _id, _dni;
     char _nombre[30], _apellido[30], _telefono[20];
     Fecha _fechaNacimiento;
+    bool _activo;
 
 public:
     Cliente();
@@ -28,6 +29,7 @@ public:
     const char* getApellido();
     const char* getTelefono();
     Fecha& getFechaNacimiento();
+    bool getActivo();
 
     void setId(int id);
     void setDni(int dni);
@@ -35,4 +37,5 @@ public:
     void setApellido(const char* apellido);
     void setTelefono(const char* tlefono);
     void setFechaNacimiento(Fecha fechaNacimiento);
+    void setActivo(bool activo);
 };

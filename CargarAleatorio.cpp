@@ -205,6 +205,7 @@ Venta CargarAleatorio::GenerarVenta(){
     }
 
     int cantidadEntradas = rand() % 10 + 1;
+    bool activo = true;
 
     ///GENERAR FECHA Y HORA DE VENTA
     int mes = rand() % 12 + 1;
@@ -223,6 +224,7 @@ Venta CargarAleatorio::GenerarVenta(){
     Fecha fechaVenta(dia, mes, anio, hora, minutos);
 
     Venta venta(idCliente, idFuncion, cantidadEntradas, fechaVenta);
+    venta.setActivo(activo);
     return venta;
 }
 

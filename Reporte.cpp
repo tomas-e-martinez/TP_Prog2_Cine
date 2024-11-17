@@ -821,6 +821,8 @@ void Reporte::ListarVentas(const char* nombreArchivo){
     cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
     for (int i = 0; i < cantidadRegistros; i++) {
         registro = archivo.LeerRegistro(i);
+        if(!registro.getActivo())
+            continue;
         cout << left
              << setw(5)  << registro.getIdVenta()
              << setw(15) << registro.getIdFuncion()
@@ -877,6 +879,8 @@ void Reporte::ListarVentasOrdenFecha(const char* nombreArchivo){
     cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
     for (int i = 0; i < cantidadRegistros; i++) {
         registro = archivo.LeerRegistro(i);
+        if(!ventas[i].getActivo())
+            continue;
         cout << left
              << setw(5)  << ventas[i].getIdVenta()
              << setw(15) << ventas[i].getIdFuncion()

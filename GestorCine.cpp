@@ -115,6 +115,11 @@ void GestorCine::ProcesarVenta(){
     cin >> dni;
     posicionCliente = archivoClientes.BuscarDni(dni);
     Cliente cliente = archivoClientes.LeerRegistro(posicionCliente);
+    if(!cliente.getActivo()){
+        cout << "ERROR: EL DNI INGRESADO PERTENECE A UN CLIENTE DADO DE BAJA." << endl;
+        system("pause");
+        return;
+    }
     if(posicionCliente != -1){
         cout << "CLIENTE ENCONTRADO: " << cliente.getNombre() << " " << cliente.getApellido() << endl;
         cout << "¿DESEA CONTINUAR? 1.SÍ 2.NO\n";
@@ -334,11 +339,11 @@ void GestorCine::ModificarVenta(){
         cout << "MODIFICAR VENTA" << endl << endl;
         cout << "INGRESAR ID: ";
         cin >> id;
-        posicion = archivo.BuscarID(id);
+        posicion = archivo.BuscarID(id, false);
         if(posicion == -1){
             cout << "ERROR: NO SE ENCONTRÓ UNA VENTA CON EL ID INGRESADO." << endl;
             system("pause");
-            continue;
+            return;
         }
 
         venta = archivo.LeerRegistro(posicion);
@@ -356,6 +361,10 @@ void GestorCine::ModificarVenta(){
         system("pause");
         return;
     }
+}
+
+void GestorCine::BajaCliente(){
+    return;
 }
 
 void GestorCine::BajaFuncion(){
@@ -499,6 +508,53 @@ void GestorCine::BajaSala(){
     }
 }
 
+void GestorCine::BajaVenta(){
+    ArchivoVentas archivo;
+    Venta venta;
+    int posicion;
+    while(true){
+        system("cls");
+        int id;
+        cout << "ELIMINAR VENTA" << endl << endl;
+        cout << "INGRESAR ID: ";
+        cin >> id;
+        posicion = archivo.BuscarID(id, false);
+        if(posicion == -1){
+            cout << "ERROR: NO SE ENCONTRÓ UNA VENTA CON EL ID INGRESADO." << endl;
+            system("pause");
+            return;
+        }
+
+        venta = archivo.LeerRegistro(posicion);
+
+        while(true){
+            system("cls");
+            venta.Mostrar();
+            cout << endl << "¿CONFIRMAR BAJA?\n1. Sí\n2. No\n\nOPCIÓN: ";
+            int opcion;
+            cin >> opcion;
+            switch(opcion){
+            case 1:
+                venta.setActivo(false);
+                if(archivo.Guardar(venta, posicion))
+                    cout << endl << "VENTA ELIMINADA CON ÉXITO." << endl;
+                else
+                    cout << endl << "ERROR: NO SE PUDO ELIMINAR LA VENTA." << endl;
+                system("pause");
+                return;
+            case 2:
+                cout << endl << "BAJA CANCELADA." << endl;
+                system("pause");
+                return;
+            default:
+                cout << "ERROR: INGRESE UNA OPCIÓN VÁLIDA." << endl;
+                system("pause");
+                break;
+            }
+        }
+    }
+}
+
 float GestorCine::CalcularPrecioEntrada(Funcion funcion){
     ArchivoSalas archivoSalas;
     int posSala = archivoSalas.BuscarID(funcion.getIdSala());
@@ -536,7 +592,7 @@ int GestorCine::AsientosLibres(Funcion funcion){
     Venta venta;
     for(int i = 0; i < cantidadVentas; i++){
         venta = archivoVentas.LeerRegistro(i);
-        if(venta.getIdFuncion() == idFuncion){
+        if(venta.getIdFuncion() == idFuncion && venta.getActivo()){
             ocupados += venta.getCantidadEntradas();
         }
     }

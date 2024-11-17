@@ -6,6 +6,7 @@ Cliente::Cliente(){
     strcpy(_nombre, "Sin nombre");
     strcpy(_apellido, "Sin apellido");
     strcpy(_telefono, "Sin telefono");
+    _activo = true;
 }
 
 Cliente::Cliente(int dni, const char* nombre, const char* apellido, const char* telefono, Fecha fechaNacimiento){
@@ -15,6 +16,7 @@ Cliente::Cliente(int dni, const char* nombre, const char* apellido, const char* 
     strcpy(_apellido,apellido);
     strcpy(_telefono,telefono);
     _fechaNacimiento = fechaNacimiento;
+    _activo = true;
 }
 
 void Cliente::Cargar(int dni){
@@ -121,6 +123,10 @@ Fecha& Cliente::getFechaNacimiento(){
     return _fechaNacimiento;
 }
 
+bool Cliente::getActivo(){
+    return _activo;
+}
+
 
 void Cliente::setId(int id){
     _id = id;
@@ -146,4 +152,6 @@ void Cliente::setFechaNacimiento(Fecha fechaNacimiento){
     _fechaNacimiento = fechaNacimiento;
 }
 
-
+void Cliente::setActivo(bool activo){
+    _activo = activo;
+}
