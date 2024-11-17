@@ -30,6 +30,7 @@ public:
 
     void BajaFuncion();
     void BajaPelicula();
+    void BajaSala();
 
     float CalcularPrecioEntrada(Funcion funcion);
     int AsientosLibres(Funcion funcion);

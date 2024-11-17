@@ -246,8 +246,9 @@ void Menu::Salas(GestorCine& gestor, Reporte& reporte){
         cout << "SUBMENÚ SALAS" << endl << endl;
         cout << "1. Agregar Sala" << endl;
         cout << "2. Modificar Sala" << endl;
-        cout << "3. Listado ordenado por ID" << endl;
-        cout << "4. Listado ordenado por tipo de sala" << endl;
+        cout << "3. Eliminar Sala" << endl;
+        cout << "4. Listado ordenado por ID" << endl;
+        cout << "5. Listado ordenado por tipo de sala" << endl;
         cout << endl << "0. Volver al menú principal" << endl << endl;
 
         cout << "Ingresar opción: ";
@@ -261,9 +262,12 @@ void Menu::Salas(GestorCine& gestor, Reporte& reporte){
             gestor.ModificarSala();
             break;
         case 3:
-            reporte.ListarSalas();
+            gestor.BajaSala();
             break;
         case 4:
+            reporte.ListarSalas();
+            break;
+        case 5:
             reporte.ListarSalasTipo();
             break;
         case 0:

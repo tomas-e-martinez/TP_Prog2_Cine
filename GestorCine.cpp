@@ -271,7 +271,7 @@ void GestorCine::ModificarPelicula(){
         if(posicion == -1){
             cout << "ERROR: NO SE ENCONTRÓ UNA PELÍCULA CON EL ID INGRESADO." << endl;
             system("pause");
-            continue;
+            return;
         }
 
         pelicula = archivo.LeerRegistro(posicion);
@@ -301,11 +301,11 @@ void GestorCine::ModificarSala(){
         cout << "MODIFICAR SALA" << endl << endl;
         cout << "INGRESAR ID: ";
         cin >> id;
-        posicion = archivo.BuscarID(id);
+        posicion = archivo.BuscarID(id, false);
         if(posicion == -1){
             cout << "ERROR: NO SE ENCONTRÓ UNA SALA CON EL ID INGRESADO." << endl;
             system("pause");
-            continue;
+            return;
         }
         sala = archivo.LeerRegistro(posicion);
         if(!sala.Modificar()){
@@ -365,7 +365,7 @@ void GestorCine::BajaFuncion(){
     while(true){
         system("cls");
         int id;
-        cout << "BAJA FUNCIÓN" << endl << endl;
+        cout << "ELIMINAR FUNCIÓN" << endl << endl;
         cout << "INGRESAR ID: ";
         cin >> id;
         posicion = archivo.BuscarID(id, false);
@@ -419,7 +419,7 @@ void GestorCine::BajaPelicula(){
         if(posicion == -1){
             cout << "ERROR: NO SE ENCONTRÓ UNA PELÍCULA CON EL ID INGRESADO." << endl;
             system("pause");
-            continue;
+            return;
         }
 
         pelicula = archivo.LeerRegistro(posicion);
@@ -437,6 +437,53 @@ void GestorCine::BajaPelicula(){
                     cout << endl << "PELÍCULA ELIMINADA CON ÉXITO." << endl;
                 else
                     cout << endl << "ERROR: NO SE PUDO ELIMINAR LA PELÍCULA." << endl;
+                system("pause");
+                return;
+            case 2:
+                cout << endl << "BAJA CANCELADA." << endl;
+                system("pause");
+                return;
+            default:
+                cout << "ERROR: INGRESE UNA OPCIÓN VÁLIDA." << endl;
+                system("pause");
+                break;
+            }
+        }
+    }
+}
+
+void GestorCine::BajaSala(){
+    ArchivoSalas archivo;
+    Sala sala;
+    int posicion;
+    while(true){
+        system("cls");
+        int id;
+        cout << "ELIMINAR SALA" << endl << endl;
+        cout << "INGRESAR ID: ";
+        cin >> id;
+        posicion = archivo.BuscarID(id, false);
+        if(posicion == -1){
+            cout << "ERROR: NO SE ENCONTRÓ UNA SALA CON EL ID INGRESADO." << endl;
+            system("pause");
+            return;
+        }
+
+        sala = archivo.LeerRegistro(posicion);
+
+        while(true){
+            system("cls");
+            sala.Mostrar();
+            cout << endl << "¿CONFIRMAR BAJA?\n1. Sí\n2. No\n\nOPCIÓN: ";
+            int opcion;
+            cin >> opcion;
+            switch(opcion){
+            case 1:
+                sala.setActivo(false);
+                if(archivo.Guardar(sala, posicion))
+                    cout << endl << "SALA ELIMINADA CON ÉXITO." << endl;
+                else
+                    cout << endl << "ERROR: NO SE PUDO ELIMINAR LA SALA." << endl;
                 system("pause");
                 return;
             case 2:

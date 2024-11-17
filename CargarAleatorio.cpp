@@ -82,12 +82,22 @@ Cliente CargarAleatorio::GenerarCliente(){
 Funcion CargarAleatorio::GenerarFuncion(){
     ArchivoPeliculas archivoPeliculas;
     int cantidadPeliculas = archivoPeliculas.ContarRegistros();
-    int idPelicula = rand() % cantidadPeliculas;
-    bool activo = rand() % 2;
+    int idPelicula;
+    while(true){
+        idPelicula = rand() % cantidadPeliculas;
+        if(archivoPeliculas.BuscarID(idPelicula, false) != 1)
+            break;
+    }
+    bool activo = true;
 
     ArchivoSalas archivoSalas;
     int cantidadSalas = archivoSalas.ContarRegistros();
-    int idSala = rand() % cantidadSalas;
+    int idSala;
+    while(true){
+        idSala = rand() % cantidadSalas;
+        if(archivoSalas.BuscarID(idSala, false) != 1)
+            break;
+    }
 
     int anio = 2024 - rand() % 4;
     int dia;
@@ -140,8 +150,10 @@ Sala CargarAleatorio::GenerarSala(){
         opcionTipo = 2;
     else if(opcionTipo <= 100)
         opcionTipo = 3;
+    bool activo = true;
 
     Sala sala(capacidad, opcionTipo);
+    sala.setActivo(activo);
     return sala;
 }
 

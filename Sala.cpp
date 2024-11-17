@@ -4,12 +4,14 @@ Sala::Sala(){
     _idSala = 0;
     _capacidad = 0;
     strcpy(_tipo, "NULO");
+    _activo = true;
 }
 
 Sala::Sala(int capacidad, int tipo){
     _idSala = 0;
     _capacidad = capacidad;
     setTipo(tipo);
+    _activo = true;
 }
 
 void Sala::Cargar(){
@@ -78,6 +80,10 @@ int Sala::getCapacidad(){
     return _capacidad;
 }
 
+bool Sala::getActivo(){
+    return _activo;
+}
+
 
 void Sala::setIdSala(int idSala){
     _idSala = idSala;
@@ -104,4 +110,6 @@ void Sala::setCapacidad(int capacidad){
     _capacidad = capacidad;
 }
 
-
+void Sala::setActivo(bool activo){
+    _activo = activo;
+}

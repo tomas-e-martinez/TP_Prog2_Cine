@@ -911,6 +911,8 @@ void Reporte::ListarSalas(const char* nombreArchivo){
     cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
     for (int i = 0; i < cantidadRegistros; i++) {
         registro = archivo.LeerRegistro(i);
+        if(!registro.getActivo())
+            continue;
         cout << left
              << setw(5)  << registro.getIdSala()
              << setw(15) << registro.getCapacidad()
@@ -958,6 +960,8 @@ void Reporte::ListarSalasTipo(const char* nombreArchivo){
 
     cout << "-------------------------------------------------------------------------------------------------------------------" << endl;
     for (int i = 0; i < cantidadRegistros; i++) {
+        if(!salas[i].getActivo())
+            continue;
         cout << left
              << setw(5)  << salas[i].getIdSala()
              << setw(15) << salas[i].getCapacidad()

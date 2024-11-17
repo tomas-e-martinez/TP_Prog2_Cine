@@ -15,7 +15,7 @@ int ArchivoSalas::ContarRegistros(){
     return cantidad;
 }
 
-int ArchivoSalas::BuscarID(int idSala){
+int ArchivoSalas::BuscarID(int idSala, bool todos){
     FILE* p = fopen(_nombre, "rb");
     if(p == NULL){
         cerr << "No se pudo abrir el archivo para lectura." << endl;
@@ -26,7 +26,10 @@ int ArchivoSalas::BuscarID(int idSala){
     while(fread(&sala, sizeof(Sala), 1, p)){
         if(sala.getIdSala() == idSala){
             fclose(p);
-            return i;
+            if(todos || sala.getActivo())
+                return i;
+            else
+                return -1;
         }
         i++;
     }
