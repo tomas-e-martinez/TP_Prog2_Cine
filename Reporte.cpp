@@ -779,10 +779,22 @@ void Reporte::ListarFuncionesSala(int tipo, const char* nombreArchivo){
     return;
 }
 
-void Reporte::VentaDetalle(Funcion& funcion, int cantEntradas, Fecha& fecha, Cliente& cliente, float valorEntrada, const char* nombreArchivo){
+void Reporte::VentaDetalle(Venta& venta){
+    ArchivoFunciones archivoFunciones;
+    int posicionFuncion = archivoFunciones.BuscarID(venta.getIdFuncion(), false);
+    Funcion funcion = archivoFunciones.LeerRegistro(posicionFuncion);
+
+    GestorCine gestor;
+    float valorEntrada = gestor.CalcularPrecioEntrada(funcion);
+
+    ArchivoClientes archivoClientes;
+    int posicionCliente = archivoClientes.BuscarID(venta.getIdCliente(), false);
+    Cliente cliente = archivoClientes.LeerRegistro(posicionCliente);
+
     ArchivoPeliculas archivoPeliculas;
-    int posicionPelicula = archivoPeliculas.BuscarID(funcion.getIdPelicula());
+    int posicionPelicula = archivoPeliculas.BuscarID(funcion.getIdPelicula(), false);
     Pelicula pelicula = archivoPeliculas.LeerRegistro(posicionPelicula);
+
     ArchivoSalas archivoSalas;
     int posicionSala = archivoSalas.BuscarID(funcion.getIdSala());
     Sala sala = archivoSalas.LeerRegistro(posicionSala);
@@ -796,11 +808,11 @@ void Reporte::VentaDetalle(Funcion& funcion, int cantEntradas, Fecha& fecha, Cli
     cout << "Duración: " << pelicula.getDuracion().toString() << endl;
     cout << "Cliente: "  << cliente.getNombre() << " " << cliente.getApellido() << endl;
     cout << "Teléfono del cliente: " << cliente.getTelefono() << endl;
-    cout << "N° de entradas: " << cantEntradas << endl;
+    cout << "N° de entradas: " << venta.getCantidadEntradas() << endl;
     cout << "Valor por entrada: $" << valorEntrada << endl;
-    cout << "Fecha de la venta: " << fecha.toStringFecha() << endl;
-    cout << "Hora de la venta: " << fecha.toStringHora() << endl;
-    cout << endl << "Total: $" << cantEntradas * valorEntrada << endl;
+    cout << "Fecha de la venta: " << venta.getFecha().toStringFecha() << endl;
+    cout << "Hora de la venta: " << venta.getFecha().toStringHora() << endl;
+    cout << endl << "Total: $" << venta.getImporteTotal() << endl;
 }
 
 void Reporte::ListarVentas(const char* nombreArchivo){

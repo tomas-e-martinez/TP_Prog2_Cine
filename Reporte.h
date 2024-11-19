@@ -26,7 +26,7 @@ public:
     void ListarFunciones(const char* nombreArchivo = "funciones.dat");
     void ListarFuncionesFecha(const Fecha& minimo,const Fecha& maximo, const char* nombreArchivo = "funciones.dat");
     void ListarFuncionesSala(int tipo, const char* nombreArchivo = "funciones.dat");
-    void VentaDetalle(Funcion& funcion, int cantEntradas, Fecha& fecha, Cliente& cliente, float valorEntrada, const char* nombreArchivo = "funciones.dat");
+    void VentaDetalle(Venta& venta);
 
 
     void ListarVentas(const char* nombreArchivo = "ventas.dat");

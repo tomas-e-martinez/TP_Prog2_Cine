@@ -199,7 +199,9 @@ void GestorCine::ProcesarVenta(){
     fechaVenta.CargarHora();
 
     //VER Y CONFIRMAR COMPRA
-    reporte.VentaDetalle(funcion, cantidadEntradas, fechaVenta, cliente, valorEntrada);
+    float totalVenta = cantidadEntradas * valorEntrada;
+    Venta venta(cliente.getId(), funcion.getIdFuncion(), cantidadEntradas, fechaVenta, totalVenta);
+    reporte.VentaDetalle(venta);
     rlutil::setColor(rlutil::YELLOW);
     cout << endl << "¿CONFIRMAR VENTA? 1.SÍ 2.NO\n";
     rlutil::setColor(rlutil::GREY);
@@ -209,8 +211,6 @@ void GestorCine::ProcesarVenta(){
 
 
     //EJECUTAR
-    float totalVenta = cantidadEntradas * valorEntrada;
-    Venta venta(cliente.getId(), funcion.getIdFuncion(), cantidadEntradas, fechaVenta, totalVenta);
     ArchivoVentas archivoVentas;
     if(archivoVentas.Guardar(venta)){
         rlutil::setColor(rlutil::LIGHTGREEN);
