@@ -30,25 +30,13 @@ using namespace std;
 int main(){
     setlocale(LC_CTYPE, "Spanish");
 
-    ///CARGAR ALEATORIOS
+    ///CARGAR REGISTROS DE PRUEBA
     /*srand(time(0));
     CargarAleatorio cargar;
     cargar.CargarFunciones(20);
     Reporte prueba;
     prueba.ListarFunciones();
     return 2;*/
-
-
-    ///CARGAR PELICULAS
-    /*while(true){
-        Pelicula pelicula;
-        ArchivoPeliculas archivo;
-        pelicula.Cargar();
-        if(archivo.Guardar(pelicula))
-            cout << "PELICULA CARGADA CORRECTAMENTE." << endl;
-        cout << "CANT. PELICULAS: " << archivo.ContarRegistros() << endl;
-        system("pause");
-    }*/
 
     Menu menu;
     GestorCine gestor;
