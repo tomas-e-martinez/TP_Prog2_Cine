@@ -3,6 +3,8 @@
 #include <locale.h>
 #include <string>
 
+#include "rlutil.h"
+
 #include "Menu.h"
 #include "Fecha.h"
 #include "Tiempo.h"

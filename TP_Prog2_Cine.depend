@@ -288,11 +288,12 @@
 1731809354 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\funcion.cpp
 	"Funcion.h"
 
-1732036726 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\main.cpp
+1732056125 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\main.cpp
 	<iostream>
 	<iomanip>
 	<locale.h>
 	<string>
+	"rlutil.h"
 	"Menu.h"
 	"Fecha.h"
 	"Tiempo.h"
@@ -311,10 +312,11 @@
 	<ctime>
 	"CargarAleatorio.h"
 
-1731363958 c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.h
+1732056178 c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.h
 	<iostream>
 	"Reporte.h"
 	"GestorCine.h"
+	"rlutil.h"
 	"ArchivoClientes.h"
 
 1731523628 c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.h
@@ -337,7 +339,7 @@
 1731811861 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\pelicula.cpp
 	"Pelicula.h"
 
-1731881964 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.cpp
+1732055889 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\reporte.cpp
 	"Reporte.h"
 
 1731813464 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\sala.cpp
@@ -352,19 +354,20 @@
 1731813900 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\archivosalas.cpp
 	"ArchivoSalas.h"
 
-1731815650 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.cpp
+1732056413 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\menu.cpp
 	"Menu.h"
 
-1732035324 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\gestorcine.cpp
+1732057259 source:c:\users\tomas\documents\programación 2\tp_prog2_cine\gestorcine.cpp
 	"GestorCine.h"
 
-1731815534 c:\users\tomas\documents\programación 2\tp_prog2_cine\gestorcine.h
+1732056551 c:\users\tomas\documents\programación 2\tp_prog2_cine\gestorcine.h
 	"Pelicula.h"
 	"Cliente.h"
 	"Sala.h"
 	"Funcion.h"
 	"Venta.h"
 	"Reporte.h"
+	"rlutil.h"
 	"ArchivoPeliculas.h"
 	"ArchivoClientes.h"
 	"ArchivoSalas.h"
@@ -553,4 +556,18 @@
 
 1731582268 source:c:\users\tomás\desktop\tp_prog2_cine\venta.cpp
 	"Venta.h"
+
+1732052292 c:\users\tomas\documents\programación 2\tp_prog2_cine\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
 

@@ -4,6 +4,7 @@
 
 #include "Reporte.h"
 #include "GestorCine.h"
+#include "rlutil.h"
 
 #include "ArchivoClientes.h"
 

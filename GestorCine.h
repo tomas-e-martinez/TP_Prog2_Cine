@@ -6,6 +6,7 @@
 #include "Funcion.h"
 #include "Venta.h"
 #include "Reporte.h"
+#include "rlutil.h"
 
 #include "ArchivoPeliculas.h"
 #include "ArchivoClientes.h"

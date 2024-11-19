@@ -38,7 +38,9 @@ void Menu::Principal(GestorCine& gestor, Reporte& reporte){
         case 0:
             return;
         default:
+            rlutil::setColor(rlutil::YELLOW);
             cout << "Opción inválida. Intente de nuevo." << endl;
+            rlutil::setColor(rlutil::GREY);
             system("pause");
             break;
         }
@@ -97,7 +99,9 @@ void Menu::Clientes(GestorCine& gestor, Reporte& reporte){
         case 0:
             return;
         default:
+            rlutil::setColor(rlutil::YELLOW);
             cout << "Opción inválida. Intente de nuevo." << endl;
+            rlutil::setColor(rlutil::GREY);
             system("pause");
             break;
         }
@@ -155,7 +159,9 @@ void Menu::Funciones(GestorCine& gestor, Reporte& reporte){
         case 0:
             return;
         default:
+            rlutil::setColor(rlutil::YELLOW);
             cout << "Opción inválida. Intente de nuevo." << endl;
+            rlutil::setColor(rlutil::GREY);
             system("pause");
             break;
         }
@@ -236,7 +242,9 @@ void Menu::Peliculas(GestorCine& gestor, Reporte& reporte){
         case 0:
             return;
         default:
+            rlutil::setColor(rlutil::YELLOW);
             cout << "Opción inválida. Intente de nuevo." << endl;
+            rlutil::setColor(rlutil::GREY);
             system("pause");
             break;
         }
@@ -277,7 +285,9 @@ void Menu::Salas(GestorCine& gestor, Reporte& reporte){
         case 0:
             return;
         default:
+            rlutil::setColor(rlutil::YELLOW);
             cout << "Opción inválida. Intente de nuevo." << endl;
+            rlutil::setColor(rlutil::GREY);
             system("pause");
             break;
         }
@@ -318,7 +328,9 @@ void Menu::Ventas(GestorCine& gestor, Reporte& reporte){
         case 0:
             return;
         default:
+            rlutil::setColor(rlutil::YELLOW);
             cout << "Opción inválida. Intente de nuevo." << endl;
+            rlutil::setColor(rlutil::GREY);
             system("pause");
             break;
         }
@@ -363,7 +375,9 @@ void Menu::Reportes(Reporte& reporte){
         case 0:
             return;
         default:
+            rlutil::setColor(rlutil::YELLOW);
             cout << "Opción inválida. Intente de nuevo." << endl;
+            rlutil::setColor(rlutil::GREY);
             system("pause");
             break;
         }
