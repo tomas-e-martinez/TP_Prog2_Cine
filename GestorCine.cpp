@@ -91,6 +91,7 @@ void GestorCine::ProcesarVenta(){
         }
         break;
     }
+    system("cls");
     Funcion funcion = archivoFunciones.LeerRegistro(posicion);
     valorEntrada = CalcularPrecioEntrada(funcion);
     entradasDisponibles = AsientosLibres(funcion);
@@ -131,7 +132,7 @@ void GestorCine::ProcesarVenta(){
         cout << "NO SE ENCONTRÓ UN CLIENTE CON ESE DNI, POR FAVOR CARGAR NUEVO CLIENTE" << endl;
         system("pause");
         system("cls");
-        cliente.Cargar();
+        cliente.Cargar(dni);
         if(archivoClientes.Guardar(cliente)){
             cout << "NUEVO CLIENTE CARGADO CORRECTAMENTE." << endl;
             posicionCliente = archivoClientes.BuscarDni(dni);
